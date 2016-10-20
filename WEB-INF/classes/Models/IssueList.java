@@ -8,8 +8,8 @@ import java.util.ArrayList;
  */
 public class IssueList {
 
-    String listName;
-    ArrayList<Issue> issues = new ArrayList<Issue>();
+    private String listName;
+    private ArrayList<Issue> issues = new ArrayList<Issue>();
 
     public Issue getIssue(){ //might be best to return the iterator
         return null;
