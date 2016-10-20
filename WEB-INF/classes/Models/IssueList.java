@@ -1,7 +1,5 @@
 package Models;
 
-import Models.Issue;
-
 import java.util.ArrayList;
 
 /**
