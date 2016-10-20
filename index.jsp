@@ -8,10 +8,10 @@
         <form name="credentialsForm" action="index.jsp" method="POST" onSubmit="return loginValidate()">
           <Label>Username:</Label>
           <input type="text" name="firstname">
-
           <Label>Password:</Label>
           <input type="text" name="lastname">
           <input type="submit">
         </form>
+    <jsp:include page="WEB-INF/jsp/includes/header.jsp"></jsp:include>
     </body>
 </html>
