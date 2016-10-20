@@ -1,8 +1,3 @@
-<%--
-  User: Ross
-  Date: 9/1/2015
-  Time: 5:07 PM
---%>
 <!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
@@ -10,7 +5,12 @@
     <title>UoN IT Services</title>
 </head>
     <body>
-
- sdsads
+        <form name="credentialsForm" action="index.jsp" method="POST" onSubmit="return loginValidate()">
+          <Label>Username:</Label>
+          <input type="text" name="firstname">
+          <Label>Password:</Label>
+          <input type="text" name="lastname">
+          <input type="submit">
+        </form>
     </body>
 </html>
