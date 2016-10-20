@@ -9,9 +9,13 @@ public class User {
     private String password;
     private String type;
     private boolean loggedIn;
-    //boolean staff
+    private boolean staff;
     //might be better to use the bool rather than the string
 
+
+    public boolean isStaff(){
+        return staff;
+    }
 
     public boolean getLoggedIn() {
         return loggedIn;

@@ -1,5 +1,6 @@
 package Models;
 
+import java.util.ArrayList;
 import java.util.Date;
 
 /**
@@ -16,6 +17,7 @@ public class Issue {
     private String resolutionDetails;
     private Date reportedDateTime;
     private Date resolvedDateTime;
+    ArrayList<Comment> comments = new ArrayList<>();
 
     public void addComment(User user, Date dateTime, String content){
 
