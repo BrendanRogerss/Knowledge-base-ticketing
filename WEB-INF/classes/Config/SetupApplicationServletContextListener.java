@@ -30,7 +30,7 @@ public class SetupApplicationServletContextListener implements ServletContextLis
         // we are creating a new instance of the ShopModel class and storing it in the servlet context
         // the servlet context is accessible from all servlets (and JSPs) regardless of sessions
         //ShopModel shop = new ShopModel();
-        servletContextEvent.getServletContext().setAttribute("shop", shop);
+        //servletContextEvent.getServletContext().setAttribute("shop", shop);
     }
 
     /**

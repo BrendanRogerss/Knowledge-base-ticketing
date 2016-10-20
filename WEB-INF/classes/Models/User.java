@@ -12,9 +12,12 @@ public class User {
     private boolean staff;
     //might be better to use the bool rather than the string
 
-
     public boolean isStaff(){
         return staff;
+    }
+
+    public void setStaff(boolean staff){
+        this.staff = staff;
     }
 
     public boolean getLoggedIn() {

@@ -11,13 +11,25 @@ public class Issue {
     private int issueID;
     private String content;
     private String state;
-    private String Category;
-    private String Title;
-    private String Description;
+    private String category;
+    private String title;
+    private String description;
     private String resolutionDetails;
     private Date reportedDateTime;
     private Date resolvedDateTime;
     ArrayList<Comment> comments = new ArrayList<>();
+
+    public Issue(int i){
+        //set default values till we have the sql database running
+        issueID = i;
+        content = Integer.toString(i);
+        state = Integer.toString(i);
+        title  = Integer.toString(i);
+        description = Integer.toString(i);
+        resolutionDetails = Integer.toString(i);
+        reportedDateTime = new Date(i);
+        resolvedDateTime = new Date(i);
+    }
 
     public void addComment(User user, Date dateTime, String content){
 
@@ -52,27 +64,27 @@ public class Issue {
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        this.category = category;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        this.title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        this.description = description;
     }
 
     public String getResolutionDetails() {
