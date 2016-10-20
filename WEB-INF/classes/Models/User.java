@@ -5,10 +5,19 @@ package Models;
  */
 public class User {
 
-    String username;
-    String password;
-    String type;
+    private String username;
+    private String password;
+    private String type;
+    private boolean loggedIn;
     //boolean staff
     //might be better to use the bool rather than the string
 
+
+    public boolean getLoggedIn() {
+        return loggedIn;
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
 }
