@@ -1,17 +1,23 @@
 package Controllers;
 
+import Models.Issue;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Brendan on 19/10/2016.
  */
 @WebServlet(urlPatterns = {"/ReportedIssue"})
 public class ReportedIssues extends HttpServlet{
+
+    ArrayList<Issue> issues = new ArrayList<>();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
