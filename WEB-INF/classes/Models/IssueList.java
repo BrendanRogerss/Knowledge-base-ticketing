@@ -11,10 +11,6 @@ public class IssueList {
     private String listName;
     private ArrayList<Issue> issues = new ArrayList<Issue>();
 
-    public IssueList(){
-
-    }
-
     public Issue getIssue(){ //might be best to return the iterator
         return null;
     }

@@ -19,10 +19,6 @@ public class Issue {
     private Date resolvedDateTime;
     ArrayList<Comment> comments = new ArrayList<>();
 
-    public Issue(){
-
-    }
-
     public void addComment(User user, Date dateTime, String content){
 
     }

@@ -11,10 +11,6 @@ public class Comment {
     private String content;
     private User user;
 
-    public Comment(){
-
-    }
-
     public Date getDateTime() {
         return dateTime;
     }
