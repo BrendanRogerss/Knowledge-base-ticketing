@@ -1,5 +1,7 @@
 package Controllers;
 
+import Models.User;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -17,6 +19,21 @@ public class HomePage extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        User user = (User) request.getSession().getAttribute("user");
+        if(!user.isLoggedIn()){ //check if the user is logged in
+            request.setAttribute("error", "You need to be logged in to do that."); //put an error message into the session
+
+            String whereToSendThem = "index.jsp";
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(whereToSendThem); //redirect the user
+            dispatcher.forward(request, response);
+            return;
+        }else{
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("WEB-INF/jsp/homePage.jsp"); //redirect the user
+            dispatcher.forward(request, response);
+            return;
+        }
 
     }
 

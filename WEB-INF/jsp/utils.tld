@@ -10,21 +10,21 @@
     <tlib-version>1.0</tlib-version>
     <jsp-version>1.2</jsp-version>
     <short-name>utilities</short-name>
-    <uri>/WEB-INF/jsp/utils</uri>
+    <uri>http://cs.newcastle.edu.au/seng2050/utils</uri>
     <description>
         This tag library contains tags that are utilized to assist
         the processing of logic.
     </description>
 
     <tag>
-        <name>NotLoggedIn</name>
+        <name>isNotLoggedIn</name>
         <tag-class>utils.NotLoggedIn</tag-class>
-        <body-content>empty</body-content>
+        <body-content>EMPTY</body-content>
         <description>
-            Checks to see whether the user is logged in.
+            Perform a server side action; Log the message.
         </description>
         <attribute>
-            <name>user</name>
+            <name>toBrowser</name>
             <required>false</required>
         </attribute>
     </tag>

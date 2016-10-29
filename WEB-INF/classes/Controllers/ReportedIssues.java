@@ -1,8 +1,5 @@
 package Controllers;
 
-import Models.Issue;
-import Models.IssueList;
-
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,8 +12,6 @@ import java.io.IOException;
  */
 @WebServlet(urlPatterns = {"/ReportedIssue"})
 public class ReportedIssues extends HttpServlet{
-
-    IssueList issues = new IssueList();
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -31,13 +26,6 @@ public class ReportedIssues extends HttpServlet{
         // It is possible that they have tried logging in after trying to buy an item and being shown the error message
         // Is this a valid assumption? if not you might need to do something else here
         response.sendRedirect("index.jsp");
-    }
-
-    public void buildList(){
-        //do sql shit for reported issues
-        for (int i = 0; i < 10; i++) {
-            issues.addIssue(new Issue(i));
-        }
     }
 
 }
