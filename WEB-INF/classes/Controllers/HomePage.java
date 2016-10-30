@@ -30,7 +30,7 @@ public class HomePage extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }*/
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("homePage.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/jsp/homepage.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
     }

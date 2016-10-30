@@ -10,7 +10,7 @@
 <jsp:useBean id="user" class="Models.User" scope="session"/>
 
 <header>
-    <h1>UoN Sales</h1>
+    <h1>IT Services</h1>
     <nav>
         <a href="index.jsp">Home</a> |
         <c:choose>
