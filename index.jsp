@@ -13,7 +13,7 @@
 
             <label>Password:</label>
             <input type="text" name="lastname">
-            <input type="submit">
+            <input type="submit" value="Login">
 
             <utils:NotLoggedIn />
         </form>
