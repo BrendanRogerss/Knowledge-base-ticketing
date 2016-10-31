@@ -55,7 +55,7 @@
 </div><!-- /.container -->
 
 <div class="container">
-    <form>
+    <form action="HomePage" method="POST">
         <div class="row">
             <div class="form-group center-block col-md-4" style="float: none">
                 <label for="user">Username</label>
@@ -65,6 +65,7 @@
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
+            <button type="submit" class="btn btn-default center-block col-md-2" style="float: none">Submit</button>
         </div>
     </form>
 </div>
