@@ -23,27 +23,22 @@ public class KnowledgeBase extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //build list
-        for (int i = 0; i < 10; i++) { //temp list to use till sql gets set up
+        for (int i = 1; i <= 10; i++) { //temp list to use till sql gets set up
             Issue issue = new Issue();
             issue.setIssueID(i);
-            issue.setContent("content"+i);
-            issue.setState("state"+i);
-            issue.setTitle("title"+i);
-            issue.setDescription("description"+i);
-            issue.setResolutionDetails("resolution"+i);
+            issue.setStatus(Integer.toString(i));
+            issue.setCategory(Integer.toString(i));
             issue.setReportedDateTime(new Date());
-            issue.setResolvedDateTime(new Date());
+            issue.setUser(Integer.toString(i));
 
             issues.add(issue);
         }
 
 
         request.setAttribute("list", issues); //add the list to the session
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("issueList.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
-
     }
 
     @Override
@@ -53,7 +48,7 @@ public class KnowledgeBase extends HttpServlet{
         // The user has come here by mistake.
         // It is possible that they have tried logging in after trying to buy an item and being shown the error message
         // Is this a valid assumption? if not you might need to do something else here
-        response.sendRedirect("index.jsp");
+        doPost(request, response);
     }
 
 }

@@ -9,11 +9,12 @@ import java.util.Date;
 public class Issue {
 
     private int issueID;
+    private String user;
     private String content;
-    private String state;
-    private String Category;
-    private String Title;
-    private String Description;
+    private String status;
+    private String category;
+    private String title;
+    private String description;
     private String resolutionDetails;
     private Date reportedDateTime;
     private Date resolvedDateTime;
@@ -35,6 +36,14 @@ public class Issue {
         this.issueID = issueID;
     }
 
+    public String getUser() {
+        return user;
+    }
+
+    public void setUser(String user) {
+        this.user = user;
+    }
+
     public String getContent() {
         return content;
     }
@@ -43,36 +52,36 @@ public class Issue {
         this.content = content;
     }
 
-    public String getState() {
-        return state;
+    public String getStatus() {
+        return status;
     }
 
-    public void setState(String state) {
-        this.state = state;
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getCategory() {
-        return Category;
+        return category;
     }
 
     public void setCategory(String category) {
-        Category = category;
+        category = category;
     }
 
     public String getTitle() {
-        return Title;
+        return title;
     }
 
     public void setTitle(String title) {
-        Title = title;
+        title = title;
     }
 
     public String getDescription() {
-        return Description;
+        return description;
     }
 
     public void setDescription(String description) {
-        Description = description;
+        description = description;
     }
 
     public String getResolutionDetails() {

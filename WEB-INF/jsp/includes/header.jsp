@@ -18,8 +18,10 @@
                 <a href="viewReported.jsp">View reported issues</a> |
             </c:when>
             <c:otherwise>
-                <a href="viewCurrent.jsp">View current</a> |
+                <a href="viewCurrent.jsp">View current issues</a> |
             </c:otherwise>
         </c:choose>
+
+        <a href="KnowledgeBase">Knowledge Base</a>
     </nav>
 </header>
