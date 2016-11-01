@@ -16,16 +16,24 @@ public class GetIssue extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //get issue id from request
+
+        //get issue from database and all data out from it into Issue object
+
+        //get all comments associated with that issue
+        //add each comment object to a list (arraylist?, just array?)
+        //sorting comments by dateTime
+
+        //add Issue and comments list to respose or session?
+
+
+        //redirect to issue page
+
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //copied this shit from uonSales
-
-        // The user has come here by mistake.
-        // It is possible that they have tried logging in after trying to buy an item and being shown the error message
-        // Is this a valid assumption? if not you might need to do something else here
-        response.sendRedirect("index.jsp");
+        doPost(request, response);
     }
 
 }

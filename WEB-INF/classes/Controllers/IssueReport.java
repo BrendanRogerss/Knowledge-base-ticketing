@@ -26,49 +26,49 @@ public class IssueReport extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = (User) request.getSession().getAttribute("user");
+        String statement;
+        PreparedStatement prepStatement;
 
         try {
+            //get connection details, from context.xml I take it
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
-
+            //establish connection
             Connection connection = datasource.getConnection();
 
-            String statement = "SELECT COUNT(*) FROM Issue AS numOfIssues;";
-            PreparedStatement s = connection.prepareStatement(statement);
-            ResultSet rs = s.executeQuery();
-
+            //get current amount of issues in database for new issue number
+            statement = "SELECT COUNT(*) FROM Issue AS numOfIssues;";
+            prepStatement = connection.prepareStatement(statement);
+            ResultSet rs = prepStatement.executeQuery();
             int numOfIssues = rs.getInt("numOfIssues");
 
-            /*
-            Issue issue = new Issue();
-
-            issue.setUser(user.getUsername());
-            issue.setContent(request.getParameter("content"));
-            issue.setStatus("whateverTheStartingStatusIs");
-            issue.setCategory(request.getParameter("category"));
-            issue.setTitle(request.getParameter("title"));
-            issue.setDescription(request.getParameter("description"));
-            issue.setReportedDateTime(new Date());
-
-            issue.setIssueID(numOfIssues + 1); //need to set it to the total number of issues + 1
-            */
-
-            ///////////////////////needs rest of attributes ///////////////////////////
-
-            statement = "INSERT INTO Issue(issueID, content, state....) VALUES (?, ?, ?, .........)";
-            s = connection.prepareStatement(statement);
-            s.setInt(1, numOfIssues + 1);
-            s.setString(2, request.getParameter("content"));
-            s.setString(3, "whateverTheStartingStatusIs");
-            ////////////////////////rest of the attributes ////////////////////////
-            s.executeUpdate();
+            //prepareing new issue insert statement with all request data from form
+            statement = "INSERT INTO Issue(issueID, content, state, category, title, description, " +
+                    "resolutiondetails, reportDateTime, solvedDateTime, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            prepStatement = connection.prepareStatement(statement);
+            prepStatement.setInt(1, numOfIssues + 1);
+            prepStatement.setString(2, request.getParameter("content"));
+            prepStatement.setString(3, "whateverTheStartingStatusIs");
+            prepStatement.setString(4, request.getParameter("category"));
+            prepStatement.setString(5, request.getParameter("title"));
+            prepStatement.setString(6, request.getParameter("description"));
+            prepStatement.setString(7, null);
+            prepStatement.setString(8, ""); //TODO: /////////////////////////////////////////////GET CURRENT DATE///////
+            prepStatement.setString(9, null);
+            prepStatement.setString(10, user.getUsername());
+            //execution.
+            prepStatement.executeUpdate();
 
 
-        } catch (Exception e){
-            ////////////////////// set error tag in the session //////////////////////////////////////////
+        } catch (SQLException e) {
+            //TODO: ////////////////////// set error tag in the session //////////////////////////////////////////
+        } catch (NamingException e) {
+            System.err.println("......NamingException......");
+            System.err.println(e.getMessage());
+            e.printStackTrace();
         }
 
-        //////////////////redirect/////////////////////////
+        //TODO: ////////////////redirect/////////////////////////
     }
 
     @Override
