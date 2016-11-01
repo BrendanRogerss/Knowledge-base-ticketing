@@ -112,4 +112,8 @@ public class Issue {
         this.resolvedDateTime = resolvedDateTime;
     }
 
+    public void setComments(ArrayList<Comment> comments){
+        this.comments = comments;
+    }
+
 }

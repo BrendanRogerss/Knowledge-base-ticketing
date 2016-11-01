@@ -14,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.*;
 import javax.sql.*;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 /**
@@ -53,7 +55,12 @@ public class IssueReport extends HttpServlet {
             prepStatement.setString(5, request.getParameter("title"));
             prepStatement.setString(6, request.getParameter("description"));
             prepStatement.setString(7, null);
-            prepStatement.setString(8, ""); //TODO: /////////////////////////////////////////////GET CURRENT DATE///////
+
+            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+            Date date = new Date();
+            String stringDate = dateFormat.format(date);
+
+            prepStatement.setString(8, stringDate);
             prepStatement.setString(9, null);
             prepStatement.setString(10, user.getUsername());
             //execution.

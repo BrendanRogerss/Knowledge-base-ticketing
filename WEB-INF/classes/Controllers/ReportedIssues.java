@@ -17,12 +17,22 @@ import java.util.Date;
 @WebServlet(urlPatterns = {"/ReportedIssue"})
 public class ReportedIssues extends HttpServlet{
 
-    ArrayList<Issue> issues = new ArrayList<>();
-
+    ArrayList<Issue> issues;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        issues = new ArrayList<>();
+        User user = (User) request.getSession().getAttribute("user");
+        String userID = user.getUsername();
+
+
+        String query = "SELECT * FROM Issues WHERE user == "+userID;
+        GetSQLIssues database = new GetSQLIssues();
+        issues = database.getIssues(query);
+
+        request.setAttribute("list", issues); //add the list to the session
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
+        return;
     }
 
     @Override
