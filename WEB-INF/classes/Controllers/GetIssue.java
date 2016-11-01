@@ -26,29 +26,24 @@ public class GetIssue extends HttpServlet{
 
         //get issue id from request
         String issueID = request.getParameter("issueID");
-        Issue issue = new Issue();
         ArrayList<Comment> comments = new ArrayList<>();
 
         String query = "SELECT * FROM Issue WHERE issueID == "+issueID; //query for the issue with matching id
 
-        //get issue from database and all data out from it into Issue object
+        GetSQLIssues database = new GetSQLIssues();
+        ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
+        Issue issue = issues.get(0);
 
-        try{
+
+        try{ //get all the comments
+
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(query); //connect to the database
-
-            while(result.next()){
-                //issueID = result.getString(1)
-                String content = result.getString(2);
-                //get all the content of the issue and put it into the object
-            }
-
             query = "SELECT * FROM Comment WHERE issueID == "+issueID; //query for all the comments for that issue
-            result = statement.executeQuery(query);
+            ResultSet result = statement.executeQuery(query);
 
             while(result.next()){
                 Comment comment = new Comment();
