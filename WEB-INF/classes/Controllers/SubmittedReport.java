@@ -21,8 +21,8 @@ import java.util.Date;
 /**
  * Created by Brendan on 19/10/2016.
  */
-@WebServlet(urlPatterns = {"/ReportIssue"})
-public class IssueReport extends HttpServlet {
+@WebServlet(urlPatterns = {"/SubmittedReport"})
+public class SubmittedReport extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

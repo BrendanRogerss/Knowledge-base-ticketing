@@ -22,14 +22,14 @@
         </div>
         <div id="navbar" class ="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="/ReportIssue">Report Issue</a></li>
+                <li><a href="ReportIssue">Report Issue</a></li>
                 <li><a href="KnowledgeBase">Knowledge Base</a></li>
                 <c:choose>
                     <c:when test="${user.isStaff()}">
-                        <li><a href="ReportedIssues">View reported issues</a></li>
+                        <li><a href="ReportedIssues">View Reported Issues</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="ReportedIssues">View current issues</a></li>
+                        <li><a href="ReportedIssues">View Current Issues</a></li>
                     </c:otherwise>
                 </c:choose>
                 <li><a href="index.jsp">Logout</a></li>

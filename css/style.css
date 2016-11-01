@@ -16,3 +16,10 @@ body {
     width: 75%;
 }
 
+.main-category {
+    font-weight: bold;
+}
+
+#category:focus option:first-of-type {
+    display: none;
+}

@@ -9,12 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-/**
- * Created by Brendan on 20/10/2016.
- */
-
-@WebServlet(urlPatterns = {"/HomePage"})
-public class HomePage extends HttpServlet {
+@WebServlet(urlPatterns = {"/ReportIssue"})
+public class ReportIssue extends HttpServlet {
 
 
     @Override
@@ -30,7 +26,7 @@ public class HomePage extends HttpServlet {
             dispatcher.forward(request, response);
             return;
         }*/
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/homepage.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/reportIssue.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
     }

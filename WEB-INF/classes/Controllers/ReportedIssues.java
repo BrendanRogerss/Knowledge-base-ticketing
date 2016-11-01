@@ -1,6 +1,7 @@
 package Controllers;
 
 import Models.Issue;
+import Models.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -14,7 +15,7 @@ import java.util.Date;
 /**
  * Created by Brendan on 19/10/2016.
  */
-@WebServlet(urlPatterns = {"/ReportedIssue"})
+@WebServlet(urlPatterns = {"/ReportedIssues"})
 public class ReportedIssues extends HttpServlet{
 
     ArrayList<Issue> issues;

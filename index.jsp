@@ -48,11 +48,13 @@
                 <label for="user">Username</label>
                 <input type="text" class="form-control" id="user" placeholder="Username">
             </div>
+        </div>
+        <div class="row">
             <div class="form-group center-block col-md-4" style="float: none">
                 <label for="password">Password</label>
                 <input type="password" class="form-control" id="password" placeholder="Password">
             </div>
-            <button type="submit" class="btn btn-default center-block col-md-2" style="float: none">Submit</button>
+            <button type="submit" class="btn btn-default center-block col-md-2" style="float: none">Login</button>
         </div>
     </form>
 </div>
