@@ -22,7 +22,8 @@
         </div>
         <div id="navbar" class ="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.jsp">Login</a></li>
+                <li><a href="/ReportIssue">Report Issue</a></li>
+                <li><a href="KnowledgeBase">Knowledge Base</a></li>
                 <c:choose>
                     <c:when test="${user.isStaff()}">
                         <li><a href="ReportedIssues">View reported issues</a></li>
@@ -31,7 +32,7 @@
                         <li><a href="ReportedIssues">View current issues</a></li>
                     </c:otherwise>
                 </c:choose>
-                <li><a href="KnowledgeBase">Knowledge Base</a></li>
+                <li><a href="index.jsp">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>
