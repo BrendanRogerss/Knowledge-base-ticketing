@@ -9,19 +9,30 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <jsp:useBean id="user" class="Models.User" scope="session"/>
 
-<header>
-    <h1>IT Services</h1>
-    <nav>
-        <a href="index.jsp">Home</a> |
-        <c:choose>
-            <c:when test="${user.isStaff()}">
-                <a href="viewReported.jsp">View reported issues</a> |
-            </c:when>
-            <c:otherwise>
-                <a href="viewCurrent.jsp">View current issues</a> |
-            </c:otherwise>
-        </c:choose>
-
-        <a href="KnowledgeBase">Knowledge Base</a>
-    </nav>
-</header>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">UoN IT Services</a>
+        </div>
+        <div id="navbar" class ="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li><a href="index.jsp">Login</a></li>
+                <c:choose>
+                    <c:when test="${user.isStaff()}">
+                        <li><a href="ReportedIssues">View reported issues</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="ReportedIssues">View current issues</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <li><a href="KnowledgeBase">Knowledge Base</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>

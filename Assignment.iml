@@ -20,15 +20,8 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library" exported="">
-      <library>
-        <CLASSES>
-          <root url="jar://$MODULE_DIR$/../../lib/jsp-api.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES />
-      </library>
-    </orderEntry>
+    <orderEntry type="library" exported="" name="jsp-api" level="project" />
+    <orderEntry type="library" exported="" name="servlet-api" level="project" />
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
@@ -56,6 +49,5 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" name="servlet-api" level="project" />
   </component>
 </module>

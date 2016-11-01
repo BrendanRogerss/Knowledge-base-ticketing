@@ -5,19 +5,33 @@
 <jsp:useBean id="user" class="Models.User" scope="session"/>
 <html>
 <head>
-    <title>UoN IT Services</title>
-    <link rel="stylesheet" type="text/css" href="bootstrap-3.3.7/dist/css/bootstrap.min.css" />
+    <jsp:include page="includes/defaultHead.jsp" />
 </head>
     <body>
-        <ul class="list-group">
+    <jsp:include page="includes/header.jsp" />
+        <table id="issueDiv" class="table table-bordered table-hover">
+            <thead>
+            <tr>
+                <td>Issue ID</td>
+                <td>Status</td>
+                <td>Category</td>
+                <td>Date</td>
+                <td>User</td>
+            </tr>
+            </thead>
+            <tbody>
             <c:forEach var="current" items="${requestScope.list}">
-            <li class="list-group-item"><p>Issue <c:out value="${current.getIssueID()}"/></p>
-                <p>Status: <c:out value="${current.getStatus()}"/></p>
-                <p>Category: <c:out value="${current.getCategory()}"/></p>
-                <p><c:out value="${current.getReportedDateTime()}"/></p>
-                <p>User: <c:out value="${current.getUser()}"/></p>
-            </li>
+                <tr>
+                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                    <td><c:out value="${current.getStatus()}"/></td>
+                    <td><c:out value="${current.getCategory()}"/></td>
+                    <td><c:out value="${current.getReportedDateTime()}"/></td>
+                    <td><c:out value="${current.getUser()}"/></td>
+                </tr>
             </c:forEach>
-        </ul>
+            </tbody>
+        </table>
+
+    <jsp:include page="includes/bootStrapCoreJS.jsp" />
     </body>
 </html>

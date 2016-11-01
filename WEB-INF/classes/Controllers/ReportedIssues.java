@@ -21,7 +21,8 @@ public class ReportedIssues extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
+        dispatcher.forward(request, response);
     }
 
     @Override
@@ -31,7 +32,9 @@ public class ReportedIssues extends HttpServlet{
         // The user has come here by mistake.
         // It is possible that they have tried logging in after trying to buy an item and being shown the error message
         // Is this a valid assumption? if not you might need to do something else here
-        response.sendRedirect("index.jsp");
+        //response.sendRedirect("index.jsp");
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
+        dispatcher.forward(request, response);
     }
 
 }

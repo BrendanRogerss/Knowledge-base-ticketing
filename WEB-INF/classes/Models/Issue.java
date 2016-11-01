@@ -28,6 +28,10 @@ public class Issue {
 
     }
 
+    public ArrayList<Comment> getComments() {
+        return comments;
+    }
+
     public int getIssueID() {
         return issueID;
     }
@@ -65,7 +69,7 @@ public class Issue {
     }
 
     public void setCategory(String category) {
-        category = category;
+        this.category = category;
     }
 
     public String getTitle() {
@@ -107,4 +111,5 @@ public class Issue {
     public void setResolvedDateTime(Date resolvedDateTime) {
         this.resolvedDateTime = resolvedDateTime;
     }
+
 }
