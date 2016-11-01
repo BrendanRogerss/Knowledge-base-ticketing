@@ -76,16 +76,13 @@
         </div>
         <div class="row">
             <div class="form-group">
+                <label class="col-sm-2 control-label">Internal Website</label>
                 <div class="col-sm-3">
-                    <label class="custom-control custom-radio">
-                        <input id="radio1" name="radio" type="radio" class="custom-control-input">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Toggle this custom radio</span>
+                    <label class="radio-inline">
+                        <input type="radio" name="internal-website" id="yes" value="yes"> Yes
                     </label>
-                    <label class="custom-control custom-radio">
-                        <input id="radio2" name="radio" type="radio" class="custom-control-input">
-                        <span class="custom-control-indicator"></span>
-                        <span class="custom-control-description">Or toggle this other custom radio</span>
+                    <label class="radio-inline">
+                        <input type="radio" name="internal-website" id="no" value="no"> No
                     </label>
                 </div>
             </div>
