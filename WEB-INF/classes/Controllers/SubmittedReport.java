@@ -44,11 +44,23 @@ public class SubmittedReport extends HttpServlet {
             ResultSet rs = prepStatement.executeQuery();
             int numOfIssues = rs.getInt("numOfIssues");
 
+            ////////////////////////////////////////////
+            System.out.println("Preparing ");
+            ////////////////////////////////////////////
+
+
             //prepareing new issue insert statement with all request data from form
             statement = "INSERT INTO Issue(issueID, state, category, title, description, " +
                     " location, browser, website, internalAccess, alternateBrowser, computerRestatart" +
                     "errorMessage, resolutionDetails, reportDateTime, resolvedDateTime, username)" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+
+            ////////////////////////////////////////////
+            System.out.println(request.getParameter("description"));
+            ////////////////////////////////////////////
+
+
+
             prepStatement = connection.prepareStatement(statement);
             prepStatement.setInt(1, numOfIssues + 1);
             prepStatement.setString(2, "New");
@@ -74,9 +86,15 @@ public class SubmittedReport extends HttpServlet {
             //execution.
             prepStatement.executeUpdate();
 
+            ////////////////////////////////////////////
+            System.out.println("Report Submitted");
+            ////////////////////////////////////////////
 
         } catch (SQLException e) {
             //TODO: set error tag in the session
+            ////////////////////////////////////////////
+            System.out.println("THREW SQLEXCEPTION");
+            ////////////////////////////////////////////
         } catch (NamingException e) {
             System.err.println("......NamingException......");
             System.err.println(e.getMessage());

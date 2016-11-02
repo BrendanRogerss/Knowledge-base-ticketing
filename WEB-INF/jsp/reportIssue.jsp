@@ -20,7 +20,7 @@
 </div><!-- /.container -->
 
 <div class="container">
-    <form class="form-horizontal">
+    <form class="form-horizontal" action="SubmittedReport" action="POST">
         <div class="row">
             <div class="form-group">
                 <label for="category" class="col-sm-2 control-label">Category*</label>
