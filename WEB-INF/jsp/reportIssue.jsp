@@ -23,7 +23,7 @@
     <form class="form-horizontal">
         <div class="row">
             <div class="form-group">
-                <label for="category" class="col-sm-2 control-label">Category</label>
+                <label for="category" class="col-sm-2 control-label">Category*</label>
                     <div class="col-sm-3">
                     <select class="form-control" id="category">
                         <option>Select a category...</option>
@@ -70,30 +70,65 @@
             <div class="form-group">
                 <label for="failed-website" class="col-sm-2 control-label">Failed Website</label>
                 <div class="col-sm-3">
-                    <input type="url" class="form-control" id="failed-website" placeholder="Failed Website">
+                    <input type="url" class="form-control" id="failed-website" placeholder="Website Address">
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Internal Website</label>
+                <label class="col-sm-2 control-label">Are you able to access internal websites?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
-                        <input type="radio" name="internal-website" id="yes" value="yes"> Yes
+                        <input type="radio" name="internal-website" id="yes-internal" value="yes"> Yes
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="internal-website" id="no" value="no"> No
+                        <input type="radio" name="internal-website" id="no-internal" value="no"> No
                     </label>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <div class="checkbox">
-                        <label>
-                            <input type="checkbox"> Remember me
-                        </label>
+                <label class="col-sm-2 control-label">Have you tried using an alternate browser?*</label>
+                <div class="col-sm-3">
+                    <label class="radio-inline">
+                        <input type="radio" name="alternate-browser" id="yes-alternate" value="yes"> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="alternate-browser" id="no-alternate" value="no"> No
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label class="col-sm-2 control-label">Have you tried restarting your computer?*</label>
+                <div class="col-sm-3">
+                    <label class="radio-inline">
+                        <input type="radio" name="restart-computer" id="yes-restart" value="yes"> Yes
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="restart-computer" id="no-restart" value="no"> No
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="description" class="col-sm-2 control-label">Problem Description*</label>
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <textarea class="form-control custom-control" rows="3" cols="50" style="resize:none" id="description" placeholder="Enter a detailed description..."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group">
+                <label for="error-message" class="col-sm-2 control-label">Error Message</label>
+                <div class="col-sm-5">
+                    <div class="input-group">
+                        <textarea class="form-control custom-control" rows="3" cols="50" style="resize:none" id="error-message" placeholder="e.g. HTTP Error 404 Not Found"></textarea>
                     </div>
                 </div>
             </div>
