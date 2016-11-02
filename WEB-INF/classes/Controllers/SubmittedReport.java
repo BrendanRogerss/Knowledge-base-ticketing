@@ -26,7 +26,7 @@ public class SubmittedReport extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = (User) request.getSession().getAttribute("user");
+        User user = (User) request.getSession().getAttribute("user"); //TODO: fix the user thingy here
         if(user == null) {System.out.println("USER IS NULL"); user = new User(); user.setUsername("disizUser");}
         String statement;
         PreparedStatement prepStatement;
@@ -70,10 +70,9 @@ public class SubmittedReport extends HttpServlet {
             String stringDate = dateFormat.format(date);
 
             prepStatement.setString(14, stringDate);
-            prepStatement.setString(15, null);
+            prepStatement.setString(15, stringDate); //TODO: set the submission date to something!!!!!!!!!!!!!!
             prepStatement.setString(16, user.getUsername());
             //execution.
-            System.out.println("attempting to execute... ");
             prepStatement.executeUpdate();
 
         } catch (SQLException e) {

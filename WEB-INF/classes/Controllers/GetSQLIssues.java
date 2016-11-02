@@ -54,7 +54,7 @@ public class GetSQLIssues {
                 issues.add(issue);
             }
         } catch (Exception e) {
-            //throw some shit
+            System.out.println(e.getMessage());
         }
         return issues;
     }

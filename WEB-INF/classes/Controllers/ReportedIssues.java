@@ -23,10 +23,10 @@ public class ReportedIssues extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         issues = new ArrayList<>();
         User user = (User) request.getSession().getAttribute("user");
-        String userID = user.getUsername();
+        //String userID = user.getUsername();
 
-
-        String query = "SELECT * FROM Issues WHERE user == "+userID;
+        //TODO: change selection if either staff or user
+        String query = "SELECT * FROM Issue";
         GetSQLIssues database = new GetSQLIssues();
         issues = database.getIssues(query);
 
@@ -38,14 +38,7 @@ public class ReportedIssues extends HttpServlet{
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //copied this shit from uonSales
-
-        // The user has come here by mistake.
-        // It is possible that they have tried logging in after trying to buy an item and being shown the error message
-        // Is this a valid assumption? if not you might need to do something else here
-        //response.sendRedirect("index.jsp");
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
-        dispatcher.forward(request, response);
+        doPost(request, response);
     }
 
 }

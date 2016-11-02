@@ -23,10 +23,10 @@
             <c:forEach var="current" items="${requestScope.list}">
                 <tr>
                     <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
-                    <td><c:out value="${current.getStatus()}"/></td>
+                    <td><c:out value="${current.getState()}"/></td>
                     <td><c:out value="${current.getCategory()}"/></td>
                     <td><c:out value="${current.getReportedDateTime()}"/></td>
-                    <td><c:out value="${current.getUser()}"/></td>
+                    <td><c:out value="${current.getUsername()}"/></td>
                 </tr>
             </c:forEach>
             </tbody>

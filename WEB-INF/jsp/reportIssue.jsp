@@ -51,6 +51,14 @@
             </div>
         </div>
         <div class="row">
+                    <div class="form-group">
+                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <div class="col-sm-3">
+                            <input name="title" type="text" class="form-control" id="title" placeholder="Title">
+                        </div>
+                    </div>
+                </div>
+        <div class="row">
             <div class="form-group">
                 <label for="location" class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-3">
