@@ -1,10 +1,8 @@
 package Controllers;
 
-import Models.Issue;
 import Models.User;
 
 import javax.activation.DataSource;
-import javax.naming.InitialContext;
 import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -12,11 +10,12 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.*;
-import javax.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import java.sql.*;
+import javax.naming.InitialContext;
 
 /**
  * Created by Brendan on 19/10/2016.
@@ -31,18 +30,36 @@ public class SubmittedReport extends HttpServlet {
         String statement;
         PreparedStatement prepStatement;
 
+
+        ////////////////////////////////////////////
+        System.out.println("starting try");
+        ////////////////////////////////////////////
+
+
         try {
+
+
             //get connection details, from context.xml I take it
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+            javax.sql.DataSource datasource = (javax.sql.DataSource)new
                     InitialContext().lookup("java:/comp/env/SENG2050");
             //establish connection
             Connection connection = datasource.getConnection();
 
+            ////////////////////////////////////////////
+            System.out.println("Attempting Count");
+            ////////////////////////////////////////////
+
+
             //get current amount of issues in database for new issue number
-            statement = "SELECT COUNT(*) FROM Issue AS numOfIssues;";
+            statement = "SELECT COUNT(issueID) FROM Issue";
             prepStatement = connection.prepareStatement(statement);
+            System.out.println("attempting to execute");
             ResultSet rs = prepStatement.executeQuery();
-            int numOfIssues = rs.getInt("numOfIssues");
+            System.out.println("executed");
+            int numOfIssues = 1;
+            if(rs == null) System.out.println("Resultset is NULL");
+            if(rs.next())
+                 numOfIssues = rs.getInt(1);
 
             ////////////////////////////////////////////
             System.out.println("Preparing ");
@@ -93,7 +110,7 @@ public class SubmittedReport extends HttpServlet {
         } catch (SQLException e) {
             //TODO: set error tag in the session
             ////////////////////////////////////////////
-            System.out.println("THREW SQLEXCEPTIONn");
+            System.out.println(e.getMessage());
             ////////////////////////////////////////////
         } catch (NamingException e) {
             System.err.println("......NamingException......");

@@ -12,6 +12,6 @@
 		username="c3234953"
 		password="150896"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://localhost:3306/c3234953_db"
+		url="jdbc:mysql://localhost:30001/c3234953_db"
 	/>
 </Context>
