@@ -31,7 +31,7 @@ public class GetIssue extends HttpServlet{
         String issueID = request.getParameter("issueID");
         ArrayList<Comment> comments = new ArrayList<>();
 
-        String query = "SELECT * FROM Issue WHERE issueID == "+issueID; //query for the issue with matching id
+        String query = "SELECT * FROM Issue WHERE issueID = "+issueID; //query for the issue with matching id
 
         GetSQLIssues database = new GetSQLIssues();
         ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
@@ -45,7 +45,7 @@ public class GetIssue extends HttpServlet{
 
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
-            query = "SELECT * FROM Comment WHERE issueID == "+issueID; //query for all the comments for that issue
+            query = "SELECT * FROM Comment WHERE issueID = "+issueID; //query for all the comments for that issue
             ResultSet result = statement.executeQuery(query);
 
             while(result.next()){
@@ -60,13 +60,14 @@ public class GetIssue extends HttpServlet{
 
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewIssue.jsp"); //redirect to jsp
             dispatcher.forward(request, response);
-        }catch (Exception e){
+        }catch (Exception e) {
             String error = "Something went wrong in GetIssue"; //set an error
             request.setAttribute("error", error);
-
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/homepage.jsp"); //redirect back to homepage
-            dispatcher.forward(request, response); //might be better off redirecting back to issue list
         }
+
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewIssue.jsp"); //redirect back to homepage
+        dispatcher.forward(request, response); //might be better off redirecting back to issue list
+
 
 
 

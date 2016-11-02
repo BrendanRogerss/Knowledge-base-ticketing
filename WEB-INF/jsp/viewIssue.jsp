@@ -22,7 +22,7 @@
         </tr>
         <tr>
             <td>Status</td>
-            <td><c:out value="${current.getStatus()}"/></td>
+            <td><c:out value="${current.getState()}"/></td>
         </tr>
         <tr>
             <td>Category</td>
@@ -34,11 +34,11 @@
         </tr>
         <tr>
             <td>User</td>
-            <td><c:out value="${current.getUser()}"/></td>
+            <td><c:out value="${current.getUsername()}"/></td>
         </tr>
         <tr>
             <td>Content</td>
-            <td><c:out value="${current.getContent()}"/></td>
+            <td><c:out value="${current.getDescription()}"/></td>
         </tr>
         </tbody>
     </table>
