@@ -45,37 +45,48 @@ public class SubmittedReport extends HttpServlet {
             int numOfIssues = rs.getInt("numOfIssues");
 
             //prepareing new issue insert statement with all request data from form
-            statement = "INSERT INTO Issue(issueID, content, state, category, title, description, " +
-                    "resolutiondetails, reportDateTime, solvedDateTime, username) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            statement = "INSERT INTO Issue(issueID, state, category, title, description, " +
+                    " location, browser, website, internalAccess, alternateBrowser, computerRestatart" +
+                    "errorMessage, resolutiondetails, reportDateTime, solvedDateTime, username)" +
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             prepStatement = connection.prepareStatement(statement);
             prepStatement.setInt(1, numOfIssues + 1);
-            prepStatement.setString(2, request.getParameter("content"));
-            prepStatement.setString(3, "whateverTheStartingStatusIs");
-            prepStatement.setString(4, request.getParameter("category"));
-            prepStatement.setString(5, request.getParameter("title"));
-            prepStatement.setString(6, request.getParameter("description"));
-            prepStatement.setString(7, null);
-
+            prepStatement.setString(2, "New");
+            prepStatement.setString(3, request.getParameter("category"));
+            prepStatement.setString(4, request.getParameter("title"));
+            prepStatement.setString(5, request.getParameter("description"));
+            prepStatement.setString(6, request.getParameter("location"));
+            prepStatement.setString(7, request.getParameter("browser"));
+            prepStatement.setString(8, request.getParameter("website"));
+            prepStatement.setString(9, request.getParameter("internalAccess"));
+            prepStatement.setString(10, request.getParameter("alternateBrowser"));
+            prepStatement.setString(11, request.getParameter("computerRestart"));
+            prepStatement.setString(12, request.getParameter("errorMessage"));
+            prepStatement.setString(13, "");
+            //formatting current date and time
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
             Date date = new Date();
             String stringDate = dateFormat.format(date);
 
-            prepStatement.setString(8, stringDate);
-            prepStatement.setString(9, null);
-            prepStatement.setString(10, user.getUsername());
+            prepStatement.setString(14, stringDate);
+            prepStatement.setString(15, null);
+            prepStatement.setString(16, user.getUsername());
             //execution.
             prepStatement.executeUpdate();
 
 
         } catch (SQLException e) {
-            //TODO: ////////////////////// set error tag in the session //////////////////////////////////////////
+            //TODO: set error tag in the session
         } catch (NamingException e) {
             System.err.println("......NamingException......");
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
 
-        //TODO: ////////////////redirect/////////////////////////
+        //TODO: Work out where to redirect
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp"); //redirect to jsp
+        dispatcher.forward(request, response);
+        return;
     }
 
     @Override
