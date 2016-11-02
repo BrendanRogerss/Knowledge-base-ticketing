@@ -23,15 +23,6 @@ public class KnowledgeBase extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         //build list
         issues = new ArrayList<>();
-        for (int i = 1; i <= 10; i++) { //temp list to use till sql gets set up
-            Issue issue = new Issue();
-            issue.setIssueID(i*10000);
-            issue.setStatus(Integer.toString(i));
-            issue.setCategory(Integer.toString(i));
-            issue.setReportedDateTime(new Date());
-            issue.setUser(Integer.toString(i));
-            issues.add(issue);
-        }
 
         request.setAttribute("list", issues); //add the list to the session
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp

@@ -47,7 +47,7 @@ public class SubmittedReport extends HttpServlet {
             //prepareing new issue insert statement with all request data from form
             statement = "INSERT INTO Issue(issueID, state, category, title, description, " +
                     " location, browser, website, internalAccess, alternateBrowser, computerRestatart" +
-                    "errorMessage, resolutiondetails, reportDateTime, solvedDateTime, username)" +
+                    "errorMessage, resolutionDetails, reportDateTime, resolvedDateTime, username)" +
                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
             prepStatement = connection.prepareStatement(statement);
             prepStatement.setInt(1, numOfIssues + 1);

@@ -9,27 +9,37 @@ import java.util.Date;
 public class Issue {
 
     private int issueID;
-    private String user;
-    private String content;
-    private String status;
+    private String state;
     private String category;
     private String title;
     private String description;
+    private String location;
+    private String browser;
+    private String website;
+    private boolean internalAccess;
+    private boolean alternateBrowser;
+    private boolean computerRestart;
+    private String errorMessage;
     private String resolutionDetails;
     private Date reportedDateTime;
     private Date resolvedDateTime;
+    private String username;
     ArrayList<Comment> comments = new ArrayList<>();
 
-    public void addComment(User user, Date dateTime, String content){
+    public void addComment(User user, Date dateTime, String content) {
 
     }
 
-    public void removeStaffComments(){
+    public void removeStaffComments() {
 
     }
 
     public ArrayList<Comment> getComments() {
         return comments;
+    }
+
+    public void setComments(ArrayList<Comment> comments) {
+        this.comments = comments;
     }
 
     public int getIssueID() {
@@ -40,28 +50,12 @@ public class Issue {
         this.issueID = issueID;
     }
 
-    public String getUser() {
-        return user;
+    public String getState() {
+        return state;
     }
 
-    public void setUser(String user) {
-        this.user = user;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
+    public void setState(String state) {
+        this.state = state;
     }
 
     public String getCategory() {
@@ -77,7 +71,7 @@ public class Issue {
     }
 
     public void setTitle(String title) {
-        title = title;
+        this.title = title;
     }
 
     public String getDescription() {
@@ -85,7 +79,63 @@ public class Issue {
     }
 
     public void setDescription(String description) {
-        description = description;
+        this.description = description;
+    }
+
+    public String getLocation() {
+        return location;
+    }
+
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getBrowser() {
+        return browser;
+    }
+
+    public void setBrowser(String browser) {
+        this.browser = browser;
+    }
+
+    public String getWebsite() {
+        return website;
+    }
+
+    public void setWebsite(String website) {
+        this.website = website;
+    }
+
+    public boolean isInternalAccess() {
+        return internalAccess;
+    }
+
+    public void setInternalAccess(boolean internalAccess) {
+        this.internalAccess = internalAccess;
+    }
+
+    public boolean isAlternateBrowser() {
+        return alternateBrowser;
+    }
+
+    public void setAlternateBrowser(boolean alternateBrowser) {
+        this.alternateBrowser = alternateBrowser;
+    }
+
+    public boolean isComputerRestart() {
+        return computerRestart;
+    }
+
+    public void setComputerRestart(boolean computerRestart) {
+        this.computerRestart = computerRestart;
+    }
+
+    public String getErrorMessage() {
+        return errorMessage;
+    }
+
+    public void setErrorMessage(String errorMessage) {
+        this.errorMessage = errorMessage;
     }
 
     public String getResolutionDetails() {
@@ -112,8 +162,11 @@ public class Issue {
         this.resolvedDateTime = resolvedDateTime;
     }
 
-    public void setComments(ArrayList<Comment> comments){
-        this.comments = comments;
+    public String getUsername() {
+        return username;
     }
 
+    public void setUsername(String username) {
+        this.username = username;
+    }
 }
