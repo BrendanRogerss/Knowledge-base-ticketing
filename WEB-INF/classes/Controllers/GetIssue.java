@@ -13,7 +13,10 @@ import java.io.IOException;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Brendan on 19/10/2016.
@@ -47,8 +50,9 @@ public class GetIssue extends HttpServlet{
 
             while(result.next()){
                 Comment comment = new Comment();
-                comment.setContent(result.getString(1));
-                //need to get the rest of the data
+                comment.setCommentID(result.getInt(1));
+                comment.setSubmissionDateTime(formatDate(result.getString(2)));
+                comment.setContent(result.getString(3));
                 comments.add(comment);
             }
             issue.setComments(comments);
@@ -74,4 +78,10 @@ public class GetIssue extends HttpServlet{
         doPost(request, response);
     }
 
+    private Date formatDate(String str) throws java.text.ParseException
+    {
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = dateFormat.parse(str);
+        return date;
+    }
 }

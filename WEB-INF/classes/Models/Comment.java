@@ -7,16 +7,25 @@ import java.util.Date;
  */
 public class Comment {
 
-    private Date dateTime;
+    private int commentID;
+    private Date submissionDateTime;
     private String content;
-    private User user;
+    private String username;
 
-    public Date getDateTime() {
-        return dateTime;
+    public int getCommentID() {
+        return commentID;
     }
 
-    public void setDateTime(Date dateTime) {
-        this.dateTime = dateTime;
+    public void setCommentID(int commentID) {
+        this.commentID = commentID;
+    }
+
+    public Date getSubmissionDateTime() {
+        return submissionDateTime;
+    }
+
+    public void setSubmissionDateTime(Date submissionDateTime) {
+        this.submissionDateTime = submissionDateTime;
     }
 
     public String getContent() {
@@ -27,11 +36,11 @@ public class Comment {
         this.content = content;
     }
 
-    public User getUser() {
-        return user;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUsername(String username) {
+        this.username = username;
     }
 }
