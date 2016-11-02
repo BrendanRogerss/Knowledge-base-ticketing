@@ -27,56 +27,28 @@ public class SubmittedReport extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         User user = (User) request.getSession().getAttribute("user");
+        if(user == null) {System.out.println("USER IS NULL"); user = new User(); user.setUsername("disizUser");}
         String statement;
         PreparedStatement prepStatement;
 
-
-        ////////////////////////////////////////////
-        System.out.println("starting try");
-        ////////////////////////////////////////////
-
-
         try {
-
-
             //get connection details, from context.xml I take it
             javax.sql.DataSource datasource = (javax.sql.DataSource)new
                     InitialContext().lookup("java:/comp/env/SENG2050");
             //establish connection
             Connection connection = datasource.getConnection();
 
-            ////////////////////////////////////////////
-            System.out.println("Attempting Count");
-            ////////////////////////////////////////////
-
-
             //get current amount of issues in database for new issue number
-            statement = "SELECT COUNT(issueID) FROM Issue";
+            statement = "SELECT COUNT(*) FROM Issue";
             prepStatement = connection.prepareStatement(statement);
-            System.out.println("attempting to execute");
             ResultSet rs = prepStatement.executeQuery();
-            System.out.println("executed");
-            int numOfIssues = 1;
-            if(rs == null) System.out.println("Resultset is NULL");
+            int numOfIssues = 0;
             if(rs.next())
                  numOfIssues = rs.getInt(1);
 
-            ////////////////////////////////////////////
-            System.out.println("Preparing ");
-            ////////////////////////////////////////////
-
-
             //preparing new issue insert statement with all request data from form
-            statement = "INSERT INTO Issue(issueID, state, category, title, description, " +
-                    " location, browser, website, internalAccess, alternateBrowser, computerRestatart" +
-                    "errorMessage, resolutionDetails, reportDateTime, resolvedDateTime, username)" +
+            statement = "INSERT INTO Issue" +
                     " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-
-            ////////////////////////////////////////////
-            System.out.println(request.getParameter("description"));
-            ////////////////////////////////////////////
-
-
 
             prepStatement = connection.prepareStatement(statement);
             prepStatement.setInt(1, numOfIssues + 1);
@@ -87,9 +59,9 @@ public class SubmittedReport extends HttpServlet {
             prepStatement.setString(6, request.getParameter("location"));
             prepStatement.setString(7, request.getParameter("browser"));
             prepStatement.setString(8, request.getParameter("website"));
-            prepStatement.setString(9, request.getParameter("internalAccess"));
-            prepStatement.setString(10, request.getParameter("alternateBrowser"));
-            prepStatement.setString(11, request.getParameter("computerRestart"));
+            prepStatement.setBoolean(9, request.getParameter("internalAccess").compareTo("yes")==0);
+            prepStatement.setBoolean(10, request.getParameter("alternateBrowser").compareTo("yes")==0);
+            prepStatement.setBoolean(11, request.getParameter("computerRestart").compareTo("yes")==0);
             prepStatement.setString(12, request.getParameter("errorMessage"));
             prepStatement.setString(13, "");
             //formatting current date and time
@@ -101,25 +73,19 @@ public class SubmittedReport extends HttpServlet {
             prepStatement.setString(15, null);
             prepStatement.setString(16, user.getUsername());
             //execution.
+            System.out.println("attempting to execute... ");
             prepStatement.executeUpdate();
 
-            ////////////////////////////////////////////
-            System.out.println("Report Submitted");
-            ////////////////////////////////////////////
-
         } catch (SQLException e) {
-            //TODO: set error tag in the session
-            ////////////////////////////////////////////
-            System.out.println(e.getMessage());
-            ////////////////////////////////////////////
+            System.err.println(e.getMessage());
+            e.printStackTrace();
         } catch (NamingException e) {
-            System.err.println("......NamingException......");
             System.err.println(e.getMessage());
             e.printStackTrace();
         }
 
         //TODO: Work out where to redirect
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
     }
