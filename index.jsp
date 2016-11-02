@@ -42,17 +42,17 @@
 </div><!-- /.container -->
 
 <div class="container">
-    <form action="HomePage" method="POST">
+    <form action="Authentication" method="POST">
         <div class="row">
             <div class="form-group center-block col-md-4" style="float: none">
                 <label for="user">Username</label>
-                <input type="text" class="form-control" id="user" placeholder="Username">
+                <input type="text" class="form-control" id="user" placeholder="Username" name="username">
             </div>
         </div>
         <div class="row">
             <div class="form-group center-block col-md-4" style="float: none">
                 <label for="password">Password</label>
-                <input type="password" class="form-control" id="password" placeholder="Password">
+                <input type="password" class="form-control" id="password" placeholder="Password" name="password">
             </div>
             <button type="submit" class="btn btn-default center-block col-md-2" style="float: none">Login</button>
         </div>

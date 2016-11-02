@@ -9,13 +9,7 @@ public class User {
     private String password;
     private String type;
     private boolean loggedIn;
-    private boolean staff;
     //might be better to use the bool rather than the string
-
-
-    public boolean isStaff(){
-        return staff;
-    }
 
     public boolean getLoggedIn() {
         return loggedIn;
@@ -52,4 +46,6 @@ public class User {
     public boolean isLoggedIn() {
         return loggedIn;
     }
+
+    public boolean isStaff(){return type.compareTo("staff")==0;}
 }
