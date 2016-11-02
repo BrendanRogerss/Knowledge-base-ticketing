@@ -24,6 +24,10 @@ public class KnowledgeBase extends HttpServlet{
         //build list
         issues = new ArrayList<>();
 
+        String query = "SELECT * FROM Issues";
+        GetSQLIssues database = new GetSQLIssues();
+        issues = database.getIssues(query);
+
         request.setAttribute("list", issues); //add the list to the session
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/issueList.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
