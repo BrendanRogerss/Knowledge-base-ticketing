@@ -93,7 +93,7 @@ public class SubmittedReport extends HttpServlet {
         } catch (SQLException e) {
             //TODO: set error tag in the session
             ////////////////////////////////////////////
-            System.out.println("THREW SQLEXCEPTION");
+            System.out.println("THREW SQLEXCEPTIONn");
             ////////////////////////////////////////////
         } catch (NamingException e) {
             System.err.println("......NamingException......");
