@@ -66,7 +66,7 @@ public class SubmittedReport extends HttpServlet {
             ////////////////////////////////////////////
 
 
-            //prepareing new issue insert statement with all request data from form
+            //preparing new issue insert statement with all request data from form
             statement = "INSERT INTO Issue(issueID, state, category, title, description, " +
                     " location, browser, website, internalAccess, alternateBrowser, computerRestatart" +
                     "errorMessage, resolutionDetails, reportDateTime, resolvedDateTime, username)" +

@@ -25,7 +25,7 @@
             <div class="form-group">
                 <label for="category" class="col-sm-2 control-label">Category*</label>
                     <div class="col-sm-3">
-                    <select class="form-control" id="category">
+                    <select name="category" class="form-control" id="category">
                         <option>Select a category...</option>
                         <option class="main-category" value="network" disabled>Network</option>
                         <option value="cant-connect">&nbsp;&nbsp;Can't connect</option>
@@ -54,7 +54,7 @@
             <div class="form-group">
                 <label for="location" class="col-sm-2 control-label">Location</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="location" placeholder="Location">
+                    <input name="location" type="text" class="form-control" id="location" placeholder="Location">
                 </div>
             </div>
         </div>
@@ -62,7 +62,7 @@
             <div class="form-group">
                 <label for="browser" class="col-sm-2 control-label">Browser</label>
                 <div class="col-sm-3">
-                    <input type="text" class="form-control" id="browser" placeholder="Browser">
+                    <input name="browser" type="text" class="form-control" id="browser" placeholder="Browser">
                 </div>
             </div>
         </div>
@@ -70,7 +70,7 @@
             <div class="form-group">
                 <label for="failed-website" class="col-sm-2 control-label">Failed Website</label>
                 <div class="col-sm-3">
-                    <input type="url" class="form-control" id="failed-website" placeholder="Website Address">
+                    <input name="website" type="url" class="form-control" id="failed-website" placeholder="Website Address">
                 </div>
             </div>
         </div>
@@ -79,10 +79,10 @@
                 <label class="col-sm-2 control-label">Are you able to access internal websites?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
-                        <input type="radio" name="internal-website" id="yes-internal" value="yes"> Yes
+                        <input type="radio" name="internalAccess" id="yes-internal" value="yes"> Yes
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="internal-website" id="no-internal" value="no"> No
+                        <input type="radio" name="internalAccess" id="no-internal" value="no"> No
                     </label>
                 </div>
             </div>
@@ -92,10 +92,10 @@
                 <label class="col-sm-2 control-label">Have you tried using an alternate browser?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
-                        <input type="radio" name="alternate-browser" id="yes-alternate" value="yes"> Yes
+                        <input type="radio" name="alternateBrowser" id="yes-alternate" value="yes"> Yes
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="alternate-browser" id="no-alternate" value="no"> No
+                        <input type="radio" name="alternateBrowser" id="no-alternate" value="no"> No
                     </label>
                 </div>
             </div>
@@ -105,10 +105,10 @@
                 <label class="col-sm-2 control-label">Have you tried restarting your computer?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
-                        <input type="radio" name="restart-computer" id="yes-restart" value="yes"> Yes
+                        <input type="radio" name="computerRestart" id="yes-restart" value="yes"> Yes
                     </label>
                     <label class="radio-inline">
-                        <input type="radio" name="restart-computer" id="no-restart" value="no"> No
+                        <input type="radio" name="computerRestart" id="no-restart" value="no"> No
                     </label>
                 </div>
             </div>
@@ -118,7 +118,7 @@
                 <label for="description" class="col-sm-2 control-label">Problem Description*</label>
                 <div class="col-sm-5">
                     <div class="input-group">
-                        <textarea class="form-control custom-control" rows="3" cols="50" style="resize:none" id="description" placeholder="Enter a detailed description..."></textarea>
+                        <textarea class="form-control custom-control" name="description" rows="3" cols="50" style="resize:none" id="description" placeholder="Enter a detailed description..."></textarea>
                     </div>
                 </div>
             </div>
@@ -128,7 +128,7 @@
                 <label for="error-message" class="col-sm-2 control-label">Error Message</label>
                 <div class="col-sm-5">
                     <div class="input-group">
-                        <textarea class="form-control custom-control" rows="3" cols="50" style="resize:none" id="error-message" placeholder="e.g. HTTP Error 404 Not Found"></textarea>
+                        <textarea class="form-control custom-control" name="errorMessage" rows="3" cols="50" style="resize:none" id="error-message" placeholder="e.g. HTTP Error 404 Not Found"></textarea>
                     </div>
                 </div>
             </div>
