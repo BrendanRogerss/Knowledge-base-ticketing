@@ -45,7 +45,7 @@ public class AddComment extends HttpServlet{
                 numOfComments = result.getInt(1);
             }
 
-            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?)";
+            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?,?)";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setInt(1, numOfComments+1);
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
