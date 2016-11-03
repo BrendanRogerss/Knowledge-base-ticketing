@@ -18,6 +18,7 @@ import java.util.Date;
 
 /**
  * Created by Brendan on 19/10/2016.
+ *
  */
 @WebServlet(urlPatterns = {"/Issue"})
 public class GetIssue extends HttpServlet{
@@ -45,7 +46,7 @@ public class GetIssue extends HttpServlet{
 
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
-            query = "SELECT * FROM Comment WHERE issueID = "+issueID; //query for all the comments for that issue
+            query = "SELECT * FROM Comment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
             ResultSet result = statement.executeQuery(query);
 
             while(result.next()){
