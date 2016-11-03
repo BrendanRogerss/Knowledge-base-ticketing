@@ -11,6 +11,15 @@ public class Comment {
     private Date submissionDateTime;
     private String content;
     private String username;
+    private int issueID;
+
+    public int getIssueID() {
+        return issueID;
+    }
+
+    public void setIssueID(int issueID) {
+        this.issueID = issueID;
+    }
 
     public int getCommentID() {
         return commentID;

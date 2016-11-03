@@ -2,17 +2,17 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
+import Models.User;
 
 import javax.naming.InitialContext;
+import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -36,6 +36,8 @@ public class GetIssue extends HttpServlet{
         GetSQLIssues database = new GetSQLIssues();
         ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
         Issue issue = issues.get(0);
+
+
 
 
         try{ //get all the comments
@@ -85,4 +87,48 @@ public class GetIssue extends HttpServlet{
         Date date = dateFormat.parse(str);
         return date;
     }
+
+
+    private void addCommentTestMethod(HttpServletRequest request, HttpServletResponse response){
+
+        String issueID = request.getParameter("issueID");
+        User user = (User) request.getSession().getAttribute("user");
+        int numOfComments = 0;
+
+        try{ //get all the comments
+
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            String query = "SELECT COUNT(*) FROM UserComment"; //query for all the comments for that issue
+            ResultSet result = statement.executeQuery(query);
+
+            if(result.next()){
+                numOfComments = result.getInt(1);
+            }
+
+            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?)";
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setInt(1, numOfComments+1);
+                DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+                Date date = new Date();
+                String stringDate = dateFormat.format(date);
+            prepStatement.setString(2, stringDate);
+            //prepStatement.setString();
+
+
+        }catch (Exception e) {
+            String error = "Something went wrong in GetIssue"; //set an error
+            request.setAttribute("error", error);
+        }
+
+
+        comment.setSubmissionDateTime(stringDate);
+    }
+
+
+
+
 }
