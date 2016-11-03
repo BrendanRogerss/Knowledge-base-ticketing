@@ -20,7 +20,7 @@ import java.sql.SQLException;
  * Created by Brendan on 19/10/2016.
  */
 
-@WebServlet(urlPatterns = {"/HomePage"})
+@WebServlet(urlPatterns = {"/Authentication"})
 public class Authentication extends HttpServlet {
 
     @Override
