@@ -54,6 +54,8 @@ public class GetIssue extends HttpServlet{
                 comment.setCommentID(result.getInt(1));
                 comment.setSubmissionDateTime(formatDate(result.getString(2)));
                 comment.setContent(result.getString(3));
+                comment.setUsername(result.getString(4));
+                comment.setIssueID(result.getInt(5));
                 comments.add(comment);
             }
             issue.setComments(comments);
