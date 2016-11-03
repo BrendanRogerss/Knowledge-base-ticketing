@@ -14,9 +14,9 @@ import java.util.Date;
 /**
  * Created by Brendan on 1/11/2016.
  */
-public class GetSQLIssues {
+public class Database {
 
-    public GetSQLIssues(){
+    public Database(){
 
     }
 
@@ -58,6 +58,23 @@ public class GetSQLIssues {
         }
         return issues;
     }
+
+    public ResultSet query(String q){
+        ResultSet result = null;
+        try {
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            result = statement.executeQuery(q);
+        }catch (Exception e){
+            //TODO: add something in here
+        }
+        return result;
+    }
+
+
 
     private Date formatDate(String str) throws java.text.ParseException
     {

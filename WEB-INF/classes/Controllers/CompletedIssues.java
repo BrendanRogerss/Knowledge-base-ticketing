@@ -1,7 +1,6 @@
 package Controllers;
 
 import Models.Issue;
-import Models.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
@@ -24,7 +23,7 @@ public class CompletedIssues extends HttpServlet{
         issues = new ArrayList<>();
 
         String query = "SELECT * FROM Issues WHERE status == complete";
-        GetSQLIssues database = new GetSQLIssues();
+        Database database = new Database();
         issues = database.getIssues(query);
 
         request.setAttribute("list", issues); //add the list to the session

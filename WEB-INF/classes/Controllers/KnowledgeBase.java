@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Date;
 
 /**
  * Created by Brendan on 19/10/2016.
@@ -25,7 +24,7 @@ public class KnowledgeBase extends HttpServlet{
         issues = new ArrayList<>();
 
         String query = "SELECT * FROM Issue";
-        GetSQLIssues database = new GetSQLIssues();
+        Database database = new Database();
         issues = database.getIssues(query);
 
         request.setAttribute("list", issues); //add the list to the session

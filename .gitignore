@@ -101,3 +101,5 @@ local.properties
 
 # Code Recommenders
 .recommenders/
+/WEB-INF/classes/Controllers/SubmittedReport.class
+/WEB-INF/classes/Controllers/KnowledgeBase.class

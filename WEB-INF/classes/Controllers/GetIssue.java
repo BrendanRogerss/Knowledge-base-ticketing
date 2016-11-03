@@ -2,10 +2,8 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
-import Models.User;
 
 import javax.naming.InitialContext;
-import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -33,7 +31,7 @@ public class GetIssue extends HttpServlet{
 
         String query = "SELECT * FROM Issue WHERE issueID = "+issueID; //query for the issue with matching id
 
-        GetSQLIssues database = new GetSQLIssues();
+        Database database = new Database();
         ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
         Issue issue = issues.get(0);
 
