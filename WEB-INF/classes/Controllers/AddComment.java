@@ -45,7 +45,7 @@ public class AddComment extends HttpServlet{
                 numOfComments = result.getInt(1);
             }
 
-            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?,?)";
+            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?, ?)";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setInt(1, numOfComments+1);
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -61,12 +61,12 @@ public class AddComment extends HttpServlet{
             //TODO: Have to add the issueID to the request object????
 
         }catch (Exception e) {
-            String error = "Something went wrong in GetIssue"; //set an error
-            request.setAttribute("error", error);
+            String error = "Something went wrong when adding comment: "; //set an error
+            request.setAttribute("error", error+e.getMessage());
         }
 
-        response.sendRedirect("/GetIssue");
-
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID")); //redirect back to homepage
+        dispatcher.forward(request, response); //might be better off redirecting back to issue list
     }
 
     @Override

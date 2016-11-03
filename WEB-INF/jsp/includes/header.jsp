@@ -37,3 +37,15 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<c:if test="${requestScope.success != null}">
+    <div class="alert alert-success">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error!</strong> <c:out value="${requestScope.success}"/>
+    </div>
+</c:if>
+<c:if test="${requestScope.error != null}">
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error!</strong> <c:out value="${requestScope.error}"/>
+    </div>
+</c:if>

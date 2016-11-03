@@ -46,7 +46,7 @@ public class GetIssue extends HttpServlet{
 
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
-            query = "SELECT * FROM Comment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
+            query = "SELECT * FROM UserComment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
             ResultSet result = statement.executeQuery(query);
 
             while(result.next()){
@@ -62,13 +62,11 @@ public class GetIssue extends HttpServlet{
             request.setAttribute("issue", issue); //pass the issue into the database
 
         }catch (Exception e) {
-            String error = "Something went wrong in GetIssue"; //set an error
-            request.setAttribute("error", error);
+            String error = "Something went wrong in Get Issue:"; //set an error
+            request.setAttribute("error", error+e.getMessage());
         }
-
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewIssue.jsp"); //redirect back to homepage
         dispatcher.forward(request, response); //might be better off redirecting back to issue list
-
     }
 
     @Override

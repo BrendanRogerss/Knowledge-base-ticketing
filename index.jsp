@@ -32,13 +32,10 @@
 </nav>
 
 <div class="container">
-
     <div class="starter-template">
         <h1>Login</h1>
         <p class="lead">Enter user details to login as an existing user.</p>
-        <p><utils:NotLoggedIn /></p>
     </div>
-
 </div><!-- /.container -->
 
 <div class="container">
@@ -58,10 +55,6 @@
         </div>
     </form>
 </div>
-
-
 <jsp:include page="WEB-INF/jsp/includes/bootStrapCoreJS.jsp" />
-
 </body>
-
 </html>
