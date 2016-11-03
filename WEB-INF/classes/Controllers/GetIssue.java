@@ -30,7 +30,7 @@ public class GetIssue extends HttpServlet{
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
-            response.sendRedirect("/index.jsp");
+            response.sendRedirect("/Assignment/index.jsp");
             return;
         }
         //get issue id from request
