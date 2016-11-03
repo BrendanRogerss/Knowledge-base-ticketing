@@ -27,8 +27,14 @@ public class AddComment extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        String issueID = request.getParameter("issueID");
+
         User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
+
+        String issueID = request.getParameter("issueID");
         int numOfComments = 0;
 
         try{ //get all the comments

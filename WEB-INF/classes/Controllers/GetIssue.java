@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
+import Models.User;
 
 import javax.naming.InitialContext;
 import javax.servlet.*;
@@ -26,6 +27,12 @@ public class GetIssue extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
         //get issue id from request
         String issueID = request.getParameter("issueID");
         ArrayList<Comment> comments = new ArrayList<>();

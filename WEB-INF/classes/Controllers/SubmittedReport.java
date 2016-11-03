@@ -26,8 +26,11 @@ public class SubmittedReport extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        User user = (User) request.getSession().getAttribute("user"); //TODO: fix the user thingy here
-        if(user == null) {System.out.println("USER IS NULL"); user = new User(); user.setUsername("disizUser");}
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
         String statement;
         PreparedStatement prepStatement;
 

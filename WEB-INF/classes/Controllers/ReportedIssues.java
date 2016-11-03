@@ -20,8 +20,14 @@ public class ReportedIssues extends HttpServlet{
     ArrayList<Issue> issues;
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        issues = new ArrayList<>();
+
         User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
+
+        issues = new ArrayList<>();
         //String userID = user.getUsername();
 
         //TODO: change selection if either staff or user

@@ -1,6 +1,8 @@
 package Controllers;
 
 import Models.Issue;
+import Models.User;
+
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -20,6 +22,12 @@ public class KnowledgeBase extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
         //build list
         issues = new ArrayList<>();
 

@@ -15,17 +15,13 @@ public class ReportIssue extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = (User) request.getSession().getAttribute("user"); //get the user object out of the session
-        /*if(!user.isLoggedIn()){
-            request.setAttribute("error", "You need to be logged in to do that."); //set an error message in the session
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("index.jsp"); //redirect to jsp
-            dispatcher.forward(request, response);
+
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
             return;
-        }else{
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("homePage.jsp"); //redirect to jsp
-            dispatcher.forward(request, response);
-            return;
-        }*/
+        }
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/reportIssue.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;

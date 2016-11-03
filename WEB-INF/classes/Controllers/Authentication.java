@@ -27,12 +27,19 @@ public class Authentication extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //get details
+
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null || !user.isLoggedIn()){
+            response.sendRedirect("/index.jsp");
+            return;
+        }
+
         HttpSession session = request.getSession();
         String statement, redirectLocation = "/index.jsp";
         String dbUsername = null, dbPassword = null;
         PreparedStatement prepStatement;
 
-        User user = new User();
+        user = new User();
         user.setUsername(request.getParameter("username"));
         user.setPassword(request.getParameter("password"));
 
@@ -68,13 +75,12 @@ public class Authentication extends HttpServlet {
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);
             user.setType("staff"); //TODO: get and set the type of user in database and shit
-            redirectLocation = "/WEB-INF/jsp/homepage.jsp";
+            redirectLocation = "/HomePage";
             session.setAttribute("user", user);
         }
 
         //TODO: change this to redirect instead of forward
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(redirectLocation); //redirect to jsp
-        dispatcher.forward(request, response);
+        response.sendRedirect(redirectLocation);
 
         return;
     }
