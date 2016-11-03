@@ -15,7 +15,7 @@
 <div class="container">
     <div class="starter-template">
         <h1>Report Issue</h1>
-        <p class="lead">Enter relevant details to report issue</p>
+        <p class="lead">Enter relevant details to report issue.</p>
     </div>
 </div><!-- /.container -->
 
@@ -23,7 +23,7 @@
     <form class="form-horizontal" action="SubmittedReport" action="POST">
         <div class="row">
             <div class="form-group">
-                <label for="category" class="col-sm-2 control-label">Category*</label>
+                <label for="category" class="col-sm-2 col-sm-offset-3 control-label">Category*</label>
                     <div class="col-sm-3">
                     <select name="category" class="form-control" id="category">
                         <option>Select a category...</option>
@@ -52,7 +52,7 @@
         </div>
         <div class="row">
                     <div class="form-group">
-                        <label for="title" class="col-sm-2 control-label">Title</label>
+                        <label for="title" class="col-sm-2 col-sm-offset-3 control-label">Title</label>
                         <div class="col-sm-3">
                             <input name="title" type="text" class="form-control" id="title" placeholder="Title">
                         </div>
@@ -60,7 +60,7 @@
                 </div>
         <div class="row">
             <div class="form-group">
-                <label for="location" class="col-sm-2 control-label">Location</label>
+                <label for="location" class="col-sm-2 col-sm-offset-3 control-label">Location</label>
                 <div class="col-sm-3">
                     <input name="location" type="text" class="form-control" id="location" placeholder="Location">
                 </div>
@@ -68,7 +68,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label for="browser" class="col-sm-2 control-label">Browser</label>
+                <label for="browser" class="col-sm-2 col-sm-offset-3 control-label">Browser</label>
                 <div class="col-sm-3">
                     <input name="browser" type="text" class="form-control" id="browser" placeholder="Browser">
                 </div>
@@ -76,7 +76,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label for="failed-website" class="col-sm-2 control-label">Failed Website</label>
+                <label for="failed-website" class="col-sm-2 col-sm-offset-3 control-label">Failed Website</label>
                 <div class="col-sm-3">
                     <input name="website" type="url" class="form-control" id="failed-website" placeholder="Website Address">
                 </div>
@@ -84,7 +84,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Are you able to access internal websites?*</label>
+                <label class="col-sm-2 col-sm-offset-3 control-label">Are you able to access internal websites?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
                         <input type="radio" name="internalAccess" id="yes-internal" value="yes"> Yes
@@ -97,7 +97,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Have you tried using an alternate browser?*</label>
+                <label class="col-sm-2 col-sm-offset-3 control-label">Have you tried using an alternate browser?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
                         <input type="radio" name="alternateBrowser" id="yes-alternate" value="yes"> Yes
@@ -110,7 +110,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label class="col-sm-2 control-label">Have you tried restarting your computer?*</label>
+                <label class="col-sm-2 col-sm-offset-3 control-label">Have you tried restarting your computer?*</label>
                 <div class="col-sm-3">
                     <label class="radio-inline">
                         <input type="radio" name="computerRestart" id="yes-restart" value="yes"> Yes
@@ -123,7 +123,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label for="description" class="col-sm-2 control-label">Problem Description*</label>
+                <label for="description" class="col-sm-2 col-sm-offset-3 control-label">Problem Description*</label>
                 <div class="col-sm-5">
                     <div class="input-group">
                         <textarea class="form-control custom-control" name="description" rows="3" cols="50" style="resize:none" id="description" placeholder="Enter a detailed description..."></textarea>
@@ -133,7 +133,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <label for="error-message" class="col-sm-2 control-label">Error Message</label>
+                <label for="error-message" class="col-sm-2 col-sm-offset-3 control-label">Error Message</label>
                 <div class="col-sm-5">
                     <div class="input-group">
                         <textarea class="form-control custom-control" name="errorMessage" rows="3" cols="50" style="resize:none" id="error-message" placeholder="e.g. HTTP Error 404 Not Found"></textarea>
@@ -143,7 +143,7 @@
         </div>
         <div class="row">
             <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
+                <div class="col-sm-2 col-sm-offset-5">
                     <button type="submit" class="btn btn-default">Submit Report</button>
                 </div>
             </div>

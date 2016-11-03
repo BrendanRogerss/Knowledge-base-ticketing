@@ -18,10 +18,11 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">UoN IT Services</a>
+            <a class="navbar-brand" href="HomePage">UoN IT Services</a>
         </div>
         <div id="navbar" class ="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <li><a href="HomePage">Home</a></li>
                 <li><a href="ReportIssue">Report Issue</a></li>
                 <li><a href="KnowledgeBase">Knowledge Base</a></li>
                 <c:choose>

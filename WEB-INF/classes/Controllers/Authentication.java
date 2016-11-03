@@ -30,8 +30,7 @@ public class Authentication extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
-            response.sendRedirect("/Assignment/index.jsp");
-            return;
+
         }
 
         HttpSession session = request.getSession();
@@ -75,7 +74,7 @@ public class Authentication extends HttpServlet {
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);
             user.setType("staff"); //TODO: get and set the type of user in database and shit
-            redirectLocation = "/HomePage";
+            redirectLocation = "HomePage";
             session.setAttribute("user", user);
         }
 
