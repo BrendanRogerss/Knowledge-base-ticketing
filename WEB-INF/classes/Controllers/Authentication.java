@@ -20,7 +20,7 @@ import java.sql.SQLException;
  * Created by Brendan on 19/10/2016.
  */
 
-@WebServlet(urlPatterns = {"/Authentication"})
+@WebServlet(urlPatterns = {"/HomePage"})
 public class Authentication extends HttpServlet {
 
     @Override
@@ -75,6 +75,7 @@ public class Authentication extends HttpServlet {
         //TODO: change this to redirect instead of forward
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(redirectLocation); //redirect to jsp
         dispatcher.forward(request, response);
+
         return;
     }
 
