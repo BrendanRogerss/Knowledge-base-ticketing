@@ -52,8 +52,8 @@ public class ChangeCommentType extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-        //TODO: redirect to correct servlet. do we have to query the comment tp get issueID or can we pass into this?
-        response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues?issueID=" + request.getParameter("issueID"));
+        //TODO:
+        response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID="+request.getParameter("issueID"));
     }
 
     @Override

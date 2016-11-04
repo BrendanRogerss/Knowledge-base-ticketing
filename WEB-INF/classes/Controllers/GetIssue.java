@@ -44,7 +44,7 @@ public class GetIssue extends HttpServlet{
         Issue issue = issues.get(0);
 
 
-        if(!issue.getState().equals("knowledgeBase")){
+        if(!issue.getState().equals("KnowledgeBase")){
             try{ //get all the comments
                 javax.sql.DataSource datasource = (javax.sql.DataSource) new
                         InitialContext().lookup("java:/comp/env/SENG2050");
@@ -59,8 +59,8 @@ public class GetIssue extends HttpServlet{
                     comment.setCommentID(result.getInt(1));
                     comment.setSubmissionDateTime(formatDate(result.getString(2)));
                     comment.setContent(result.getString(3));
-                    comment.setUsername(result.getString(4));
-                    comment.setCommentType(result.getString(5));
+                    comment.setCommentType(result.getString(4));
+                    comment.setUsername(result.getString(5));
                     comment.setIssueID(result.getInt(6));
                     comments.add(comment);
                 }
