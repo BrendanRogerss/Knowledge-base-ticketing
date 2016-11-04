@@ -22,7 +22,7 @@ public class HomePage extends HttpServlet {
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
-            response.sendRedirect("/Assignment/index.jsp");
+            response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/homepage.jsp"); //redirect to jsp

@@ -30,7 +30,7 @@ public class AddComment extends HttpServlet{
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
-            response.sendRedirect("/Assignment/index.jsp");
+            response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
 

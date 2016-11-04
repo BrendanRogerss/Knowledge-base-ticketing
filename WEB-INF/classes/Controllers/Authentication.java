@@ -29,9 +29,6 @@ public class Authentication extends HttpServlet {
         //get details
 
         User user = (User) request.getSession().getAttribute("user");
-        if(user == null || !user.isLoggedIn()){
-
-        }
 
         HttpSession session = request.getSession();
         String statement, redirectLocation = "index.jsp";
