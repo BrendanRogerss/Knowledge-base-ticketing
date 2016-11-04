@@ -45,8 +45,29 @@
             <td>Comments</td>
             <td>
             <c:forEach var="currentComment" items="${current.getComments()}">
-                <div class="panel panel-default">
-                    <div class="panel-heading">User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/></div>
+                <c:choose>
+                    <c:when test="${currentComment.getCommentType.compareTo(\"Accepted\") == 0}">
+                <div class="panel panel-success">
+
+                    </c:when>
+                        <c:when test="${currentComment.getCommentType.compareTo(\"Proposed\") == 0}">
+                <div class="panel panel-info">
+
+                    </c:when>
+                        <c:when test="${currentComment.getCommentType.compareTo(\"Rejected\") == 0}">
+                <div class="panel panel-danger">
+
+                    </c:when>
+                    <c:otherwise>
+                        <div class="panel panel-default">
+                    </c:otherwise>
+                </c:choose>
+                    <div class="panel-heading">
+                        User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
+                        <c:if test="${user.getUsername().compareTo(current.getUsername()) && currentComment.getCommentType.compareTo(\"Proposed\") == 0}">
+
+                        </c:if>
+                    </div>
                     <div class="panel-body"><c:out value="${currentComment.getContent()}"/> </div>
                 </div>
             </c:forEach>

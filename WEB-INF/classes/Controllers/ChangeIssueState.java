@@ -58,7 +58,7 @@ public class ChangeIssueState extends HttpServlet {
             dispatcher.forward(request, response); //might be better off redirecting back to issue list
         }
         else
-            response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues?issueID=" + request.getParameter("issueID"));
+            response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID=" + request.getParameter("issueID"));
     }
 
     @Override

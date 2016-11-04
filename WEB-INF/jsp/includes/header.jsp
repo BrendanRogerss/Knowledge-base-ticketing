@@ -39,12 +39,14 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<!--Succsess message-->
 <c:if test="${requestScope.success != null}">
     <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <strong>Success!</strong> <c:out value="${requestScope.success}"/>
     </div>
 </c:if>
+<!--Error message-->
 <c:if test="${requestScope.error != null}">
     <div class="alert alert-danger">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
