@@ -10,10 +10,19 @@ public class Comment {
     private int commentID;
     private Date submissionDateTime;
     private String content;
+    private String commentType;
     private String username;
     private int issueID;
 
-    public int getIssueID() {
+    public String getCommentType() {
+        return commentType;
+    }
+
+    public void setCommentType(String commentType) {
+        this.commentType = commentType;
+    }
+
+     public int getIssueID() {
         return issueID;
     }
 

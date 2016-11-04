@@ -52,7 +52,7 @@ public class AddComment extends HttpServlet{
                 numOfComments = result.getInt(1);
             }
 
-            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?, ?)";
+            query = "INSERT INTO UserComment VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setInt(1, numOfComments+1);
             DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
@@ -60,14 +60,12 @@ public class AddComment extends HttpServlet{
             String stringDate = dateFormat.format(date);
             prepStatement.setString(2, stringDate);
             prepStatement.setString(3, request.getParameter("commentContent"));
+            prepStatement.setString(4, request.getParameter("commentType"));
             prepStatement.setString(4, user.getUsername());
             prepStatement.setString(5, request.getParameter("issueID"));
 
             prepStatement.executeUpdate();
             System.out.println("add comment end");
-
-            //TODO: Have to add the issueID to the request object????
-
 
             connection.close();
             result.close();

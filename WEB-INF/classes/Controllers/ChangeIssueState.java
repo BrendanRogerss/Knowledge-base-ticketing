@@ -34,7 +34,7 @@ public class ChangeIssueState extends HttpServlet {
             return;
         }
 
-        try { //get all the comments
+        try {
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
@@ -48,11 +48,17 @@ public class ChangeIssueState extends HttpServlet {
             connection.close();
 
         } catch (Exception e) {
-            String error = "Something went wrong when changing issues state: "; //set an error
+            String error = "Something went wrong when updating Issue State "; //set an error
             request.setAttribute("error", error + e.getMessage());
         }
 
-        response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID=" + request.getParameter("issueID"));
+        if(request.getParameter("state").equals("complete")) {
+
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID")); //redirect back to homepage
+            dispatcher.forward(request, response); //might be better off redirecting back to issue list
+        }
+        else
+            response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues?issueID=" + request.getParameter("issueID"));
     }
 
     @Override
