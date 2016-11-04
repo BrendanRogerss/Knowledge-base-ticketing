@@ -35,7 +35,7 @@ public class Authentication extends HttpServlet {
 
         HttpSession session = request.getSession();
         String statement, redirectLocation = "index.jsp";
-        String dbUsername = null, dbPassword = null;
+        String dbUsername = null, dbPassword = null, dbType = null;
         PreparedStatement prepStatement;
 
         user = new User();
@@ -49,13 +49,14 @@ public class Authentication extends HttpServlet {
             Connection connection = dataSource.getConnection();
 
             //get current amount of issues in database for new issue number
-            statement = "SELECT username, pass FROM Users WHERE username = '" + request.getParameter("username") + "'";
+            statement = "SELECT username, pass, userType FROM Users WHERE username = '" + request.getParameter("username") + "'";
             prepStatement = connection.prepareStatement(statement);
             ResultSet rs = prepStatement.executeQuery();
 
             if(rs.next()){
                 dbUsername = rs.getString(1);
                 dbPassword = rs.getString(2);
+                dbType = rs.getString(3);
             }
 
             connection.close();
@@ -78,7 +79,7 @@ public class Authentication extends HttpServlet {
         }
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);
-            user.setType("staff"); //TODO: get and set the type of user in database and shit
+            user.setType(dbType); //TODO: get and set the type of user in database and shit
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
         }
