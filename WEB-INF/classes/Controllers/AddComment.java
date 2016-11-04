@@ -39,6 +39,7 @@ public class AddComment extends HttpServlet{
 
         try{ //get all the comments
 
+            System.out.println("add comment start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
@@ -63,8 +64,13 @@ public class AddComment extends HttpServlet{
             prepStatement.setString(5, request.getParameter("issueID"));
 
             prepStatement.executeUpdate();
+            System.out.println("add comment end");
 
             //TODO: Have to add the issueID to the request object????
+
+
+            connection.close();
+            result.close();
 
         }catch (Exception e) {
             String error = "Something went wrong when adding comment: "; //set an error

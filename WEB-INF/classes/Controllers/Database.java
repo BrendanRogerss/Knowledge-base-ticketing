@@ -24,15 +24,22 @@ public class Database {
         ArrayList<Issue> issues = new ArrayList<>();
 
         try {
+            //System.out.println("database start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
-
+           // System.out.println("after datasource");
             Connection connection = datasource.getConnection();
+           // System.out.println("after connection");
             Statement statement = connection.createStatement();
+           // System.out.println("after statement");
             ResultSet result = statement.executeQuery(query); //connect to the database
+           // System.out.println("after result");
+
+
 
             while (result.next()) {
                 //get all the content of the issue and put it into the object
+                //System.out.println("start loop");
                 Issue issue = new Issue();
                 issue.setIssueID(result.getInt(1));
                 issue.setState(result.getString(2));
@@ -52,10 +59,18 @@ public class Database {
                 issue.setUsername(result.getString(16));
 
                 issues.add(issue);
+               // System.out.println("end of loop");
             }
+
+            connection.close();
+            result.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
+        //System.out.println("databse end");
+
+
+
         return issues;
     }
 

@@ -36,7 +36,7 @@ public class GetIssue extends HttpServlet{
         //get issue id from request
         String issueID = request.getParameter("issueID");
         ArrayList<Comment> comments = new ArrayList<>();
-
+        //System.out.println("before getIssueQuery");
         String query = "SELECT * FROM Issue WHERE issueID = "+issueID; //query for the issue with matching id
 
         Database database = new Database();
@@ -44,10 +44,9 @@ public class GetIssue extends HttpServlet{
         Issue issue = issues.get(0);
 
 
-
-
+        //System.out.println("after get isssue query");
         try{ //get all the comments
-
+           // System.out.println("before comment query");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
@@ -56,7 +55,7 @@ public class GetIssue extends HttpServlet{
             query = "SELECT * FROM UserComment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
             ResultSet result = statement.executeQuery(query);
 
-            while(result.next()){
+            while(result.next()) {
                 Comment comment = new Comment();
                 comment.setCommentID(result.getInt(1));
                 comment.setSubmissionDateTime(formatDate(result.getString(2)));
@@ -65,8 +64,14 @@ public class GetIssue extends HttpServlet{
                 comment.setIssueID(result.getInt(5));
                 comments.add(comment);
             }
+
+            connection.close();
+            result.close();
+
             issue.setComments(comments);
             request.setAttribute("issue", issue); //pass the issue into the database
+
+            //System.out.println("after comment issue");
 
         }catch (Exception e) {
             String error = "Something went wrong in Get Issue:"; //set an error

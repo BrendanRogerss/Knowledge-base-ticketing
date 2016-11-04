@@ -78,6 +78,9 @@ public class SubmittedReport extends HttpServlet {
             //execution.
             prepStatement.executeUpdate();
 
+            connection.close();
+            rs.close();
+
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();

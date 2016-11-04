@@ -57,6 +57,10 @@ public class Authentication extends HttpServlet {
                 dbUsername = rs.getString(1);
                 dbPassword = rs.getString(2);
             }
+
+            connection.close();
+            rs.close();
+
         }catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
