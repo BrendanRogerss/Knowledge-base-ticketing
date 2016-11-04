@@ -53,8 +53,14 @@ public class ChangeIssueState extends HttpServlet {
         }
 
         if (request.getParameter("path") != null){
+            if (request.getParameter("path").equals("knowledgeBase")) {
+                response.sendRedirect(getServletContext().getContextPath() + "/KnowledgeBase");
+            }
             if (request.getParameter("path").equals("issueList")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
+            }
+            if (request.getParameter("path").equals("viewCompletedIssues")) {
+                response.sendRedirect(getServletContext().getContextPath() + "/CompletedIssues");
             }
         }
         else if(request.getParameter("state").equals("Completed")) {
@@ -66,7 +72,6 @@ public class ChangeIssueState extends HttpServlet {
             request.setAttribute("commentType", request.getParameter("commentType"));
         }
         else if (request.getParameter("issueList") != null){
-
             response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
         }
         else
