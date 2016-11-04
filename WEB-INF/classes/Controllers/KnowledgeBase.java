@@ -31,7 +31,7 @@ public class KnowledgeBase extends HttpServlet{
         //build list
         issues = new ArrayList<>();
 
-        String query = "SELECT * FROM Issue WHERE state='knowledge base'";
+        String query = "SELECT * FROM Issue WHERE state='KnowledgeBase'";
         Database database = new Database();
         issues = database.getIssues(query);
 
