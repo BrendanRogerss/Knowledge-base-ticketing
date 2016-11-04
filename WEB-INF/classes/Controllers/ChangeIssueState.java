@@ -60,8 +60,7 @@ public class ChangeIssueState extends HttpServlet {
             request.setAttribute("commentContent", request.getParameter("commentContent"));
             request.setAttribute("commentType", request.getParameter("commentType"));
         }
-        else if (request.getParameter("issueList").equals("true")){
-
+        else if (request.getParameter("issueList") != null){
             response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
         }
         else

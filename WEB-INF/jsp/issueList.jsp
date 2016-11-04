@@ -13,6 +13,7 @@
             <thead>
             <tr>
                 <td>Issue ID</td>
+                <td>Title</td>
                 <td>Status</td>
                 <td>Category</td>
                 <td>Date</td>
@@ -27,7 +28,7 @@
             <tbody>
             <c:forEach var="current" items="${requestScope.list}">
                 <tr>
-                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>&issueList=false"><c:out value="${current.getIssueID()}"/></a></td>
                     <td><c:out value="${current.getTitle()}"/></td>
                     <td><c:out value="${current.getState()}"/></td>
                     <td><c:out value="${current.getCategory()}"/></td>
