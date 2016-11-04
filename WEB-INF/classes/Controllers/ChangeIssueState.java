@@ -48,11 +48,11 @@ public class ChangeIssueState extends HttpServlet {
             connection.close();
 
         } catch (Exception e) {
-            String error = "Something went wrong when adding issue to knowledgebase: "; //set an error
+            String error = "Something went wrong when changing issues state: "; //set an error
             request.setAttribute("error", error + e.getMessage());
         }
 
-        response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues?issueID=" + request.getParameter("issueID"));
+        response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID=" + request.getParameter("issueID"));
     }
 
     @Override

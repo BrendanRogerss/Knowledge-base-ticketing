@@ -9,7 +9,7 @@
 </head>
 <body>
 <jsp:include page="includes/header.jsp" />
-
+<c:set var="user" value="${sessionScope.user}"/>
 
     <table id="issueDiv" class="table table-bordered table-striped">
         <c:set var="current" value="${requestScope.issue}"/>
@@ -38,6 +38,9 @@
             <td>Content</td>
             <td><c:out value="${current.getDescription()}"/></td>
         </tr>
+        <!--Display comments-->
+        <!--TODO maybe when the issue is requested, if its knowledge base dont add comments in servlet-->
+        <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
         <tr>
             <td>Comments</td>
             <td>
@@ -49,30 +52,105 @@
             </c:forEach>
             </td>
         </tr>
+        </c:if>
+        <!--Display Comments-->
         </tbody>
     </table>
-<div class="container">
-    <form action="AddComment" method="POST">
-        <div class="row">
-            <div class="form-group">
-                <label for="commentContent" class="col-sm-2 control-label">Add comment</label>
-                <div class="col-sm-5">
-                    <div class="input-group">
-                        <textarea class="form-control custom-control" name="commentContent" rows="3" cols="50" style="resize:none" id="commentContent" placeholder="Add a comment..."></textarea>
+
+
+<c:if test="${user.isStaff() && current.getState().compareTo(\"New\") == 0}">
+    <!--Start work on issue-->
+    <div class="container">
+        <!--TODO set this so it goes to the right place-->
+        <form action="ChangeIssueState" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="In-Progress"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Set to in progress</button>
                     </div>
                 </div>
             </div>
-        </div>
-        <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
-        <div class="row">
-            <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-10">
-                    <button type="submit" class="btn btn-default">Add comment</button>
+        </form>
+    </div>
+    <!--Start work on issue-->
+</c:if>
+
+<c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
+    <!--Propose solution-->
+    <div class="container">
+        <!--TODO set this so it goes to the right place-->
+        <form action="ChangeIssueState" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="Complete"/>
+            <div class="row">
+                <div class="form-group">
+                    <label for="solution" class="col-sm-2 control-label">Propose Solution</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <textarea class="form-control custom-control" name="solution" rows="3" cols="50" style="resize:none" id="solution" placeholder="Propose a solution..."></textarea>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Propose solution</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Propose solution-->
+</c:if>
+
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"Completed\") == 0 || current.getState().compareTo(\"Resolved\") == 0)}">
+    <!--Knowledge base-->
+    <div class="container">
+        <!--TODO set this so it goes to the right place-->
+        <form action="ChangeIssueState" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="KnowledgeBase"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Add to knowledge base</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Knowledge base-->
+</c:if>
+
+<c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
+<!-- adding comments-->
+    <div class="container">
+        <form action="AddComment" method="POST">
+            <div class="row">
+                <div class="form-group">
+                    <label for="commentContent" class="col-sm-2 control-label">Add comment</label>
+                    <div class="col-sm-5">
+                        <div class="input-group">
+                            <textarea class="form-control custom-control" name="commentContent" rows="3" cols="50" style="resize:none" id="commentContent" placeholder="Add a comment..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Add comment</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+<!-- adding comments-->
+</c:if>
 
 
 <jsp:include page="includes/bootStrapCoreJS.jsp" />

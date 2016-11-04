@@ -31,7 +31,7 @@ public class KnowledgeBase extends HttpServlet{
         //build list
         issues = new ArrayList<>();
 
-        String query = "SELECT * FROM Issue";
+        String query = "SELECT * FROM Issue WHERE state='knowledge base'";
         Database database = new Database();
         issues = database.getIssues(query);
 
@@ -42,12 +42,6 @@ public class KnowledgeBase extends HttpServlet{
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //copied this shit from uonSales
-
-        // The user has come here by mistake.
-        // It is possible that they have tried logging in after trying to buy an item and being shown the error message
-        // Is this a valid assumption? if not you might need to do something else here
         doPost(request, response);
     }
-
 }

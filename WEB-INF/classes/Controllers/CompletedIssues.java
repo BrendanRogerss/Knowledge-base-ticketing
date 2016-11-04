@@ -30,7 +30,7 @@ public class CompletedIssues extends HttpServlet{
 
         issues = new ArrayList<>();
 
-        String query = "SELECT * FROM Issues WHERE status == complete";
+        String query = "SELECT * FROM Issues WHERE state='complete'";
         Database database = new Database();
         issues = database.getIssues(query);
 
