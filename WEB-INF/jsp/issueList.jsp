@@ -40,7 +40,7 @@
                                 <c:when test="${!current.getState().equals('KnowledgeBase')}">
                                     <c:choose>
                                         <c:when test="${current.getState().equals('Completed')}">
-                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&issueList=true"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&path=issueList"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
                                         </c:when>
                                         <c:otherwise>
                                             <td><img src="resources/yellow-exclamation-mark.jpg" width="22" height="22" /></td>
@@ -48,7 +48,7 @@
                                     </c:choose>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&issueList=true"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&path=issueList"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
                                 </c:otherwise>
                             </c:choose>
                         </c:when>
