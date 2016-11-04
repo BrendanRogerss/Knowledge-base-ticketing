@@ -21,8 +21,8 @@ import java.util.Date;
 /**
  * Created by Brendan on 19/10/2016.
  */
-@WebServlet(urlPatterns = {"/AddToknowledgeBase"})
-public class AddToKnowledgeBase extends HttpServlet {
+@WebServlet(urlPatterns = {"/ChangeIssueState"})
+public class ChangeIssueState extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -34,18 +34,16 @@ public class AddToKnowledgeBase extends HttpServlet {
             return;
         }
 
-        String issueID = request.getParameter("issueID");
-
         try { //get all the comments
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
-            String query = "UPDATE Issue SET state = 'knowledgeBase' WHERE issueID = ?";
+            String query = "UPDATE Issue SET state = ? WHERE issueID = ?";
             PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setString(1, issueID);
-
+            prepStatement.setString(1, request.getParameter("state"));
+            prepStatement.setString(2, request.getParameter("issueID"));
             prepStatement.executeUpdate();
             connection.close();
 
@@ -54,9 +52,6 @@ public class AddToKnowledgeBase extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ReportedIssues?issueID=" + request.getParameter("issueID")); //redirect back to homepage
-        dispatcher.forward(request, response); //might be better off redirecting back to issue list
         response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues?issueID=" + request.getParameter("issueID"));
     }
 

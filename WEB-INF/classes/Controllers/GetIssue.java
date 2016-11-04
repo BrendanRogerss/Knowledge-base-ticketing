@@ -44,39 +44,38 @@ public class GetIssue extends HttpServlet{
         Issue issue = issues.get(0);
 
 
-        //System.out.println("after get isssue query");
-        try{ //get all the comments
-           // System.out.println("before comment query");
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
+        if(!issue.getState().equals("knowledgeBase")){
+            try{ //get all the comments
+                javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                        InitialContext().lookup("java:/comp/env/SENG2050");
 
-            Connection connection = datasource.getConnection();
-            Statement statement = connection.createStatement();
-            query = "SELECT * FROM UserComment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
-            ResultSet result = statement.executeQuery(query);
+                Connection connection = datasource.getConnection();
+                Statement statement = connection.createStatement();
+                query = "SELECT * FROM UserComment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
+                ResultSet result = statement.executeQuery(query);
 
-            while(result.next()) {
-                Comment comment = new Comment();
-                comment.setCommentID(result.getInt(1));
-                comment.setSubmissionDateTime(formatDate(result.getString(2)));
-                comment.setContent(result.getString(3));
-                comment.setUsername(result.getString(4));
-                comment.setIssueID(result.getInt(5));
-                comments.add(comment);
+                while(result.next()) {
+                    Comment comment = new Comment();
+                    comment.setCommentID(result.getInt(1));
+                    comment.setSubmissionDateTime(formatDate(result.getString(2)));
+                    comment.setContent(result.getString(3));
+                    comment.setUsername(result.getString(4));
+                    comment.setIssueID(result.getInt(5));
+                    comments.add(comment);
+                }
+
+                connection.close();
+                result.close();
+
+                issue.setComments(comments);
+                request.setAttribute("issue", issue); //pass the issue into the database
+
+            }catch (Exception e) {
+                String error = "Something went wrong in Get Issue:"; //set an error
+                request.setAttribute("error", error+e.getMessage());
             }
-
-            connection.close();
-            result.close();
-
-            issue.setComments(comments);
-            request.setAttribute("issue", issue); //pass the issue into the database
-
-            //System.out.println("after comment issue");
-
-        }catch (Exception e) {
-            String error = "Something went wrong in Get Issue:"; //set an error
-            request.setAttribute("error", error+e.getMessage());
         }
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewIssue.jsp"); //redirect back to homepage
         dispatcher.forward(request, response); //might be better off redirecting back to issue list
     }

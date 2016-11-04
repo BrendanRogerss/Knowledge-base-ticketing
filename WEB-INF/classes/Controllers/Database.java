@@ -83,6 +83,7 @@ public class Database {
             Connection connection = datasource.getConnection();
             Statement statement = connection.createStatement();
             result = statement.executeQuery(q);
+
         }catch (Exception e){
             //TODO: add something in here
         }
