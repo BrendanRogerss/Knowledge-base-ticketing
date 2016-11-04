@@ -57,6 +57,9 @@ public class ChangeIssueState extends HttpServlet {
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID")); //redirect back to homepage
             dispatcher.forward(request, response); //might be better off redirecting back to issue list
         }
+        else if (request.getParameter("issueList").equals("true")){
+            response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
+        }
         else
             response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID=" + request.getParameter("issueID"));
     }

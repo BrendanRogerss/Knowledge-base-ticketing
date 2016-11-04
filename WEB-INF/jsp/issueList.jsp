@@ -17,6 +17,7 @@
                 <td>Category</td>
                 <td>Date</td>
                 <td>User</td>
+                <td>Add to Knowledge Base</td>
             </tr>
             </thead>
             <tbody>
@@ -27,6 +28,14 @@
                     <td><c:out value="${current.getCategory()}"/></td>
                     <td><c:out value="${current.getReportedDateTime()}"/></td>
                     <td><c:out value="${current.getUsername()}"/></td>
+                    <c:choose>
+                        <c:when test="${!current.getState().equals('KnowledgeBase')}">
+                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&issueList=true"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&issueList=true"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                        </c:otherwise>
+                    </c:choose>
                 </tr>
             </c:forEach>
             </tbody>
