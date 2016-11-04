@@ -52,7 +52,7 @@ public class ChangeIssueState extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-        if(request.getParameter("state").equals("Complete")) {
+        if(request.getParameter("state").equals("Completed")) {
 
             //TODO need to the add comment, given by parameter "solution". Not sure if AddComment?issueID is how we handle this idk
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID"));
