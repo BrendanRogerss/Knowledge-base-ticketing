@@ -28,6 +28,7 @@
                 <c:choose>
                     <c:when test="${user.isStaff()}">
                         <li><a href="ReportedIssues">View Reported Issues</a></li>
+                        <li><a href="CompletedIssues">View Completed Issues</a></li>
                     </c:when>
                     <c:otherwise>
                         <li><a href="ReportedIssues">View Current Issues</a></li>

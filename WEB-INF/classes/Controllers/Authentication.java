@@ -79,7 +79,7 @@ public class Authentication extends HttpServlet {
         }
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);
-            user.setType(dbType); //TODO: get and set the type of user in database and shit
+            user.setType(dbType);
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
         }

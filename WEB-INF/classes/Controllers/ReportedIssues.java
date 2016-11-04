@@ -30,7 +30,6 @@ public class ReportedIssues extends HttpServlet{
         issues = new ArrayList<>();
         //String userID = user.getUsername();
 
-        //TODO: change selection if either staff or user
         String query;
         if(user.isStaff()){
             query = "SELECT * FROM Issue";

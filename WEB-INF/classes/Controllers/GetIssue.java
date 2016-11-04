@@ -92,5 +92,4 @@ public class GetIssue extends HttpServlet{
         Date date = dateFormat.parse(str);
         return date;
     }
-
 }
