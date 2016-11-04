@@ -60,7 +60,8 @@ public class GetIssue extends HttpServlet{
                     comment.setSubmissionDateTime(formatDate(result.getString(2)));
                     comment.setContent(result.getString(3));
                     comment.setUsername(result.getString(4));
-                    comment.setIssueID(result.getInt(5));
+                    comment.setCommentType(result.getString(5));
+                    comment.setIssueID(result.getInt(6));
                     comments.add(comment);
                 }
 

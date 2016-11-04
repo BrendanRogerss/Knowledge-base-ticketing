@@ -19,6 +19,10 @@
             <td><c:out value="${current.getIssueID()}"/></td>
         </tr>
         <tr>
+            <td>Issue #</td>
+            <td><c:out value="${current.getTitle()}"/></td>
+        </tr>
+        <tr>
             <td>Status</td>
             <td><c:out value="${current.getState()}"/></td>
         </tr>
@@ -46,15 +50,15 @@
             <td>
             <c:forEach var="currentComment" items="${current.getComments()}">
                 <c:choose>
-                    <c:when test="${currentComment.getCommentType.compareTo(\"Accepted\") == 0}">
+                    <c:when test="${currentComment.getCommentType().compareTo(\"Accepted\") == 0}">
                 <div class="panel panel-success">
 
                     </c:when>
-                        <c:when test="${currentComment.getCommentType.compareTo(\"Proposed\") == 0}">
+                        <c:when test="${currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
                 <div class="panel panel-info">
 
                     </c:when>
-                        <c:when test="${currentComment.getCommentType.compareTo(\"Rejected\") == 0}">
+                        <c:when test="${currentComment.getCommentType().compareTo(\"Rejected\") == 0}">
                 <div class="panel panel-danger">
 
                     </c:when>
@@ -64,8 +68,21 @@
                 </c:choose>
                     <div class="panel-heading">
                         User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
-                        <c:if test="${user.getUsername().compareTo(current.getUsername()) && currentComment.getCommentType.compareTo(\"Proposed\") == 0}">
-
+                        <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
+                            <div class="container">
+                                <!--TODO set this so it goes to the right place-->
+                                <form action="ChangeCommentType" method="POST">
+                                    <input type="hidden" name="commentID" value="<c:out value="${currentComment.getCommentID()}"/>"/>
+                                    <div class="row">
+                                        <div class="form-group">
+                                            <div class="col-sm-offset-2 col-sm-10">
+                                                <button type="submit" name="commentType" value="Accepted" class="btn btn-default">Accept</button>
+                                                <button type="submit" name="commentType" value="Rejected" class="btn btn-default">Reject</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </c:if>
                     </div>
                     <div class="panel-body"><c:out value="${currentComment.getContent()}"/> </div>
@@ -150,6 +167,8 @@
 <!-- adding comments-->
     <div class="container">
         <form action="AddComment" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="commentType" value="Comment"/>
             <div class="row">
                 <div class="form-group">
                     <label for="commentContent" class="col-sm-2 control-label">Add comment</label>
@@ -160,7 +179,6 @@
                     </div>
                 </div>
             </div>
-            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">

@@ -61,8 +61,8 @@ public class AddComment extends HttpServlet{
             prepStatement.setString(2, stringDate);
             prepStatement.setString(3, request.getParameter("commentContent"));
             prepStatement.setString(4, request.getParameter("commentType"));
-            prepStatement.setString(4, user.getUsername());
-            prepStatement.setString(5, request.getParameter("issueID"));
+            prepStatement.setString(5, user.getUsername());
+            prepStatement.setString(6, request.getParameter("issueID"));
 
             prepStatement.executeUpdate();
             System.out.println("add comment end");

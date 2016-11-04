@@ -52,10 +52,11 @@ public class ChangeIssueState extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-        if(request.getParameter("state").equals("complete")) {
+        if(request.getParameter("state").equals("Complete")) {
 
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID")); //redirect back to homepage
-            dispatcher.forward(request, response); //might be better off redirecting back to issue list
+            //TODO need to the add comment, given by parameter "solution". Not sure if AddComment?issueID is how we handle this idk
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID"));
+            dispatcher.forward(request, response);
         }
         else if (request.getParameter("issueList").equals("true")){
             response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
