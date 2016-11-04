@@ -34,7 +34,7 @@ public class Authentication extends HttpServlet {
         }
 
         HttpSession session = request.getSession();
-        String statement, redirectLocation = "/index.jsp";
+        String statement, redirectLocation = "index.jsp";
         String dbUsername = null, dbPassword = null;
         PreparedStatement prepStatement;
 
@@ -73,7 +73,8 @@ public class Authentication extends HttpServlet {
         if((dbUsername == null || dbPassword == null) || !user.getPassword().equals(dbPassword))
         {
             user.setLoggedIn(false);
-            redirectLocation = "/index.jsp";
+            redirectLocation = "index.jsp";
+            request.setAttribute("error", "Incorrect credentials"); //Doesnt work with redirects
         }
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);

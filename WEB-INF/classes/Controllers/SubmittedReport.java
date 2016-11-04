@@ -81,6 +81,8 @@ public class SubmittedReport extends HttpServlet {
             connection.close();
             rs.close();
 
+            request.setAttribute("success", "Successfully submitted report number "+(numOfIssues+1));
+
         } catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
@@ -90,7 +92,7 @@ public class SubmittedReport extends HttpServlet {
         }
 
         //TODO: Work out where to redirect
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/index.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
     }

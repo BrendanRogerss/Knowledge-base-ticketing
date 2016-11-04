@@ -1,4 +1,5 @@
 <%@ taglib prefix="utils" uri="/WEB-INF/jsp/utils.tld" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -30,6 +31,12 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
+<c:if test="${requestScope.error != null}">
+    <div class="alert alert-danger">
+        <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+        <strong>Error!</strong> <c:out value="${requestScope.error}"/>
+    </div>
+</c:if>
 
 <div class="container">
     <div class="starter-template">
