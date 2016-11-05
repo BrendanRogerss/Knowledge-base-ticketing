@@ -58,8 +58,7 @@ public class Database {
                 issue.setResolvedDateTime(result.getString(15));
                 issue.setUsername(result.getString(16));
 
-
-                issue.setNotification(false);
+                issue.setNotification(checkIssueNotifications(result.getInt(1)));
 
                 issues.add(issue);
                 // System.out.println("end of loop");
@@ -242,6 +241,30 @@ public class Database {
         } catch (Exception e) {
             System.out.println("updating resolved time: "+e.getMessage());
         }
+    }
+
+    public boolean checkIssueNotifications(int issueID){
+        String queryString = "SELECT COUNT(*) FROM Notification WHERE issueID = '" + issueID + "' " +
+                "AND seen = false";
+        boolean check = false;
+        //read all from result set. set notification object and add to list
+        try {
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(queryString);
+
+            if(rs.next() && rs.getInt(1) > 0)
+                check = true;
+            else check = false;
+            rs.close();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return check;
     }
 
 
