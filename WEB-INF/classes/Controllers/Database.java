@@ -148,7 +148,7 @@ public class Database {
         //get user object
         User user = (User) session.getAttribute("user");
         //setup query
-        String queryString = "SELECT * from Notification WHERE seen = false AND username = " + user.getUsername();
+        String queryString = "SELECT * from Notification WHERE seen = false AND username = '" + user.getUsername() + "'";
 
         //read all from result set. set notification object and add to list
         try {

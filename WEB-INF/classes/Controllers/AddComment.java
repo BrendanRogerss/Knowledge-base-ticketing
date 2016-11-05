@@ -80,7 +80,7 @@ public class AddComment extends HttpServlet{
             connection.close();
             result.close();
 
-            if(user.isStaff() && request.getParameter("commentType").equals("comment")){ //notification needs to be set
+            if(user.isStaff() && request.getParameter("commentType").equals("Comment")){ //notification needs to be set
                 String content = "Waiting on Reporter";
                 String username = user.getUsername();
                 Notification notification = new Notification();

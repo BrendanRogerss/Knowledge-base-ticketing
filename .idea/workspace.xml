@@ -5,7 +5,6 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" afterPath="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java" afterPath="$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java" afterPath="$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java" />
     </list>
     <ignored path="Assignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,13 +29,15 @@
       <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+            <state relative-caret-position="222">
+              <caret line="150" column="119" selection-start-line="150" selection-start-column="119" selection-end-line="150" selection-end-column="119" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#5189#5203#0" expanded="true" />
-                <marker date="1478330696986" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
-                <marker date="1478330696986" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+                <marker date="1478331676670" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
+                <marker date="1478331676670" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+                <marker date="1478331676670" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
+                <marker date="1478331676670" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
               </folding>
             </state>
           </provider>
@@ -82,20 +83,10 @@
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="222">
-              <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+              <caret line="53" column="67" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
               <folding>
-                <marker date="1478328600018" expanded="true" signature="1825:1927" ph="SELECT usern... Users" />
+                <marker date="1478331222844" expanded="true" signature="1825:1927" ph="SELECT usern... Users" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Contact.class" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Contact.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -113,11 +104,11 @@
       <file leaf-file-name="AddComment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-990">
-              <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+            <state relative-caret-position="183">
+              <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
               <folding>
-                <marker date="1478329529041" expanded="true" signature="1848:1880" ph="SELECT COUNT... UserComment" />
-                <marker date="1478329529041" expanded="true" signature="2108:2157" ph="INSERT INTO UserComment... " />
+                <marker date="1478331475740" expanded="true" signature="1848:1880" ph="SELECT COUNT... UserComment" />
+                <marker date="1478331475740" expanded="true" signature="2108:2157" ph="INSERT INTO UserComment... " />
               </folding>
             </state>
           </provider>
@@ -126,11 +117,14 @@
       <file leaf-file-name="GetIssue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
+            <state relative-caret-position="340">
+              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#3712#3742#1" expanded="true" />
+                <element signature="e#4026#4056#1" expanded="true" />
+                <marker date="1478331222862" expanded="true" signature="1437:1490" ph="SELECT * FRO... Issue" />
+                <marker date="1478331222862" expanded="true" signature="1902:2042" ph="SELECT * FRO... UserComment" />
+                <marker date="1478331222862" expanded="true" signature="2101:2160" ph="SELECT * FRO... UserComment" />
               </folding>
             </state>
           </provider>
@@ -199,8 +193,8 @@
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
-        <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java" />
+        <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java" />
       </list>
     </option>
@@ -489,7 +483,12 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/jsp/reportIssue.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/css/style.css</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -1027,7 +1026,7 @@
       <updated>1476875898008</updated>
       <workItem from="1476923194082" duration="6293000" />
       <workItem from="1478054534212" duration="47951000" />
-      <workItem from="1478266128588" duration="18412000" />
+      <workItem from="1478266128588" duration="19385000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476927390649</created>
@@ -1204,11 +1203,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478328911713</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="DEAL WITH THIS BACK END BOYS">
+      <created>1478330758273</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1478330758273</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="72656000" />
+    <option name="totallyTimeSpent" value="73629000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1305,7 +1311,8 @@
     <MESSAGE value="really messed up header man" />
     <MESSAGE value="Fixed add/remove knowledge base redirections" />
     <MESSAGE value="Added notification badge to header" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added notification badge to header" />
+    <MESSAGE value="DEAL WITH THIS BACK END BOYS" />
+    <option name="LAST_COMMIT_MESSAGE" value="DEAL WITH THIS BACK END BOYS" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1361,7 +1368,10 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#3712#3742#1" expanded="true" />
+            <element signature="e#4026#4056#1" expanded="true" />
+            <marker date="1478331222862" expanded="true" signature="1437:1490" ph="SELECT * FRO... Issue" />
+            <marker date="1478331222862" expanded="true" signature="1902:2042" ph="SELECT * FRO... UserComment" />
+            <marker date="1478331222862" expanded="true" signature="2101:2160" ph="SELECT * FRO... UserComment" />
           </folding>
         </state>
       </provider>
@@ -1609,14 +1619,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="608">
-          <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="387">
@@ -1636,17 +1638,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990">
-          <caret line="43" column="9" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
-          <folding>
-            <marker date="1478329529041" expanded="true" signature="1848:1880" ph="SELECT COUNT... UserComment" />
-            <marker date="1478329529041" expanded="true" signature="2108:2157" ph="INSERT INTO UserComment... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Models/Issue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-369">
@@ -1658,23 +1649,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="58" column="13" selection-start-line="58" selection-start-column="13" selection-end-line="58" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#3712#3742#1" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="222">
-          <caret line="52" column="68" selection-start-line="52" selection-start-column="68" selection-end-line="52" selection-end-column="68" />
+          <caret line="53" column="67" selection-start-line="53" selection-start-column="67" selection-end-line="53" selection-end-column="67" />
           <folding>
-            <marker date="1478328600018" expanded="true" signature="1825:1927" ph="SELECT usern... Users" />
+            <marker date="1478331222844" expanded="true" signature="1825:1927" ph="SELECT usern... Users" />
           </folding>
         </state>
       </provider>
@@ -1687,15 +1667,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="608">
+          <caret line="155" column="41" selection-start-line="155" selection-start-column="41" selection-end-line="155" selection-end-column="41" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="340">
+          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4026#4056#1" expanded="true" />
+            <marker date="1478331222862" expanded="true" signature="1437:1490" ph="SELECT * FRO... Issue" />
+            <marker date="1478331222862" expanded="true" signature="1902:2042" ph="SELECT * FRO... UserComment" />
+            <marker date="1478331222862" expanded="true" signature="2101:2160" ph="SELECT * FRO... UserComment" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="82" column="78" selection-start-line="82" selection-start-column="78" selection-end-line="82" selection-end-column="78" />
+          <folding>
+            <marker date="1478331475740" expanded="true" signature="1848:1880" ph="SELECT COUNT... UserComment" />
+            <marker date="1478331475740" expanded="true" signature="2108:2157" ph="INSERT INTO UserComment... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="498">
-          <caret line="168" column="0" selection-start-line="168" selection-start-column="0" selection-end-line="168" selection-end-column="0" />
+        <state relative-caret-position="222">
+          <caret line="150" column="119" selection-start-line="150" selection-start-column="119" selection-end-line="150" selection-end-column="119" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#5189#5203#0" expanded="true" />
-            <marker date="1478330696986" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
-            <marker date="1478330696986" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+            <marker date="1478331676670" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
+            <marker date="1478331676670" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+            <marker date="1478331676670" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
+            <marker date="1478331676670" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
           </folding>
         </state>
       </provider>
