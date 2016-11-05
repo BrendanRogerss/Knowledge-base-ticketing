@@ -100,6 +100,23 @@
     </div>
     <!--Start work on issue-->
 </c:if>
+<c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
+    <!--Waiting on third party-->
+    <div class="container">
+        <form action="ChangeIssueState" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="Waiting on third party"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Wait on third party</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Waiting on third party-->
+</c:if>
 
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0)}">
     <!--Propose solution-->
