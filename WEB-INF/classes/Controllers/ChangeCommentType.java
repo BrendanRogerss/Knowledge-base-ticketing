@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
+import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -41,8 +42,11 @@ public class ChangeCommentType extends HttpServlet {
         database.changeCommentType(request.getParameter("commentID"), request.getParameter("commentType"));
 
         if(request.getParameter("commentType").equals("Rejected")) {
-
-            database.changeIssueState(request.getParameter("issueID"), "In-Progress");
+            String stateSet = "";
+            if(checkIfProposedComment(request.getParameter("issueID")))
+                stateSet = "Completed";
+            else stateSet = "In-Progress";
+            database.changeIssueState(request.getParameter("issueID"), stateSet);
         }
 
         else if(request.getParameter("commentType").equals("Accepted"))
@@ -60,6 +64,27 @@ public class ChangeCommentType extends HttpServlet {
     }
 
     private boolean checkIfProposedComment(String issueID){
+        String queryString = "SELECT COUNT(*) FROM UserComment WHERE issueID = '" + issueID + "' " +
+                "AND commentType = 'Proposed'";
+
+        boolean check = false;
+        //read all from result set. set notification object and add to list
+        try {
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(queryString);
+
+            if(rs.next() && rs.getInt(1) > 0)
+                check = true;
+            else check = false;
+            rs.close();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
         return true;
     }
 
