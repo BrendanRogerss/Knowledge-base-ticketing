@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
     </list>
     <ignored path="Assignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -378,9 +377,6 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -919,7 +915,7 @@
       <updated>1476875898008</updated>
       <workItem from="1476923194082" duration="6293000" />
       <workItem from="1478054534212" duration="47951000" />
-      <workItem from="1478266128588" duration="27900000" />
+      <workItem from="1478266128588" duration="27938000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476927390649</created>
@@ -1145,11 +1141,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478341625462</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="viewIssue fix">
+      <created>1478342116237</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1478342116237</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82144000" />
+    <option name="totallyTimeSpent" value="82182000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1162,7 +1165,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2374477" sideWeight="0.49707174" order="6" side_tool="false" content_ui="tabs" />
@@ -1173,7 +1176,7 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18514644" sideWeight="0.453125" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3541226" sideWeight="0.546875" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3541226" sideWeight="0.546875" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -1223,7 +1226,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added homepage controller&#10;" />
     <MESSAGE value="added sql shit" />
     <MESSAGE value="Maybe made names in report form match up" />
     <MESSAGE value="Comments are working now kinda!" />
@@ -1248,7 +1250,8 @@
     <MESSAGE value="notification img + more" />
     <MESSAGE value="FIXED STUPID FORM" />
     <MESSAGE value="Knowledge Base allows only resolved issues now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Knowledge Base allows only resolved issues now" />
+    <MESSAGE value="viewIssue fix" />
+    <option name="LAST_COMMIT_MESSAGE" value="viewIssue fix" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1497,11 +1500,11 @@
           <caret line="111" column="46" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5189#5203#0" expanded="true" />
-            <marker date="1478341958538" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
-            <marker date="1478341958538" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
-            <marker date="1478341958538" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
-            <marker date="1478341958538" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
+            <element signature="e#5237#5251#0" expanded="true" />
+            <marker date="1478342132965" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
+            <marker date="1478342132965" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+            <marker date="1478342132965" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
+            <marker date="1478342132965" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
           </folding>
         </state>
       </provider>
