@@ -54,8 +54,8 @@ public class Database {
                 issue.setComputerRestart(result.getBoolean(11));
                 issue.setErrorMessage(result.getString(12));
                 issue.setResolutionDetails(result.getString(13));
-                issue.setReportedDateTime(formatDate(result.getString(14)));
-                issue.setResolvedDateTime(formatDate(result.getString(15)));
+                issue.setReportedDateTime(result.getString(14));
+                issue.setResolvedDateTime(result.getString(15));
                 issue.setUsername(result.getString(16));
 
                 issues.add(issue);
@@ -92,11 +92,11 @@ public class Database {
 
 
 
-    private Date formatDate(String str) throws java.text.ParseException
+    /*private Date formatDate(String str) throws java.text.ParseException
     {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = dateFormat.parse(str);
         return date;
-    }
+    }*/
 
 }

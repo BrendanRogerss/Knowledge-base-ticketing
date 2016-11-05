@@ -21,8 +21,8 @@ public class Issue {
     private boolean computerRestart;
     private String errorMessage;
     private String resolutionDetails;
-    private Date reportedDateTime;
-    private Date resolvedDateTime;
+    private String reportedDateTime;
+    private String resolvedDateTime;
     private String username;
     ArrayList<Comment> comments = new ArrayList<>();
 
@@ -146,19 +146,19 @@ public class Issue {
         this.resolutionDetails = resolutionDetails;
     }
 
-    public Date getReportedDateTime() {
+    public String getReportedDateTime() {
         return reportedDateTime;
     }
 
-    public void setReportedDateTime(Date reportedDateTime) {
+    public void setReportedDateTime(String reportedDateTime) {
         this.reportedDateTime = reportedDateTime;
     }
 
-    public Date getResolvedDateTime() {
+    public String getResolvedDateTime() {
         return resolvedDateTime;
     }
 
-    public void setResolvedDateTime(Date resolvedDateTime) {
+    public void setResolvedDateTime(String resolvedDateTime) {
         this.resolvedDateTime = resolvedDateTime;
     }
 
