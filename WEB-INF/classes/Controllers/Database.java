@@ -121,6 +121,7 @@ public class Database {
             rs.close();
         } catch (Exception e) {
             //TODO: Do we have to handle errors in the database class?
+            System.out.println(e.getMessage());
         }
     }
 
@@ -194,6 +195,7 @@ public class Database {
             connection.close();
 
         } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
