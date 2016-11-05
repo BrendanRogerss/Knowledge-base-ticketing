@@ -67,9 +67,9 @@ public class ChangeIssueState extends HttpServlet {
 
             //TODO need to the add comment, given by parameter "solution". Not sure if AddComment?issueID is how we handle this idk
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID"));
-            dispatcher.forward(request, response);
             request.setAttribute("commentContent", request.getParameter("commentContent"));
             request.setAttribute("commentType", request.getParameter("commentType"));
+            dispatcher.forward(request, response);
         }
         else if (request.getParameter("issueList") != null){
             response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
