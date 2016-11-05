@@ -38,6 +38,24 @@ function validateReportIssue(){
         alert("Please select an option for restarting computer.");
         return false;
     }
+    else if (document.getElementById('description').value == ""){ //If a description is not input.
+        alert("Please enter a description.");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
+function validateComment(){
+    if (document.getElementById('commentContent').value == ""){ //If a comment is not input.
+        alert("Please enter a comment.");
+        return false;
+    }
+    else if (document.getElementById('commentContent').value.length > 1000){ //If the comment is greater than 1000 characters.
+        alert("Comment must be under 1000 characters.");
+        return false;
+    }
     else{
         return true;
     }
