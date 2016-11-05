@@ -76,6 +76,7 @@
                                             <div class="col-sm-offset-2 col-sm-10">
                                                 <button type="submit" name="commentType" value="Accepted" class="btn btn-default">Accept</button>
                                                 <button type="submit" name="commentType" value="Rejected" class="btn btn-default">Reject</button>
+
                                             </div>
                                         </div>
                                     </div>
