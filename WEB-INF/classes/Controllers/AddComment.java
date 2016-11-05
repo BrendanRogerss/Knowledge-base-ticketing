@@ -38,10 +38,11 @@ public class AddComment extends HttpServlet{
             return;
         }
 
+        /*
         if(!validateForm(request)) {
             response.sendRedirect("HomePage");
             return;
-        }
+        }*/
 
         String issueID = request.getParameter("issueID");
         int numOfComments = 0;
