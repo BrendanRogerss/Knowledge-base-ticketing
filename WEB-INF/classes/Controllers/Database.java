@@ -1,6 +1,8 @@
 package Controllers;
 
 import Models.Issue;
+import Models.Notification;
+import com.sun.tools.corba.se.idl.constExpr.Not;
 
 import javax.naming.InitialContext;
 import java.sql.Connection;
@@ -88,5 +90,9 @@ public class Database {
             //TODO: add something in here
         }
         return result;
+    }
+
+    public void addNotification(Notification notification){
+
     }
 }

@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
+import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -78,6 +79,20 @@ public class AddComment extends HttpServlet{
 
             connection.close();
             result.close();
+
+            if(user.isStaff() && request.getParameter("commentType").equals("comment")){ //notification needs to be set
+                String content = "Waiting on Reporter";
+                String username = user.getUsername();
+                Notification notification = new Notification();
+                notification.setContent(content);
+                notification.setIssueID(Integer.parseInt(issueID));
+                notification.setUsername(username);
+
+                Database database = new Database();
+                database.addNotification(notification);
+            }
+
+
 
         }catch (Exception e) {
             String error = "Something went wrong when adding comment: "; //set an error
