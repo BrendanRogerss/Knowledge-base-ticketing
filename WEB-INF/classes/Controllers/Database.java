@@ -126,7 +126,7 @@ public class Database {
 
     public void setNotificationToSeen(Notification notification){
         try {
-            String query = "UPDATE notification SET seen = ? WHERE notification = ?";
+            String query = "UPDATE Notification SET seen = ? WHERE notification = ?";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
