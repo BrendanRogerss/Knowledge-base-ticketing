@@ -48,7 +48,7 @@
     </div><!-- /.container -->
 
     <div class="container">
-        <form action="Authentication" method="POST">
+        <form name="loginForm" action="Authentication" method="POST">
             <div class="row">
                 <div class="form-group center-block col-md-4" style="float: none">
                     <label for="user">Username</label>
@@ -60,11 +60,12 @@
                     <label for="password">Password</label>
                     <input type="password" class="form-control" id="password" placeholder="Password" name="password">
                 </div>
-                <button type="submit" class="btn btn-default center-block col-md-2" style="float: none">Login</button>
+                <button type="submit" class="btn btn-default center-block col-md-2" style="float: none" onclick="return validateLogin()">Login</button>
             </div>
         </form>
     </div>
 
     <jsp:include page="WEB-INF/jsp/includes/bootStrapCoreJS.jsp" />
+    <script src="js/validate.js"></script>
 </body>
 </html>
