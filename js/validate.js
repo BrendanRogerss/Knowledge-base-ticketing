@@ -1,6 +1,4 @@
 function validate() {
-    var reEmail = /^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
-    //Retrieved from: http://stackoverflow.com/questions/46155/validate-email-address-in-javascript
     var reURL = /^(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?$/;
     //Retrieved from: http://stackoverflow.com/questions/1303872/trying-to-validate-url-using-javascript
     if (document.adForm.channelCategory.value == "select"){ //If a category is not selected.
@@ -35,4 +33,8 @@ function validate() {
     else{ //Otherwise, submit.
         return true;
     }
+}
+
+function validateLogin(){
+
 }

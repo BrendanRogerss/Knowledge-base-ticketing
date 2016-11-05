@@ -35,7 +35,7 @@
     <div class="container">
         <div class="starter-template">
             <h1>Contact us</h1>
-            <p class="lead" style="margin-top: 2em">Brendan Rogers - 3208972</p>
+            <p class="lead" style="margin-top: 2em">Brendan Rogers - c3208972</p>
             <p class="lead" style="margin-top: 2em">Daniel McKinnell - c3234953</p>
             <p class="lead" style="margin-top: 2em">Jack Newley - c3206280</p>
             <p class="lead" style="margin-top: 2em">James Arthur - c3203500</p>

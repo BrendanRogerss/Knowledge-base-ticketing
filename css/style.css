@@ -68,3 +68,7 @@ body {
 .label-info {
     margin-right: 1em;
 }
+
+tr, td {
+    text-align: center;
+}

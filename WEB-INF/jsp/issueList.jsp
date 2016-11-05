@@ -125,7 +125,15 @@
             <tbody>
             <c:forEach var="current" items="${requestScope.list}">
                 <tr>
-                    <td><span class="label label-info">New</span><a style="font-weight: bold" href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                    <c:choose>
+                        <c:when test="${current.getUsername().equals(user.username) && current.hasNotification()}">
+                            <td><span class="label label-info">New</span><a style="font-weight: bold" href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                        </c:when>
+                        <c:otherwise>
+                            <td><a style="font-weight: bold" href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                        </c:otherwise>
+                    </c:choose>
+
                     <td><c:out value="${current.getTitle()}"/></td>
                     <td><c:out value="${current.getState()}"/></td>
                     <td><c:out value="${current.getCategory()}"/></td>
