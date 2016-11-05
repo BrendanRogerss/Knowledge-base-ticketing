@@ -37,6 +37,7 @@ public class GetIssue extends HttpServlet{
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
+
         //get issue id from request
         String issueID = request.getParameter("issueID");
         ArrayList<Comment> comments = new ArrayList<>();
@@ -48,60 +49,68 @@ public class GetIssue extends HttpServlet{
         Issue issue = issues.get(0);
 
 
-        if(!issue.getState().equals("KnowledgeBase")){
-            try{ //get all the comments
-                javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                        InitialContext().lookup("java:/comp/env/SENG2050");
+        //get all comments associated with that issue
+        try{
 
-                Connection connection = datasource.getConnection();
-                Statement statement = connection.createStatement();
-                query = "SELECT * FROM UserComment WHERE issueID = '"+issueID+"'"; //query for all the comments for that issue
-                ResultSet result = statement.executeQuery(query);
+            ResultSet result = null;
+            if(issue.getState().equals("KnowledgeBase")){
+                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID +
+                        "' AND commentType = 'Accepted'";
+            }
+            else{//get all the comments
+                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'"; //query for all the comments for that issue
+                result = database.query(query);
+            }
 
-                while(result.next()) {
-                    Comment comment = new Comment();
-                    comment.setCommentID(result.getInt(1));
-                    comment.setSubmissionDateTime(formatDate(result.getString(2)));
-                    comment.setContent(result.getString(3));
-                    comment.setCommentType(result.getString(4));
-                    comment.setUsername(result.getString(5));
-                    comment.setIssueID(result.getInt(6));
-                    comments.add(comment);
-                }
-
-                connection.close();
-                result.close();
-
-                issue.setComments(comments);
-
-                //check if the person requesting the issue has permission
-                if(user.getUsername() != issue.getUsername() && !user.isStaff() && !issue.getState().equals("knowledgeBase")){
-                    request.getSession().setAttribute("error", "Permission not valid for the issue");
-                    response.sendRedirect("HomePage");
-                    return;
-                }
+            result = database.query(query);
+            if(issue.getState().equals("KnowledgeBase") && !result.next()) {
+                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID +
+                        "' AND commentType = 'Proposed'";
+                result = database.query(query);
+            }
 
 
-                request.setAttribute("issue", issue); //pass the issue into the database
+            while(result.next()) {
+                Comment comment = new Comment();
+                comment.setCommentID(result.getInt(1));
+                comment.setSubmissionDateTime(formatDate(result.getString(2)));
+                comment.setContent(result.getString(3));
+                comment.setCommentType(result.getString(4));
+                comment.setUsername(result.getString(5));
+                comment.setIssueID(result.getInt(6));
+                comments.add(comment);
+            }
 
-                //check if the user has a notification associated with this issue
-                @SuppressWarnings("unchecked") //unsafe casting
-                ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
-                //check if notifications have been set TODO shouldnt need this if statement
-                if(notifications!= null) {
-                    for (Notification notification : notifications) {
-                        if (notification.getIssueID() == issue.getIssueID()) {
-                            notification.setSeen(true);
-                            database.setNotificationToSeen(notification);
-                            break;
-                        }
+            result.close();
+
+            issue.setComments(comments);
+
+            //check if the person requesting the issue has permission
+            if(user.getUsername() != issue.getUsername() && !user.isStaff() && !issue.getState().equals("knowledgeBase")){
+                request.getSession().setAttribute("error", "Permission not valid for the issue");
+                response.sendRedirect("HomePage");
+                return;
+            }
+
+            request.setAttribute("issue", issue); //pass the issue into the database
+
+            //check if the user has a notification associated with this issue
+            @SuppressWarnings("unchecked") //unsafe casting
+            ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
+            //check if notifications have been set TODO shouldnt need this if statement
+            if(notifications!= null) {
+                for (Notification notification : notifications) {
+                    if (notification.getIssueID() == issue.getIssueID()) {
+                        notification.setSeen(true);
+                        database.setNotificationToSeen(notification);
+                        break;
                     }
                 }
-
-            }catch (Exception e) {
-                String error = "Something went wrong in Get Issue:"; //set an error
-                request.getSession().setAttribute("error", error+e.getMessage());
             }
+
+        }catch (Exception e) {
+            String error = "Something went wrong in Get Issue:"; //set an error
+            request.getSession().setAttribute("error", error+e.getMessage());
         }
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/viewIssue.jsp"); //redirect back to homepage

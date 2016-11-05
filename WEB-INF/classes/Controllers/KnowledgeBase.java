@@ -37,7 +37,7 @@ public class KnowledgeBase extends HttpServlet{
 
         String sortString = request.getParameter("sortString");
         if (sortString == null) sortString = "state";
-        String query = "SELECT * FROM Issue WHERE state='KnowledgeBase' " +
+        String query = "SELECT * FROM Issue WHERE state = 'KnowledgeBase' " +
                 "ORDER BY " + sortString;
         Database database = new Database();
         issues = database.getIssues(query);
