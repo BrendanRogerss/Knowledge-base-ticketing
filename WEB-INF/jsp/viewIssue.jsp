@@ -73,6 +73,7 @@
                                 <!--TODO set this so it goes to the right place-->
                                 <form action="ChangeCommentType" method="POST">
                                     <input type="hidden" name="commentID" value="<c:out value="${currentComment.getCommentID()}"/>"/>
+                                    <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
                                     <div class="row">
                                         <div class="form-group">
                                             <div class="col-sm-offset-2 col-sm-10">
@@ -122,12 +123,13 @@
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Completed"/>
+            <input type="hidden" name="commentType" value="Proposed"/>
             <div class="row">
                 <div class="form-group">
-                    <label for="solution" class="col-sm-2 control-label">Propose Solution</label>
+                    <label for="commentContent" class="col-sm-2 control-label">Propose Solution</label>
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <textarea class="form-control custom-control" name="solution" rows="3" cols="50" style="resize:none" id="solution" placeholder="Propose a solution..."></textarea>
+                            <textarea class="form-control custom-control" name="commentContent" rows="3" cols="50" style="resize:none" placeholder="Propose a solution..."></textarea>
                         </div>
                     </div>
                 </div>

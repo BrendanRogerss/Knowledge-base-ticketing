@@ -34,7 +34,7 @@
                         <li><a href="ReportedIssues">View Current Issues</a></li>
                     </c:otherwise>
                 </c:choose>
-                <li><a href="index.jsp">Logout</a></li>
+                <li><a href="Logout">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
     </div>

@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/classes/Controllers/KnowledgeBase.class" afterPath="$PROJECT_DIR$/WEB-INF/classes/Controllers/KnowledgeBase.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java" afterPath="$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
     </list>
     <ignored path="Assignment.iws" />
@@ -26,18 +27,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CompletedIssues.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/CompletedIssues.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="544">
-              <caret line="33" column="43" selection-start-line="33" selection-start-column="43" selection-end-line="33" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="issueList.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
           <provider selected="true" editor-type-id="text-editor">
@@ -62,20 +51,20 @@
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="-51">
-              <caret line="58" column="73" selection-start-line="58" selection-start-column="73" selection-end-line="58" selection-end-column="73" />
+              <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
               <folding>
-                <marker date="1478253485072" expanded="true" signature="1499:1525" ph="SELECT COUNT... Issue" />
-                <marker date="1478253485072" expanded="true" signature="1866:1964" ph="INSERT INTO Issue... " />
+                <marker date="1478305588029" expanded="true" signature="1577:1603" ph="SELECT COUNT... Issue" />
+                <marker date="1478305588029" expanded="true" signature="1944:2042" ph="INSERT INTO Issue... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewIssue.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewIssue.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="243">
-              <caret line="123" column="62" selection-start-line="123" selection-start-column="62" selection-end-line="123" selection-end-column="62" />
+            <state relative-caret-position="207">
+              <caret line="60" column="103" selection-start-line="60" selection-start-column="103" selection-end-line="60" selection-end-column="103" />
               <folding>
                 <element signature="n#c:if#3;n#jsp:root#0;n#!!top" expanded="false" />
               </folding>
@@ -83,13 +72,36 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="ChangeCommentType.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="55" column="76" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
+            <state relative-caret-position="646">
+              <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
               <folding>
-                <marker date="1478265259778" expanded="true" signature="1303:1361" ph="UPDATE UserC... " />
+                <marker date="1478305588020" expanded="true" signature="1382:1440" ph="UPDATE UserC... " />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Authentication.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="426">
+              <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <marker date="1478305588015" expanded="true" signature="1727:1829" ph="SELECT usern... Users" />
               </folding>
             </state>
           </provider>
@@ -99,22 +111,9 @@
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="555">
-              <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
               <folding>
-                <marker date="1478304134419" expanded="true" signature="1301:1345" ph="UPDATE Issue... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Issue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Models/Issue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="901">
-              <caret line="68" column="26" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="26" />
-              <folding>
-                <element signature="e#865#866#0" expanded="true" />
-                <element signature="e#896#897#0" expanded="true" />
+                <marker date="1478305549328" expanded="true" signature="1379:1423" ph="UPDATE Issue... " />
               </folding>
             </state>
           </provider>
@@ -134,11 +133,11 @@
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="458">
-              <caret line="63" column="57" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
+              <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <marker date="1478265259779" expanded="true" signature="1220:1256" ph="SELECT * FRO... Issue" />
-                <marker date="1478265259779" expanded="true" signature="1898:1953" ph="SELECT * FRO... UserComment" />
+                <marker date="1478305549342" expanded="true" signature="1290:1326" ph="SELECT * FRO... Issue" />
+                <marker date="1478305549342" expanded="true" signature="1968:2023" ph="SELECT * FRO... UserComment" />
               </folding>
             </state>
           </provider>
@@ -188,13 +187,13 @@
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/CompletedIssues.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/KnowledgeBase.java" />
         <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
+        <option value="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
       </list>
     </option>
   </component>
@@ -482,10 +481,9 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/.idea/workspace.xml</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -493,10 +491,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="CREATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/minus.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/plus.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/tick.jpg</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/resources/yellow-exclamation-mark.jpg</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Logout.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Deleted" />
@@ -1019,7 +1014,7 @@
       <option name="presentableId" value="Default" />
       <updated>1476875898008</updated>
       <workItem from="1476923194082" duration="6293000" />
-      <workItem from="1478054534212" duration="50169000" />
+      <workItem from="1478054534212" duration="51831000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476927390649</created>
@@ -1168,11 +1163,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478265292448</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="OKFIXED">
+      <created>1478304356320</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1478304356320</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56462000" />
+    <option name="totallyTimeSpent" value="58124000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1247,7 +1249,8 @@
     <MESSAGE value="Changed ReportedIssue to Issue in a redirect in changestate" />
     <MESSAGE value="TBH i dont know what ive changed" />
     <MESSAGE value="Can accept reject now" />
-    <option name="LAST_COMMIT_MESSAGE" value="Can accept reject now" />
+    <MESSAGE value="OKFIXED" />
+    <option name="LAST_COMMIT_MESSAGE" value="OKFIXED" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1277,8 +1280,8 @@
         <state relative-caret-position="1054">
           <caret line="78" column="48" selection-start-line="78" selection-start-column="48" selection-end-line="78" selection-end-column="48" />
           <folding>
-            <marker date="1478253485072" expanded="true" signature="1499:1525" ph="SELECT COUNT... Issue" />
-            <marker date="1478253485072" expanded="true" signature="1866:1964" ph="INSERT INTO Issue... " />
+            <marker date="1478305588029" expanded="true" signature="1577:1603" ph="SELECT COUNT... Issue" />
+            <marker date="1478305588029" expanded="true" signature="1944:2042" ph="INSERT INTO Issue... " />
           </folding>
         </state>
       </provider>
@@ -1433,9 +1436,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="487">
           <caret line="33" column="66" selection-start-line="33" selection-start-column="66" selection-end-line="33" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1447,29 +1448,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1377">
-          <caret line="81" column="9" selection-start-line="81" selection-start-column="9" selection-end-line="81" selection-end-column="9" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <marker date="1478253485039" expanded="true" signature="1651:1753" ph="SELECT usern... Users" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/css/style.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="538">
           <caret line="56" column="29" selection-start-line="56" selection-start-column="29" selection-end-line="56" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="25" column="63" selection-start-line="25" selection-start-column="63" selection-end-line="25" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -1487,9 +1469,9 @@
         <state relative-caret-position="598">
           <caret line="75" column="9" selection-start-line="75" selection-start-column="9" selection-end-line="75" selection-end-column="9" />
           <folding>
-            <marker date="1478262488685" expanded="true" signature="1515:1547" ph="SELECT COUNT... UserComment" />
-            <marker date="1478262488685" expanded="true" signature="1774:1819" ph="INSERT INTO UserComment... " />
-            <marker date="1478262488685" expanded="true" signature="1774:1823" ph="INSERT INTO UserComment... " />
+            <marker date="1478305549312" expanded="true" signature="1587:1619" ph="SELECT COUNT... UserComment" />
+            <marker date="1478305549312" expanded="true" signature="1846:1891" ph="INSERT INTO UserComment... " />
+            <marker date="1478305549312" expanded="true" signature="1846:1895" ph="INSERT INTO UserComment... " />
           </folding>
         </state>
       </provider>
@@ -1506,12 +1488,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Models/Issue.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="901">
-          <caret line="68" column="26" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="26" />
-          <folding>
-            <element signature="e#865#866#0" expanded="true" />
-            <element signature="e#896#897#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="1139">
+          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1526,21 +1505,11 @@
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
-          <caret line="63" column="57" selection-start-line="63" selection-start-column="57" selection-end-line="63" selection-end-column="57" />
+          <caret line="64" column="57" selection-start-line="64" selection-start-column="57" selection-end-line="64" selection-end-column="57" />
           <folding>
             <element signature="imports" expanded="true" />
-            <marker date="1478265259779" expanded="true" signature="1220:1256" ph="SELECT * FRO... Issue" />
-            <marker date="1478265259779" expanded="true" signature="1898:1953" ph="SELECT * FRO... UserComment" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="561">
-          <caret line="55" column="76" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
-          <folding>
-            <marker date="1478265259778" expanded="true" signature="1303:1361" ph="UPDATE UserC... " />
+            <marker date="1478305549342" expanded="true" signature="1290:1326" ph="SELECT * FRO... Issue" />
+            <marker date="1478305549342" expanded="true" signature="1968:2023" ph="SELECT * FRO... UserComment" />
           </folding>
         </state>
       </provider>
@@ -1556,9 +1525,9 @@
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="555">
-          <caret line="79" column="0" selection-start-line="79" selection-start-column="0" selection-end-line="79" selection-end-column="0" />
+          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
           <folding>
-            <marker date="1478304134419" expanded="true" signature="1301:1345" ph="UPDATE Issue... " />
+            <marker date="1478305549328" expanded="true" signature="1379:1423" ph="UPDATE Issue... " />
           </folding>
         </state>
       </provider>
@@ -1574,21 +1543,50 @@
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-51">
-          <caret line="58" column="73" selection-start-line="58" selection-start-column="73" selection-end-line="58" selection-end-column="73" />
+          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
           <folding>
-            <marker date="1478253485072" expanded="true" signature="1499:1525" ph="SELECT COUNT... Issue" />
-            <marker date="1478253485072" expanded="true" signature="1866:1964" ph="INSERT INTO Issue... " />
+            <marker date="1478305588029" expanded="true" signature="1577:1603" ph="SELECT COUNT... Issue" />
+            <marker date="1478305588029" expanded="true" signature="1944:2042" ph="INSERT INTO Issue... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="54" column="0" selection-start-line="54" selection-start-column="0" selection-end-line="54" selection-end-column="0" />
+          <folding>
+            <marker date="1478305588020" expanded="true" signature="1382:1440" ph="UPDATE UserC... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/Authentication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="426">
+          <caret line="80" column="9" selection-start-line="80" selection-start-column="9" selection-end-line="80" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <marker date="1478305588015" expanded="true" signature="1727:1829" ph="SELECT usern... Users" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="243">
-          <caret line="123" column="62" selection-start-line="123" selection-start-column="62" selection-end-line="123" selection-end-column="62" />
+        <state relative-caret-position="207">
+          <caret line="60" column="103" selection-start-line="60" selection-start-column="103" selection-end-line="60" selection-end-column="103" />
           <folding>
             <element signature="n#c:if#3;n#jsp:root#0;n#!!top" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="53" column="10" selection-start-line="53" selection-start-column="10" selection-end-line="53" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>
