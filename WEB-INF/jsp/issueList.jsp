@@ -32,16 +32,18 @@
                     <button type="submit" class="btn btn-default">Title</button>
                     </form>
                 </td>
-                <td>
-                    <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
-                    </c:choose>
-                    <input type="hidden" name="sortString" value="state"/>
-                    <button type="submit" class="btn btn-default">Status</button>
-                    </form>
-                </td>
+                <c:if test="${!sessionScope.currentPage.equals('knowledgeBase')}">
+                    <td>
+                        <c:choose>
+                            <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                            <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                        </c:choose>
+                        <input type="hidden" name="sortString" value="state"/>
+                        <button type="submit" class="btn btn-default">Status</button>
+                        </form>
+                    </td>
+                </c:if>
                 <td>
                     <c:choose>
                         <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
@@ -98,7 +100,9 @@
                     </c:choose>
 
                     <td><c:out value="${current.getTitle()}"/></td>
-                    <td><c:out value="${current.getState()}"/></td>
+                    <c:if test="${!sessionScope.currentPage.equals('knowledgeBase')}">
+                        <td><c:out value="${current.getState()}"/></td>
+                    </c:if>
                     <td><c:out value="${current.getCategory()}"/></td>
                     <td><c:out value="${current.getReportedDateTime()}"/></td>
                     <td><c:out value="${current.getUsername()}"/></td>
