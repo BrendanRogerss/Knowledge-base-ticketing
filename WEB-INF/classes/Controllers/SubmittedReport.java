@@ -120,23 +120,18 @@ public class SubmittedReport extends HttpServlet {
     }
 
     private String validate(HttpServletRequest request){
-        if(request.getParameter("category").equals("SelectACategory")){
+        String error = "";
+        if(request.getParameter("category").equals("SelectACategory")) {
             return "Category wasn't selected";
-        }else if(request.getParameter("location")==null){
-            return "location is empty";
-        }else if(request.getParameter("browser")==null){
-            return"browser is empty";
-        }else if(request.getParameter("website")==null){
-            return "website is empty";
-        }else if (request.getParameter("internalAccess")==null){
+        }else if(request.getParameter("title").equals(""))
+            return "No title entered";
+        else if (request.getParameter("internalAccess").equals("")){
             return "internal access is never assigned";
-        }else if (request.getParameter("alternateBrowser")==null){
+        }else if (request.getParameter("alternateBrowser").equals("")){
             return "alternate browser was not entered";
-        }else if(request.getParameter("computerRestart")==null){
+        }else if(request.getParameter("computerRestart").equals("")){
             return"computer restart was not entered";
-        }else if(request.getParameter("errorMessage")==null){
-            return "error message is empty";
-        }else if(request.getParameter("description")==null){
+        }else if(request.getParameter("description").equals("")){
             return "description is empty";
         }
 
