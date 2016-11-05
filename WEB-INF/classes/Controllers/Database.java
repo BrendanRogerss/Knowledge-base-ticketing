@@ -17,7 +17,7 @@ import java.util.Date;
  */
 public class Database {
 
-    public Database(){
+    public Database() {
 
     }
 
@@ -28,14 +28,13 @@ public class Database {
             //System.out.println("database start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
-           // System.out.println("after datasource");
+            // System.out.println("after datasource");
             Connection connection = datasource.getConnection();
-           // System.out.println("after connection");
+            // System.out.println("after connection");
             Statement statement = connection.createStatement();
-           // System.out.println("after statement");
+            // System.out.println("after statement");
             ResultSet result = statement.executeQuery(query); //connect to the database
-           // System.out.println("after result");
-
+            // System.out.println("after result");
 
 
             while (result.next()) {
@@ -60,7 +59,7 @@ public class Database {
                 issue.setUsername(result.getString(16));
 
                 issues.add(issue);
-               // System.out.println("end of loop");
+                // System.out.println("end of loop");
             }
 
             connection.close();
@@ -71,11 +70,10 @@ public class Database {
         //System.out.println("databse end");
 
 
-
         return issues;
     }
 
-    public ResultSet query(String q){
+    public ResultSet queryYeahLetsNotUse(String q) {
         ResultSet result = null;
         try {
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
@@ -87,27 +85,32 @@ public class Database {
 
             connection.close();
 
-        }catch (Exception e){
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
         return result;
     }
 
-    public void addNotification(Notification notification){
+    public void addNotification(Notification notification) {
         int noteCount = 0;
         String queryString = "SELECT COUNT(*) FROM Notification";
         try {
-            ResultSet rs = query(queryString);
-            if (rs.next())
-                noteCount = rs.getInt(1);
-
-
-        String queryS = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet result = statement.executeQuery(queryString);
+
+
+            if (result.next())
+                noteCount = result.getInt(1);
+
+
+            String queryS = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
+
+
             PreparedStatement prepStatement = connection.prepareStatement(queryS);
             prepStatement.setInt(1, noteCount);
             prepStatement.setString(2, notification.getUsername());
@@ -115,17 +118,18 @@ public class Database {
             prepStatement.setString(4, notification.getContent());
             prepStatement.setBoolean(5, false);
             prepStatement.executeQuery();
-            //comment
+
+            System.out.println(notification.getContent());
 
             connection.close();
-            rs.close();
+            result.close();
         } catch (Exception e) {
             //TODO: Do we have to handle errors in the database class?
             System.out.println(e.getMessage());
         }
     }
 
-    public void setNotificationToSeen(Notification notification){
+    public void setNotificationToSeen(Notification notification) {
         try {
             String query = "UPDATE Notification SET seen = ? WHERE notification = ?";
 
@@ -138,7 +142,8 @@ public class Database {
             prepStatement.setInt(2, notification.getNotificationID());
             prepStatement.executeUpdate();
             connection.close();
-        }catch (Exception e){}
+        } catch (Exception e) {
+        }
 
     }
 
@@ -180,7 +185,7 @@ public class Database {
         session.setAttribute("notifications", list);
     }
 
-    public void changeIssueState(String issueID, String state){
+    public void changeIssueState(String issueID, String state) {
         try {
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
@@ -199,7 +204,7 @@ public class Database {
         }
     }
 
-    public void changeCommentType(String commentID, String commentType){
+    public void changeCommentType(String commentID, String commentType) {
         try {
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
