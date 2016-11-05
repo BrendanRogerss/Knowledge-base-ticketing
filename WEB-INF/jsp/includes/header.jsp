@@ -22,16 +22,58 @@
         </div>
         <div id="navbar" class ="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="HomePage">Home</a></li>
-                <li><a href="ReportIssue">Report Issue</a></li>
-                <li><a href="KnowledgeBase">Knowledge Base</a></li>
                 <c:choose>
-                    <c:when test="${user.isStaff()}">
-                        <li><a href="ReportedIssues">View Reported Issues</a></li>
-                        <li><a href="CompletedIssues">View Completed Issues</a></li>
+                    <c:when test="${sessionScope.currentPage.equals('homepage')}">
+                        <li class="active"><a href="HomePage">Home</a></li>
                     </c:when>
                     <c:otherwise>
-                        <li><a href="ReportedIssues">View Current Issues</a></li>
+                        <li><a href="HomePage">Home</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${sessionScope.currentPage.equals('reportIssue')}">
+                        <li class="active"><a href="ReportIssue">Report Issue</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="ReportIssue">Report Issue</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${sessionScope.currentPage.equals('knowledgeBase')}">
+                        <li class="active"><a href="KnowledgeBase">Knowledge Base</a></li>
+                    </c:when>
+                    <c:otherwise>
+                        <li><a href="KnowledgeBase">Knowledge Base</a></li>
+                    </c:otherwise>
+                </c:choose>
+                <c:choose>
+                    <c:when test="${user.isStaff()}">
+                        <c:choose>
+                            <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
+                                <li class="active"><a href="ReportedIssues">View Reported Issues</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="ReportedIssues">View Reported Issues</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                        <c:choose>
+                            <c:when test="${sessionScope.currentPage.equals('completedIssues')}">
+                                <li class="active"><a href="CompletedIssues">View Completed Issues</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="CompletedIssues">View Completed Issues</a></li>
+                            </c:otherwise>
+                        </c:choose>
+                    </c:when>
+                    <c:otherwise>
+                        <c:choose>
+                            <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
+                                <li class="active"><a href="ReportedIssues">View Current Issues</a></li>
+                            </c:when>
+                            <c:otherwise>
+                                <li><a href="ReportedIssues">View Current Issues</a></li>
+                            </c:otherwise>
+                        </c:choose>
                     </c:otherwise>
                 </c:choose>
                 <li><a href="Logout">Logout</a></li>

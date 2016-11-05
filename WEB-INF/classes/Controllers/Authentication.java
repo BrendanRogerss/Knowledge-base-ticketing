@@ -27,7 +27,6 @@ public class Authentication extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         //get details
-        request.getSession().setAttribute("currentPage", "authentication");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 

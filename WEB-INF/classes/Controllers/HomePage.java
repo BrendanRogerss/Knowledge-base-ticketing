@@ -20,7 +20,7 @@ public class HomePage extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getSession().setAttribute("currentPage", "homePage");
+        request.getSession().setAttribute("currentPage", "homepage");
         //request.getSession().setAttribute("error", null);
 
 

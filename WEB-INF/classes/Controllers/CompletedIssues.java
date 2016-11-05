@@ -22,7 +22,7 @@ public class CompletedIssues extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        request.getSession().setAttribute("currentPage", "completedIssue");
+        request.getSession().setAttribute("currentPage", "completedIssues");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
