@@ -43,7 +43,7 @@
                                     </c:when>
                                     </c:choose>
                                     <input type="hidden" name="sortString" value="title"/>
-                                                <button type="submit" class="btn btn-default">Sort Title</button>
+                                    <button type="submit" class="btn btn-default">Sort Title</button>
                                 </form>
                 </td>
                 <td>
@@ -125,7 +125,7 @@
             <tbody>
             <c:forEach var="current" items="${requestScope.list}">
                 <tr>
-                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
+                    <td><span class="label label-info">New</span><a style="font-weight: bold" href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
                     <td><c:out value="${current.getTitle()}"/></td>
                     <td><c:out value="${current.getState()}"/></td>
                     <td><c:out value="${current.getCategory()}"/></td>

@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="">
+    <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="everything i have">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
     </list>
     <ignored path="Assignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -24,11 +26,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="ReportIssue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ReportIssue.java">
+      <file leaf-file-name="validate.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/validate.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state relative-caret-position="136">
+              <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
               <folding />
             </state>
           </provider>
@@ -37,99 +39,19 @@
       <file leaf-file-name="issueList.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="413">
-              <caret line="165" column="137" selection-start-line="165" selection-start-column="137" selection-end-line="165" selection-end-column="137" />
+            <state relative-caret-position="404">
+              <caret line="127" column="94" selection-start-line="127" selection-start-column="94" selection-end-line="127" selection-end-column="94" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SubmittedReport.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="43" column="50" selection-start-line="43" selection-start-column="50" selection-end-line="43" selection-end-column="50" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <marker date="1478339902039" expanded="true" signature="1958:1984" ph="SELECT COUNT... Issue" />
-                <marker date="1478339902039" expanded="true" signature="2325:2423" ph="INSERT INTO Issue... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangeCommentType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="37" column="9" selection-start-line="37" selection-start-column="9" selection-end-line="37" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ChangeIssueState.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="442">
-              <caret line="42" column="50" selection-start-line="42" selection-start-column="50" selection-end-line="42" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KnowledgeBase.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/KnowledgeBase.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="33" column="9" selection-start-line="33" selection-start-column="9" selection-end-line="33" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="viewIssue.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="103" column="135" selection-start-line="103" selection-start-column="135" selection-end-line="103" selection-end-column="135" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="README.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/README.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/css/style.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="455">
-              <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
+            <state relative-caret-position="421">
+              <caret line="67" column="11" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="GetIssue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#4026#4056#1" expanded="true" />
-                <marker date="1478331222862" expanded="true" signature="1437:1490" ph="SELECT * FRO... Issue" />
-                <marker date="1478331222862" expanded="true" signature="1902:2042" ph="SELECT * FRO... UserComment" />
-                <marker date="1478331222862" expanded="true" signature="2101:2160" ph="SELECT * FRO... UserComment" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -184,10 +106,11 @@
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/SubmittedReport.java" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/reportIssue.jsp" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java" />
-        <option value="$PROJECT_DIR$/css/style.css" />
-        <option value="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
         <option value="$PROJECT_DIR$/README.txt" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
+        <option value="$PROJECT_DIR$/js/validate.js" />
+        <option value="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
+        <option value="$PROJECT_DIR$/css/style.css" />
       </list>
     </option>
   </component>
@@ -342,6 +265,20 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Assignment" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -377,6 +314,8 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeIssueState.java</PATH>
           <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
@@ -915,7 +854,7 @@
       <updated>1476875898008</updated>
       <workItem from="1476923194082" duration="6293000" />
       <workItem from="1478054534212" duration="47951000" />
-      <workItem from="1478266128588" duration="27938000" />
+      <workItem from="1478266128588" duration="30220000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476927390649</created>
@@ -1148,11 +1087,25 @@
       <option name="project" value="LOCAL" />
       <updated>1478342116237</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="viewIssue fix">
+      <created>1478342149318</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1478342149318</updated>
+    </task>
+    <task id="LOCAL-00035" summary="everything i have">
+      <created>1478343134664</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1478343134664</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="82182000" />
+    <option name="totallyTimeSpent" value="84464000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1226,7 +1179,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="added sql shit" />
     <MESSAGE value="Maybe made names in report form match up" />
     <MESSAGE value="Comments are working now kinda!" />
     <MESSAGE value="Changed the redirects in authentication when wrong/no credentials" />
@@ -1251,7 +1203,8 @@
     <MESSAGE value="FIXED STUPID FORM" />
     <MESSAGE value="Knowledge Base allows only resolved issues now" />
     <MESSAGE value="viewIssue fix" />
-    <option name="LAST_COMMIT_MESSAGE" value="viewIssue fix" />
+    <MESSAGE value="everything i have" />
+    <option name="LAST_COMMIT_MESSAGE" value="everything i have" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1416,14 +1369,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/js/validate.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/about.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="493">
@@ -1480,8 +1425,8 @@
         <state relative-caret-position="-369">
           <caret line="68" column="26" selection-start-line="68" selection-start-column="21" selection-end-line="68" selection-end-column="26" />
           <folding>
-            <element signature="e#1464#1465#0" expanded="true" />
-            <element signature="e#1492#1493#0" expanded="true" />
+            <element signature="e#1464#1465#0" expanded="false" />
+            <element signature="e#1492#1493#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1500,11 +1445,11 @@
           <caret line="111" column="46" selection-start-line="111" selection-start-column="26" selection-end-line="111" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#5237#5251#0" expanded="true" />
-            <marker date="1478342132965" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
-            <marker date="1478342132965" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
-            <marker date="1478342132965" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
-            <marker date="1478342132965" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
+            <element signature="e#5415#5429#0" expanded="true" />
+            <marker date="1478344418928" expanded="true" signature="3508:3554" ph="INSERT INTO Notification... " />
+            <marker date="1478344418928" expanded="true" signature="4495:4550" ph="UPDATE notif... " />
+            <marker date="1478344418928" expanded="true" signature="5369:5431" ph="SELECT * fro... Notification" />
+            <marker date="1478344418928" expanded="true" signature="5369:5458" ph="SELECT * fro... Notification" />
           </folding>
         </state>
       </provider>
@@ -1568,14 +1513,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/css/style.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="455">
-          <caret line="65" column="1" selection-start-line="65" selection-start-column="1" selection-end-line="65" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ChangeCommentType.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="357">
@@ -1620,14 +1557,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="413">
-          <caret line="165" column="137" selection-start-line="165" selection-start-column="137" selection-end-line="165" selection-end-column="137" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="68">
@@ -1638,8 +1567,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="103" column="135" selection-start-line="103" selection-start-column="135" selection-end-line="103" selection-end-column="135" />
+        <state relative-caret-position="339">
+          <caret line="80" column="15" selection-start-line="80" selection-start-column="15" selection-end-line="80" selection-end-column="15" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/validate.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="5" selection-start-line="8" selection-start-column="5" selection-end-line="8" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="404">
+          <caret line="127" column="94" selection-start-line="127" selection-start-column="94" selection-end-line="127" selection-end-column="94" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="421">
+          <caret line="67" column="11" selection-start-line="67" selection-start-column="11" selection-end-line="67" selection-end-column="11" />
           <folding />
         </state>
       </provider>
