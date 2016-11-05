@@ -90,6 +90,7 @@ public class AddComment extends HttpServlet{
             request.setAttribute("error", error+e.getMessage());
         }
 
+
         database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));

@@ -35,7 +35,7 @@ public class Authentication extends HttpServlet {
 
         HttpSession session = request.getSession();
         String statement, redirectLocation = "index.jsp";
-        String dbUsername = null, dbPassword = null, dbType = null;
+        User dbUser = new User();
         PreparedStatement prepStatement;
 
         user = new User();
@@ -49,14 +49,18 @@ public class Authentication extends HttpServlet {
             Connection connection = dataSource.getConnection();
 
             //get current amount of issues in database for new issue number
-            statement = "SELECT username, pass, userType FROM Users WHERE username = '" + request.getParameter("username") + "'";
+            statement = "SELECT * FROM Users WHERE username = '" + request.getParameter("username") + "'";
             prepStatement = connection.prepareStatement(statement);
             ResultSet rs = prepStatement.executeQuery();
 
             if(rs.next()){
-                dbUsername = rs.getString(1);
-                dbPassword = rs.getString(2);
-                dbType = rs.getString(3);
+                dbUser.setUsername(rs.getString(1));
+                dbUser.setPassword(rs.getString(2));
+                dbUser.setType(rs.getString(3));
+                dbUser.setFirstName(rs.getString(4));
+                dbUser.setLastName(rs.getString(5));
+                dbUser.setEmail(rs.getString(6));
+                dbUser.setContactNumber(rs.getString(7));
             }
 
             connection.close();
@@ -77,15 +81,15 @@ public class Authentication extends HttpServlet {
         }
 
         //test user credentials
-        if((dbUsername == null || dbPassword == null) || !user.getPassword().equals(dbPassword))
+        if((dbUser.getUsername() == null || dbUser.getPassword() == null) || !user.getPassword().equals(dbUser.getPassword()))
         {
             user.setLoggedIn(false);
             redirectLocation = "index.jsp";
             session.setAttribute("error", "Incorrect credentials"); //Doesnt work with redirects
         }
-        else if(user.getPassword().equals(dbPassword)){
+        else if(user.getPassword().equals(dbUser.getPassword())){
+            user = dbUser;
             user.setLoggedIn(true);
-            user.setType(dbType);
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
 
