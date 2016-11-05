@@ -2,6 +2,7 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
+import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -82,6 +83,15 @@ public class GetIssue extends HttpServlet{
 
 
                 request.setAttribute("issue", issue); //pass the issue into the database
+
+                //check if the user has a notification associated with this issue
+                ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
+                for(Notification notification: notifications){
+                    if(notification.getIssueID() == issue.getIssueID()){
+                        database.setNotificationToSeen(notification);
+                        break;
+                    }
+                }
 
             }catch (Exception e) {
                 String error = "Something went wrong in Get Issue:"; //set an error

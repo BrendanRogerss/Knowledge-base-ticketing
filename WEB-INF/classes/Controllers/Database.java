@@ -3,9 +3,9 @@ package Controllers;
 import Models.Issue;
 import Models.Notification;
 import Models.User;
+import com.sun.tools.corba.se.idl.constExpr.Not;
 
 import javax.naming.InitialContext;
-import javax.naming.spi.DirStateFactory;
 import javax.servlet.http.HttpSession;
 import java.sql.*;
 import java.text.DateFormat;
@@ -18,7 +18,7 @@ import java.util.Date;
  */
 public class Database {
 
-    public Database() {
+    public Database(){
 
     }
 
@@ -29,13 +29,14 @@ public class Database {
             //System.out.println("database start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
-            // System.out.println("after datasource");
+           // System.out.println("after datasource");
             Connection connection = datasource.getConnection();
-            // System.out.println("after connection");
+           // System.out.println("after connection");
             Statement statement = connection.createStatement();
-            // System.out.println("after statement");
+           // System.out.println("after statement");
             ResultSet result = statement.executeQuery(query); //connect to the database
-            // System.out.println("after result");
+           // System.out.println("after result");
+
 
 
             while (result.next()) {
@@ -60,7 +61,7 @@ public class Database {
                 issue.setUsername(result.getString(16));
 
                 issues.add(issue);
-                // System.out.println("end of loop");
+               // System.out.println("end of loop");
             }
 
             connection.close();
@@ -71,10 +72,11 @@ public class Database {
         //System.out.println("databse end");
 
 
+
         return issues;
     }
 
-    public ResultSet query(String q) {
+    public ResultSet query(String q){
         ResultSet result = null;
         try {
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
@@ -84,26 +86,23 @@ public class Database {
             Statement statement = connection.createStatement();
             result = statement.executeQuery(q);
 
-        } catch (Exception e) {
+        }catch (Exception e){
             //TODO: add something in here
         }
         return result;
     }
 
-    public void addNotification(Notification notification) {
-
+    public void addNotification(Notification notification){
         int noteCount = 0;
         String queryString = "SELECT COUNT(*) FROM Notification";
         try {
             ResultSet rs = query(queryString);
             if (rs.next())
                 noteCount = rs.getInt(1);
-        } catch (SQLException e) {
-            //TODO: handle sql exception. need to be put in session or ignore here?
-        }
+
 
         queryString = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
-        try {
+
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
@@ -116,9 +115,23 @@ public class Database {
             prepStatement.setBoolean(5, false);
             prepStatement.executeQuery();
 
+
+            connection.close();
+            rs.close();
         } catch (Exception e) {
             //TODO: Do we have to handle errors in the database class?
         }
+    }
+
+    public void setNotificationToSeen(Notification notification){
+        String query = "UPDATE notification SET seen = ? WHERE notification = ?";
+
+        /*
+        prepStatement.setString(1, request.getParameter("commentType"));
+        prepStatement.setString(2, notification.get);
+        prepStatement.executeUpdate();
+        connection.close();
+        */
     }
 
     public void checkNotifications(HttpSession session) {
@@ -149,6 +162,4 @@ public class Database {
         //add list to session object
         session.setAttribute("notifications", list);
     }
-
-
 }
