@@ -94,7 +94,7 @@ public class Database {
 
     public void addNotification(String issueID){
         try {
-            String query = "UPDATE Issue SET notification = TRUE WHERE issueID ='"+issueID+"'";
+            String query = "UPDATE Issue SET notification = TRUE WHERE issueID ='6'";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
