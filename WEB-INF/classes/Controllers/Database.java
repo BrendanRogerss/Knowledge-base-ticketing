@@ -152,7 +152,14 @@ public class Database {
 
         //read all from result set. set notification object and add to list
         try {
-            ResultSet rs = query(queryString);
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(queryString);
+
+
             while (rs != null && rs.next()) {
                 note = new Notification();
                 note.setNotificationID(rs.getInt(1));
@@ -163,7 +170,8 @@ public class Database {
                 list.add(note);
             }
             rs.close();
-        } catch (SQLException e) {
+            connection.close();
+        } catch (Exception e) {
             System.out.println(e.getMessage());
         }
 

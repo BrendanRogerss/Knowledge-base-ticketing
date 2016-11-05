@@ -60,7 +60,12 @@ public class GetIssue extends HttpServlet{
             else
                 query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'";
 
-            result = database.query(query);
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            result = statement.executeQuery(query);
 
             while(result.next()) {
                 Comment comment = new Comment();
@@ -74,6 +79,7 @@ public class GetIssue extends HttpServlet{
             }
 
             result.close();
+            connection.close();
 
             if(issue.getState().equals("KnowledgeBase")) {
                 for(Comment comment : comments){
@@ -99,7 +105,7 @@ public class GetIssue extends HttpServlet{
             //check if the user has a notification associated with this issue
             @SuppressWarnings("unchecked") //unsafe casting
             ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
-            //check if notifications have been set TODO shouldnt need this if statement
+            //check if notifications have been set TODO shouldn't need this if statement
             if(notifications!= null) {
                 for (Notification notification : notifications) {
                     if (notification.getIssueID() == issue.getIssueID()) {
@@ -109,6 +115,7 @@ public class GetIssue extends HttpServlet{
                     }
                 }
             }
+
 
         }catch (Exception e) {
             String error = "Something went wrong in Get Issue:"; //set an error

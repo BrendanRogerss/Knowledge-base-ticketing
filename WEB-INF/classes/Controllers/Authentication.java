@@ -89,10 +89,12 @@ public class Authentication extends HttpServlet {
             user.setType(dbType);
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
+
+            Database database = new Database(); //make a new object
+            database.checkNotifications(request.getSession()); //get all the notifications for the user and set it to the session
         }
 
-        Database database = new Database(); //make a new object
-        database.checkNotifications(request.getSession()); //get all the notifications for the user and set it to the session
+
 
         response.sendRedirect(redirectLocation);
         return;
