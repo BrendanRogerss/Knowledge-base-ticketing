@@ -104,6 +104,7 @@ public class Database {
             prepStatement.setString(1, issueID);
             prepStatement.executeUpdate();
             connection.close();
+            System.out.println("added notification, issueid = "+ issueID);
         } catch (Exception e) {
             System.out.println("add notification: "+e.getMessage());
         }
