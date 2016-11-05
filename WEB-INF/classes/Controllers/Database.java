@@ -153,7 +153,7 @@ public class Database {
         //read all from result set. set notification object and add to list
         try {
             ResultSet rs = query(queryString);
-            while (rs.next()) {
+            while (rs != null && rs.next()) {
                 note = new Notification();
                 note.setNotificationID(rs.getInt(1));
                 note.setUsername(user.getUsername());
