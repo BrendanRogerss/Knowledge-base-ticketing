@@ -89,14 +89,4 @@ public class Database {
         }
         return result;
     }
-
-
-
-    /*private Date formatDate(String str) throws java.text.ParseException
-    {
-        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-        Date date = dateFormat.parse(str);
-        return date;
-    }*/
-
 }
