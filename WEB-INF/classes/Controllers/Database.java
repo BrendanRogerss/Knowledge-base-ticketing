@@ -117,7 +117,7 @@ public class Database {
             prepStatement.setInt(3, notification.getIssueID());
             prepStatement.setString(4, notification.getContent());
             prepStatement.setBoolean(5, false);
-            prepStatement.executeQuery();
+            prepStatement.executeUpdate();
 
             System.out.println(notification.getContent());
 

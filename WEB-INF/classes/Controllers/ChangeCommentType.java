@@ -40,8 +40,10 @@ public class ChangeCommentType extends HttpServlet {
         Database database = new Database();
         database.changeCommentType(request.getParameter("commentID"), request.getParameter("commentType"));
 
-        if(request.getParameter("commentType").equals("Rejected"))
+        if(request.getParameter("commentType").equals("Rejected")) {
+
             database.changeIssueState(request.getParameter("issueID"), "In-Progress");
+        }
 
         else if(request.getParameter("commentType").equals("Accepted"))
             database.changeIssueState(request.getParameter("issueID"), "Resolved");
@@ -55,6 +57,10 @@ public class ChangeCommentType extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
         //nothing
+    }
+
+    private boolean checkIfProposedComment(String issueID){
+        return true;
     }
 
 }
