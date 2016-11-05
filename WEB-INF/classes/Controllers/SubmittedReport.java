@@ -1,6 +1,7 @@
 package Controllers;
 
 import Models.User;
+import com.sun.deploy.net.HttpResponse;
 
 import javax.activation.DataSource;
 import javax.naming.NamingException;
@@ -39,6 +40,12 @@ public class SubmittedReport extends HttpServlet {
         PreparedStatement prepStatement;
 
         try {
+            //do the server side validation of the form submitted
+            if(validate(request)!=null){
+                response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
+                return;
+            }
+
             //get connection details, from context.xml I take it
             javax.sql.DataSource datasource = (javax.sql.DataSource)new
                     InitialContext().lookup("java:/comp/env/SENG2050");
@@ -77,7 +84,7 @@ public class SubmittedReport extends HttpServlet {
             String stringDate = dateFormat.format(date);
 
             prepStatement.setString(14, stringDate);
-            prepStatement.setString(15, stringDate); //TODO: set the submission date to something!!!!!!!!!!!!!!
+            prepStatement.setString(15, "nil"); //TODO: set the submission date to something!!!!!!!!!!!!!!
             prepStatement.setString(16, user.getUsername());
             //execution.
             prepStatement.executeUpdate();
@@ -95,6 +102,7 @@ public class SubmittedReport extends HttpServlet {
             e.printStackTrace();
         }
 
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
@@ -105,5 +113,31 @@ public class SubmittedReport extends HttpServlet {
 
         doPost(request, response);
     }
+
+    private String validate(HttpServletRequest request){
+        if(request.getParameter("category").equals("Select A Category")){
+            return "Category wasn't selected";
+        }else if(request.getParameter("location")==null){
+            return "location is empty";
+        }else if(request.getParameter("browser")==null){
+            return"browser is empty";
+        }else if(request.getParameter("website")==null){
+            return "website is empty";
+        }else if (request.getParameter("internalAccess")==null){
+            return "internal access is never assigned";
+        }else if (request.getParameter("alternateBrowser")==null){
+            return "alternate browser was not entered";
+        }else if(request.getParameter("computerRestart")==null){
+            return"computer restart was not entered";
+        }else if(request.getParameter("errorMessage")==null){
+            return "error message is empty";
+        }else if(request.getParameter("description")==null){
+            return "description is empty";
+        }
+
+        return null;
+    }
+
+
 
 }
