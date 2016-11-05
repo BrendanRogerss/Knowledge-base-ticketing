@@ -94,16 +94,16 @@ public class Database {
 
     public void addNotification(String issueID){
         try {
-            String query = "UPDATE Issue SET notification = TRUE WHERE issueID ='6'";
+            String query = "UPDATE Issue SET notification = TRUE WHERE issueID = ?";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setString(1, issueID);
             prepStatement.executeUpdate();
             connection.close();
-            System.out.println(issueID);
         } catch (Exception e) {
             System.out.println("notification to seen: "+e.getMessage());
         }
@@ -112,7 +112,7 @@ public class Database {
     //sets the number of notifications for the uesr in the session
     public void checkNotifications(HttpSession session) {
         User user = (User) session.getAttribute("user");
-        String query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "'";;
+        String query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "'";
         int i = 0;
         ArrayList<Issue> issues = getIssues(query);
         System.out.println("size of the issue list: "+issues.size());
