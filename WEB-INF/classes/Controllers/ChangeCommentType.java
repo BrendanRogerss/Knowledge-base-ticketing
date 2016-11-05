@@ -53,7 +53,16 @@ public class ChangeCommentType extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-        response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID="+request.getParameter("issueID"));
+        if(request.getParameter("commentType").equals("Rejected")){
+            request.setAttribute("state", "In-Progess");
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ChangeIssueState?issueID="+request.getParameter("issueID"));
+            dispatcher.forward(request, response);
+        }
+        else{
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
+            dispatcher.forward(request, response);
+        }
+
     }
 
     @Override
