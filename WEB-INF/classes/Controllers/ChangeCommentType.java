@@ -80,12 +80,13 @@ public class ChangeCommentType extends HttpServlet {
             if(rs.next() && rs.getInt(1) > 0)
                 check = true;
             else check = false;
+
             rs.close();
             connection.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
-        return true;
+        return check;
     }
 
 }
