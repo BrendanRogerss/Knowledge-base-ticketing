@@ -11,6 +11,8 @@ function validateLogin(){
         return true;
     }
 }
+//We need login, Add comment, add solution, report issue
+
 
 function validateReportIssue(){
     if (document.getElementById('category').value == "SelectACategory"){ //If a category is not selected.

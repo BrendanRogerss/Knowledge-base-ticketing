@@ -114,13 +114,19 @@
                                                 <button type="submit" class="btn btn-default">Sort User</button>
                                 </form>
                 </td>
-                <c:choose>
-                    <c:when test="${user.isStaff()}">
-                        <td>Add to Knowledge Base</td>
-                    </c:when>
-                </c:choose>
+                <c:if test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
+                    <td>
+                        Resolution Date
+                        <form action="KnowledgeBase" method="POST">
+                            <input type="hidden" name="sortString" value="resolvedDateTime"/>
+                            <button type="submit" class="btn btn-default">Sort resolved date</button>
+                        </form>
+                    </td>
+                </c:if>
+                <c:if test="${user.isStaff()}">
+                    <td>Add to Knowledge Base</td>
+                </c:if>
             </tr>
-
             </thead>
             <tbody>
             <c:forEach var="current" items="${requestScope.list}">
@@ -139,6 +145,9 @@
                     <td><c:out value="${current.getCategory()}"/></td>
                     <td><c:out value="${current.getReportedDateTime()}"/></td>
                     <td><c:out value="${current.getUsername()}"/></td>
+                    <c:if test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
+                        <td><c:out value="${current.getResolvedDateTime()}"/></td>
+                    </c:if>
                     <c:choose>
                         <c:when test="${user.isStaff()}">
                             <c:choose>
