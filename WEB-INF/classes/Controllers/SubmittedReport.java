@@ -38,7 +38,9 @@ public class SubmittedReport extends HttpServlet {
 
         try {
             //do the server side validation of the form submitted
-            if(validate(request) != null){
+            String error = validate(request);
+            if(error != null){
+                request.getSession().setAttribute("error", error);
                 response.sendRedirect("ReportIssue");
                 return;
             }
