@@ -90,6 +90,7 @@ public class AddComment extends HttpServlet{
 
                 Database database = new Database();
                 database.addNotification(notification);
+                database.checkNotifications(request.getSession());
             }
 
 
