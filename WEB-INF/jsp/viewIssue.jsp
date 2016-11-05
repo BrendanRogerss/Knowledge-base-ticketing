@@ -105,7 +105,7 @@
     <div class="container">
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
-            <input type="hidden" name="state" value="Waiting on third party"/>
+            <input type="hidden" name="state" value="Waiting on Third Party"/>
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
@@ -118,7 +118,27 @@
     <!--Waiting on third party-->
 </c:if>
 
-<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0|| current.getState().compareTo(\"Waiting on third party\") == 0)}">
+
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"Resolved\") == 0)}">
+    <!--Knowledge base-->
+    <div class="container">
+        <!--TODO set this so it goes to the right place-->
+        <form action="ChangeIssueState" method="POST">
+            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="KnowledgeBase"/>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-sm-offset-2 col-sm-10">
+                        <button type="submit" class="btn btn-default">Add to knowledge base</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!--Knowledge base-->
+</c:if>
+
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0|| current.getState().compareTo(\"Waiting on Third Party\") == 0)}">
     <!--Propose solution-->
     <div class="container">
         <form action="AddComment" method="POST">
@@ -147,30 +167,12 @@
     <!--Propose solution-->
 </c:if>
 
-<c:if test="${user.isStaff() && (current.getState().compareTo(\"Resolved\") == 0)}">
-    <!--Knowledge base-->
-    <div class="container">
-        <!--TODO set this so it goes to the right place-->
-        <form action="ChangeIssueState" method="POST">
-            <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
-            <input type="hidden" name="state" value="KnowledgeBase"/>
-            <div class="row">
-                <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Add to knowledge base</button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
-    <!--Knowledge base-->
-</c:if>
-
-<c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
-<!-- adding comments-->
+<c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0 && current.getState().compareTo(\"Resolved\") != 0}">
+    <!-- adding comments-->
     <div class="container">
         <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
+            <input type="hidden" name="state" value="Waiting on Reporter"/>
             <input type="hidden" name="commentType" value="Comment"/>
             <div class="row">
                 <div class="form-group">
@@ -191,9 +193,8 @@
             </div>
         </form>
     </div>
-<!-- adding comments-->
+    <!-- adding comments-->
 </c:if>
-
 
 <jsp:include page="includes/bootStrapCoreJS.jsp" />
 <script src="js/validate.js"></script>
