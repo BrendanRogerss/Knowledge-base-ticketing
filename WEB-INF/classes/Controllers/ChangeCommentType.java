@@ -37,39 +37,17 @@ public class ChangeCommentType extends HttpServlet {
             return;
         }
 
-        try {
+        Database database = new Database();
+        database.changeCommentType(request.getParameter("commentID"), request.getParameter("commentType"));
 
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
+        if(request.getParameter("commentType").equals("Rejected"))
+            database.changeIssueState(request.getParameter("issueID"), "In-Progress");
 
-            Connection connection = datasource.getConnection();
-            String query = "UPDATE UserComment SET commentType = ? WHERE commentID = ?";
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setString(1, request.getParameter("commentType"));
-            prepStatement.setString(2, request.getParameter("commentID"));
-            prepStatement.executeUpdate();
-            connection.close();
+        else if(request.getParameter("commentType").equals("Accepted"))
+            database.changeIssueState(request.getParameter("issueID"), "Resolved");
 
-        } catch (Exception e) {
-            String error = "Something went wrong when updating Issue State "; //set an error
-            request.setAttribute("error", error + e.getMessage());
-        }
-
-        if(request.getParameter("commentType").equals("Rejected")){
-            request.setAttribute("state", "In-Progress");
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ChangeIssueState?issueID="+request.getParameter("issueID") +
-            "&state=In-Progress");
-            dispatcher.forward(request, response);
-        }
-        else if(request.getParameter("commentType").equals("Accepted")){
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ChangeIssueState?issueID="+request.getParameter("issueID") +
-                    "&state=Resolved");
-            dispatcher.forward(request, response);
-        }
-        else{
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
-            dispatcher.forward(request, response);
-        }
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
+        dispatcher.forward(request, response);
 
     }
 

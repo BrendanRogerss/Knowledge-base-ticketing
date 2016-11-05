@@ -37,48 +37,22 @@ public class ChangeIssueState extends HttpServlet {
             return;
         }
 
-        try {
+        Database database = new Database();
+        database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
 
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
-
-            Connection connection = datasource.getConnection();
-            String query = "UPDATE Issue SET state = ? WHERE issueID = ?";
-            PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setString(1, request.getParameter("state"));
-            prepStatement.setString(2, request.getParameter("issueID"));
-            prepStatement.executeUpdate();
-            connection.close();
-
-        } catch (Exception e) {
-            String error = "Something went wrong when updating Issue State "; //set an error
-            request.setAttribute("error", error + e.getMessage());
-        }
-
-        if (request.getParameter("path") != null){
+        if (request.getParameter("path") != null) {
             if (request.getParameter("path").equals("knowledgeBase")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/KnowledgeBase");
-            }
-            else if (request.getParameter("path").equals("reportedIssues")) {
+            } else if (request.getParameter("path").equals("reportedIssues")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
-            }
-            else if (request.getParameter("path").equals("completedIssues")) {
+            } else if (request.getParameter("path").equals("completedIssues")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/CompletedIssues");
-            }
-            else{
+            } else {
                 System.out.println("test test test");
             }
         }
-        else if(request.getParameter("state").equals("Completed")) {
-
-            //TODO need to the add comment, given by parameter "solution". Not sure if AddComment?issueID is how we handle this idk
-            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/AddComment?issueID="+request.getParameter("issueID")+
-                "&commentContent=" + request.getParameter("commentContent") + "&commentType=" + request.getParameter("commentType"));
-            dispatcher.forward(request, response);
-        }
-        else if (request.getParameter("issueList") != null){
+        else if (request.getParameter("issueList") != null)
             response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
-        }
         else
             response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID=" + request.getParameter("issueID"));
     }

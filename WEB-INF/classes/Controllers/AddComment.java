@@ -45,6 +45,7 @@ public class AddComment extends HttpServlet{
 
         String issueID = request.getParameter("issueID");
         int numOfComments = 0;
+        Database database = new Database();
 
         try{ //get all the comments
 
@@ -60,6 +61,7 @@ public class AddComment extends HttpServlet{
                 numOfComments = result.getInt(1);
             }
 
+            System.out.println("Start comment type: " + request.getParameter("commentType"));
 
 
             query = "INSERT INTO UserComment VALUES (?, ?, ?, ?, ?, ?)";
@@ -88,7 +90,7 @@ public class AddComment extends HttpServlet{
                 notification.setIssueID(Integer.parseInt(issueID));
                 notification.setUsername(username);
 
-                Database database = new Database();
+
                 database.addNotification(notification);
                 database.checkNotifications(request.getSession());
             }
@@ -100,8 +102,13 @@ public class AddComment extends HttpServlet{
             request.setAttribute("error", error+e.getMessage());
         }
 
+        if(request.getParameter("commentType").equals("Proposed"))
+            database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
+
+        System.out.println("comment type is: " + request.getParameter("commentType"));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
         dispatcher.forward(request, response);
+
     }
 
     @Override

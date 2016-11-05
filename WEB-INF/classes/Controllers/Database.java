@@ -178,4 +178,40 @@ public class Database {
         //add list to session object
         session.setAttribute("notifications", list);
     }
+
+    public void changeIssueState(String issueID, String state){
+        try {
+
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            String query = "UPDATE Issue SET state = ? WHERE issueID = ?";
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setString(1, state);
+            prepStatement.setString(2, issueID);
+            prepStatement.executeUpdate();
+            connection.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public void changeCommentType(String commentID, String commentType){
+        try {
+
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            String query = "UPDATE UserComment SET commentType = ? WHERE commentID = ?";
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setString(1, commentType);
+            prepStatement.setString(2, commentID);
+            prepStatement.executeUpdate();
+            connection.close();
+
+        } catch (Exception e) {
+        }
+    }
 }
