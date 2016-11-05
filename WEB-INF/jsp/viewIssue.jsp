@@ -70,7 +70,6 @@
                         User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
                         <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
                             <div class="container">
-                                <!--TODO set this so it goes to the right place-->
                                 <form action="ChangeCommentType" method="POST">
                                     <input type="hidden" name="commentID" value="<c:out value="${currentComment.getCommentID()}"/>"/>
                                     <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
@@ -100,14 +99,13 @@
 <c:if test="${user.isStaff() && current.getState().compareTo(\"New\") == 0}">
     <!--Start work on issue-->
     <div class="container">
-        <!--TODO set this so it goes to the right place-->
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="In-Progress"/>
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default">Set to in progress</button>
+                        <button type="submit" class="btn btn-default">Set to In-Progress</button>
                     </div>
                 </div>
             </div>
@@ -119,7 +117,6 @@
 <c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
     <!--Propose solution-->
     <div class="container">
-        <!--TODO set this so it goes to the right place-->
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Completed"/>

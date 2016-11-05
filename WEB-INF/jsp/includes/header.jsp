@@ -81,17 +81,17 @@
         </div><!--/.nav-collapse -->
     </div>
 </nav>
-<!--Succsess message-->
-<c:if test="${requestScope.success != null}">
+<!--Success message-->
+<c:if test="${sessionScope.success != null}">
     <div class="alert alert-success">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Success!</strong> <c:out value="${requestScope.success}"/>
+        <strong>Success!</strong> <c:out value="${sessionScope.success}"/>
     </div>
 </c:if>
 <!--Error message-->
-<c:if test="${requestScope.error != null}">
+<c:if test="${sessionScope.error != null}">
     <div class="alert alert-danger">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-        <strong>Error!</strong> <c:out value="${requestScope.error}"/>
+        <strong>Error!</strong> <c:out value="${sessionScope.error}"/>
     </div>
 </c:if>

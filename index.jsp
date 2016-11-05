@@ -11,6 +11,7 @@
 
 <body>
 
+    <!--START OF HEADER-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -31,12 +32,13 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
-    <c:if test="${requestScope.error != null}">
+    <c:if test="${sessionScope.error != null}">
         <div class="alert alert-danger">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
-            <strong>Error!</strong> <c:out value="${requestScope.error}"/>
+            <strong>Error!</strong> <c:out value="${sessionScope.error}"/>
         </div>
     </c:if>
+    <!-- END OF HEADER -->
 
     <div class="container">
         <div class="starter-template">

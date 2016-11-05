@@ -41,7 +41,7 @@ public class ReportedIssues extends HttpServlet {
         if (sortString == null) sortString = "state";
         if (user.isStaff()) {
             query = "SELECT * FROM Issue WHERE state != 'KnowledgeBase' OR state != 'Completed' " +
-                    "ORDER BY" + sortString;
+                    "ORDER BY " + sortString;
         } else {
             query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "' AND (state != 'KnowledgeBase' OR state != 'Completed') " +
                     "ORDER BY " + sortString;

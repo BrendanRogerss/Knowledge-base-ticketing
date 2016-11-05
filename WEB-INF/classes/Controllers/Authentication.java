@@ -64,9 +64,15 @@ public class Authentication extends HttpServlet {
         }catch (SQLException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
+            session.setAttribute("error", "Couldn't connect");
+            response.sendRedirect(redirectLocation);
+            return;
         } catch (NamingException e) {
             System.err.println(e.getMessage());
             e.printStackTrace();
+            session.setAttribute("error", "Naming exception");
+            response.sendRedirect(redirectLocation);
+            return;
         }
 
         //test user credentials
@@ -74,7 +80,7 @@ public class Authentication extends HttpServlet {
         {
             user.setLoggedIn(false);
             redirectLocation = "index.jsp";
-            request.setAttribute("error", "Incorrect credentials"); //Doesnt work with redirects
+            session.setAttribute("error", "Incorrect credentials"); //Doesnt work with redirects
         }
         else if(user.getPassword().equals(dbPassword)){
             user.setLoggedIn(true);
@@ -84,7 +90,6 @@ public class Authentication extends HttpServlet {
         }
 
         response.sendRedirect(redirectLocation);
-
         return;
     }
 
