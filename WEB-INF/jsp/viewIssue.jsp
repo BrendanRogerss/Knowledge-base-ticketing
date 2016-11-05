@@ -66,21 +66,16 @@
                     <div class="panel-heading">
                         <div>
                             User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
-                        </div>
-                        <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
+                            <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0 && current.getState().compareTo('Completed') == 0}">
+
                                 <form class ="form-horizontal" action="ChangeCommentType" method="POST">
                                     <input type="hidden" name="commentID" value="<c:out value="${currentComment.getCommentID()}"/>"/>
                                     <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
-                                    <div class="row">
-                                        <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-2">
-                                                <button type="submit" name="commentType" value="Accepted" class="btn btn-default">Accept</button>
-                                                <button type="submit" name="commentType" value="Rejected" class="btn btn-default">Reject</button>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    <button style="float: left" type="submit" name="commentType" value="Accepted" class="btn btn-default">Accept</button>
+                                    <button style="float: left" value="Rejected" class="btn btn-default">Reject</button>
                                 </form>
-                        </c:if>
+                            </c:if>
+                        </div>
                     </div>
                     <div class="panel-body"><c:out value="${currentComment.getContent()}"/> </div>
                 </div>
@@ -111,7 +106,7 @@
     <!--Start work on issue-->
 </c:if>
 
-<c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0) || (current.getState().compareTo(\"Completed\") == 0)}">
     <!--Propose solution-->
     <div class="container">
         <form action="AddComment" method="POST">

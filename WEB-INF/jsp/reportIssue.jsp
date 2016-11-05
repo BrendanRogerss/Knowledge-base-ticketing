@@ -57,7 +57,7 @@
         </div>
         <div class="row">
                     <div class="form-group">
-                        <label for="title" class="col-sm-2 col-sm-offset-3 control-label">Title</label>
+                        <label for="title" class="col-sm-2 col-sm-offset-3 control-label">Title*</label>
                         <div class="col-sm-3">
                             <input name="title" type="text" class="form-control" id="title" placeholder="Title">
                         </div>
