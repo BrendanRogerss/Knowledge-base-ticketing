@@ -80,7 +80,9 @@ public class AddComment extends HttpServlet{
             result.close();
 
             if(user.isStaff()){ //notification needs to be set
+                System.out.println("before addNote");
                 database.addNotification(issueID);
+                System.out.println("after addNote");
             }
 
 
