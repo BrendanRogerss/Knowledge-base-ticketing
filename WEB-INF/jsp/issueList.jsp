@@ -125,7 +125,7 @@
             <tbody>
             <c:forEach var="current" items="${requestScope.list}">
                 <tr>
-                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>&issueList=false"><c:out value="${current.getIssueID()}"/></a></td>
+                    <td><a href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
                     <td><c:out value="${current.getTitle()}"/></td>
                     <td><c:out value="${current.getState()}"/></td>
                     <td><c:out value="${current.getCategory()}"/></td>
@@ -137,7 +137,17 @@
                                 <c:when test="${!current.getState().equals('KnowledgeBase')}">
                                     <c:choose>
                                         <c:when test="${current.getState().equals('Completed')}">
-                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&path=issueList"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                                            <c:choose>
+                                                <c:when test="${sessionScope.currentPage.equals('knowledgeBase')}">
+                                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&path=knowledgeBase"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                                                </c:when>
+                                                <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
+                                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&path=reportedIssues"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                                                </c:when>
+                                                <c:when test="${sessionScope.currentPage.equals('completedIssues')}">
+                                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=KnowledgeBase&path=completedIssues"><img src="resources/plus.jpg" width="22" height="22" /></a></td>
+                                                </c:when>
+                                            </c:choose>
                                         </c:when>
                                         <c:otherwise>
                                             <td><img src="resources/yellow-exclamation-mark.jpg" width="22" height="22" /></td>
@@ -145,7 +155,17 @@
                                     </c:choose>
                                 </c:when>
                                 <c:otherwise>
-                                    <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&path=issueList"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                                    <c:choose>
+                                        <c:when test="${sessionScope.currentPage.equals('knowledgeBase')}">
+                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&path=knowledgeBase"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                                        </c:when>
+                                        <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
+                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&path=reportedIssues"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                                        </c:when>
+                                        <c:when test="${sessionScope.currentPage.equals('completedIssues')}">
+                                            <td><a href="ChangeIssueState?issueID=<c:out value="${current.getIssueID()}"/>&state=Completed&path=completedIssues"><img src="resources/minus.jpg" width="22" height="22" /></a></td>
+                                        </c:when>
+                                    </c:choose>
                                 </c:otherwise>
                             </c:choose>
                         </c:when>

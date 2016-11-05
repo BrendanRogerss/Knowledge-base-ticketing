@@ -59,11 +59,14 @@ public class ChangeIssueState extends HttpServlet {
             if (request.getParameter("path").equals("knowledgeBase")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/KnowledgeBase");
             }
-            if (request.getParameter("path").equals("issueList")) {
+            else if (request.getParameter("path").equals("reportedIssues")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/ReportedIssues");
             }
-            if (request.getParameter("path").equals("viewCompletedIssues")) {
+            else if (request.getParameter("path").equals("completedIssues")) {
                 response.sendRedirect(getServletContext().getContextPath() + "/CompletedIssues");
+            }
+            else{
+                System.out.println("test test test");
             }
         }
         else if(request.getParameter("state").equals("Completed")) {

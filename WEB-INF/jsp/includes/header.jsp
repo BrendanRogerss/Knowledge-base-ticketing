@@ -22,6 +22,7 @@
         </div>
         <div id="navbar" class ="collapse navbar-collapse">
             <ul class="nav navbar-nav">
+                <!-- Setting active header tabs -->
                 <c:choose>
                     <c:when test="${sessionScope.currentPage.equals('homepage')}">
                         <li class="active"><a href="HomePage">Home</a></li>
