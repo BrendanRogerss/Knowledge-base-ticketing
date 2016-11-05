@@ -47,12 +47,26 @@ function validateReportIssue(){
     }
 }
 
+function validatePropose(){
+    if (document.getElementById('proposeContent').value == ""){ //If a comment is not input.
+        alert("Please enter a proposed solution.");
+        return false;
+    }
+    else if (document.getElementById('proposeContent').value.length > 1000){ //If the comment is greater than 1000 characters.
+        alert("Comment must be under 1000 characters.");
+        return false;
+    }
+    else{
+        return true;
+    }
+}
+
 function validateComment(){
-    if (document.getElementsByName('commentContent').value == ""){ //If a comment is not input.
+    if (document.getElementById('commentContent').value == ""){ //If a comment is not input.
         alert("Please enter a comment.");
         return false;
     }
-    else if (document.getElementsByName('commentContent').value.length > 1000){ //If the comment is greater than 1000 characters.
+    else if (document.getElementById('commentContent').value.length > 1000){ //If the comment is greater than 1000 characters.
         alert("Comment must be under 1000 characters.");
         return false;
     }

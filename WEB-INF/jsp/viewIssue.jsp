@@ -150,7 +150,7 @@
                     <label for="commentContent" class="col-sm-2 control-label">Propose Solution</label>
                     <div class="col-sm-5">
                         <div class="input-group">
-                            <textarea class="form-control custom-control" name="commentContent" rows="3" cols="50" style="resize:none" placeholder="Propose a solution..."></textarea>
+                            <textarea class="form-control custom-control" id="proposeContent" name="commentContent" rows="3" cols="50" style="resize:none" placeholder="Propose a solution..."></textarea>
                         </div>
                     </div>
                 </div>
@@ -158,7 +158,7 @@
             <div class="row">
                 <div class="form-group">
                     <div class="col-sm-offset-2 col-sm-10">
-                        <button type="submit" class="btn btn-default" onclick="return validateComment()">Propose solution</button>
+                        <button type="submit" class="btn btn-default" onclick="return validatePropose()">Propose solution</button>
                     </div>
                 </div>
             </div>
