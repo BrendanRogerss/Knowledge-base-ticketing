@@ -84,11 +84,12 @@ public class AddComment extends HttpServlet{
 
             if(user.isStaff() && (request.getParameter("commentType").equals("Comment") || request.getParameter("commentType").equals("Proposed"))){ //notification needs to be set
                 String content = "Waiting on Reporter";
-                String username = user.getUsername();
+                query = "SELECT * FROM Issue WHERE issueID = '" + issueID + "'";
+                Issue issue = database.getIssues(query).get(0);
                 Notification notification = new Notification();
                 notification.setContent(content);
                 notification.setIssueID(Integer.parseInt(issueID));
-                notification.setUsername(username);
+                notification.setUsername(issue.getUsername());
 
 
                 database.addNotification(notification);

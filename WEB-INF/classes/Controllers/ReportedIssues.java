@@ -43,7 +43,7 @@ public class ReportedIssues extends HttpServlet {
             query = "SELECT * FROM Issue WHERE state!='KnowledgeBase' OR state!='Completed' " +
                     "ORDER BY " + sortString;
         } else {
-            query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "' AND (state!='KnowledgeBase' OR state!='Completed') " +
+            query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "' AND (state!='KnowledgeBase') " +
                     "ORDER BY " + sortString;
         }
         Database database = new Database();
