@@ -28,6 +28,7 @@ public class GetIssue extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().setAttribute("currentPage", "getIssue");
+        request.getSession().setAttribute("error", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
@@ -83,7 +84,7 @@ public class GetIssue extends HttpServlet{
 
             }catch (Exception e) {
                 String error = "Something went wrong in Get Issue:"; //set an error
-                request.setAttribute("error", error+e.getMessage());
+                request.getSession().setAttribute("error", error+e.getMessage());
             }
         }
 

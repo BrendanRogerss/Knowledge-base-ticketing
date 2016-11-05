@@ -28,6 +28,7 @@ public class AddComment extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().setAttribute("currentPage", "addComment");
+        request.getSession().setAttribute("error", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

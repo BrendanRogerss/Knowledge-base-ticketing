@@ -17,6 +17,7 @@ public class About extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().setAttribute("currentPage", "about");
+        request.getSession().setAttribute("error", null);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/about.jsp"); //redirect to jsp
         dispatcher.forward(request, response);

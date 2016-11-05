@@ -22,6 +22,7 @@ public class ReportedIssues extends HttpServlet{
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().setAttribute("currentPage", "reportedIssues");
+        request.getSession().setAttribute("error", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
