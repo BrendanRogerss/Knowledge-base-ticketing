@@ -27,6 +27,7 @@ public class ChangeCommentType extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().setAttribute("currentPage", "changeCommentType");
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.isLoggedIn()) {

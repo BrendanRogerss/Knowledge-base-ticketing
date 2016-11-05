@@ -16,6 +16,8 @@ public class About extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().setAttribute("currentPage", "about");
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/about.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;

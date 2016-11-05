@@ -27,6 +27,7 @@ public class GetIssue extends HttpServlet{
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().setAttribute("currentPage", "getIssue");
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

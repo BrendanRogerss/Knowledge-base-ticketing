@@ -16,6 +16,8 @@ public class ReportIssue extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().setAttribute("currentPage", "reportIssue");
+
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");

@@ -16,6 +16,8 @@ public class Contact extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        request.getSession().setAttribute("currentPage", "contact");
+
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/contact.jsp"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
