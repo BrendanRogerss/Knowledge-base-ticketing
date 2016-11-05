@@ -110,7 +110,7 @@ public class AddComment extends HttpServlet{
 
     private boolean validateForm(HttpServletRequest request){
 
-        String error = null;
+        String error = "";
         if(request.getParameter("commentContent") == null)
             error = "No comment entered.";
         else if(request.getParameter("commentContent").length() > 1000)
