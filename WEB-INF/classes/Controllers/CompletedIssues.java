@@ -38,7 +38,7 @@ public class CompletedIssues extends HttpServlet{
 
         String query;
         String sortString = request.getParameter("sortString");
-        if(sortString == null) sortString = "state";
+        if(sortString == null) sortString = "title";
 
         query = "SELECT * FROM Issue WHERE state='Completed' OR state='Resolved' ORDER BY "+sortString;
 
