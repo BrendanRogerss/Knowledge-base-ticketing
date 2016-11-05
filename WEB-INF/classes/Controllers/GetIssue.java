@@ -55,20 +55,12 @@ public class GetIssue extends HttpServlet{
             ResultSet result = null;
             if(issue.getState().equals("KnowledgeBase")){
                 query = "SELECT * FROM UserComment WHERE issueID = '" + issueID +
-                        "' AND commentType = 'Accepted'";
+                        "' AND commentType = 'Accepted' OR commentType = 'Proposed'";
             }
-            else{//get all the comments
-                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'"; //query for all the comments for that issue
-                result = database.query(query);
-            }
+            else
+                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'";
 
             result = database.query(query);
-            if(issue.getState().equals("KnowledgeBase") && !result.next()) {
-                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID +
-                        "' AND commentType = 'Proposed'";
-                result = database.query(query);
-            }
-
 
             while(result.next()) {
                 Comment comment = new Comment();
@@ -82,6 +74,16 @@ public class GetIssue extends HttpServlet{
             }
 
             result.close();
+
+            if(issue.getState().equals("KnowledgeBase")) {
+                for(Comment comment : comments){
+                    if(comment.getCommentType().equals("Accepted")){
+                        comments = new ArrayList<Comment>();
+                        comments.add(comment);
+                        break;
+                    }
+                }
+            }
 
             issue.setComments(comments);
 
