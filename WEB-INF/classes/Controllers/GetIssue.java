@@ -85,7 +85,7 @@ public class GetIssue extends HttpServlet{
                 request.setAttribute("issue", issue); //pass the issue into the database
 
                 //check if the user has a notification associated with this issue
-                @SuppressWarnings("unchecked")
+                @SuppressWarnings("unchecked") //unsafe casting
                 ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
                 for(Notification notification: notifications){
                     if(notification.getIssueID() == issue.getIssueID()){
