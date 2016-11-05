@@ -102,19 +102,8 @@ public class GetIssue extends HttpServlet{
 
             request.setAttribute("issue", issue); //pass the issue into the database
 
-            //check if the user has a notification associated with this issue
-            @SuppressWarnings("unchecked") //unsafe casting
-            ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
-            //check if notifications have been set TODO shouldn't need this if statement
-            if(notifications!= null) {
-                for (Notification notification : notifications) {
-                    if (notification.getIssueID() == issue.getIssueID()) {
-                        notification.setSeen(true);
-                        database.setNotificationToSeen(notification);
-                        break;
-                    }
-                }
-            }
+            //set the notification to seen
+            database.setNotificationToSeen(issueID);
 
 
         }catch (Exception e) {

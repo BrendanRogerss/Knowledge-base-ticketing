@@ -132,20 +132,20 @@ public class Database {
         }
     }
 
-    public void setNotificationToSeen(Notification notification) {
+    public void setNotificationToSeen(String issueID) {
         try {
-            String query = "UPDATE Notification SET seen = ? WHERE notification = ?";
+            String query = "UPDATE Issue SET notification = FALSE WHERE issueID = ?";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setBoolean(1, true);
-            prepStatement.setInt(2, notification.getNotificationID());
+            prepStatement.setString(1, issueID);
             prepStatement.executeUpdate();
             connection.close();
         } catch (Exception e) {
+            System.out.println("notification seen: "+e.getMessage());
         }
 
     }
