@@ -56,7 +56,7 @@ public class ChangeCommentType extends HttpServlet {
         }
 
         if(request.getParameter("commentType").equals("Rejected")){
-            request.setAttribute("state", "In-Progess");
+            request.setAttribute("state", "In-Progress");
             RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/ChangeIssueState?issueID="+request.getParameter("issueID") +
             "&state=In-Progress");
             dispatcher.forward(request, response);

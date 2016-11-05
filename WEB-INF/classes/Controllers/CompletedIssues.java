@@ -34,7 +34,13 @@ public class CompletedIssues extends HttpServlet{
 
         issues = new ArrayList<>();
 
-        String query = "SELECT * FROM Issue WHERE state='Completed'";
+        String query;
+        String sortString = request.getParameter("sortString");
+        if(sortString == null) sortString = "state";
+
+        query = "SELECT * FROM Issue WHERE state='Completed' OR state='Resolved' ORDER BY "+sortString;
+
+
         Database database = new Database();
         issues = database.getIssues(query);
 
