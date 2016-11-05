@@ -41,7 +41,7 @@ public class SubmittedReport extends HttpServlet {
             String error = validate(request);
             if(error != null){
                 request.getSession().setAttribute("error", error);
-                response.sendRedirect("ReportIssue");
+                response.sendRedirect("HomePage");
                 return;
             }
 
