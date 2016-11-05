@@ -57,8 +57,6 @@ public class Database {
                 issue.setResolvedDateTime(result.getString(15));
                 issue.setUsername(result.getString(16));
                 issue.setNotification(result.getBoolean(17));
-                //dont really need this here anymore since its now stored in the sql
-                //issue.setNotification(checkIssueNotifications(result.getInt(1)));
 
                 issues.add(issue);
                 // System.out.println("end of loop");
@@ -75,24 +73,6 @@ public class Database {
         return issues;
     }
 
-    public ResultSet queryYeahLetsNotUse(String q) {
-        ResultSet result = null;
-        try {
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
-
-            Connection connection = datasource.getConnection();
-            Statement statement = connection.createStatement();
-            result = statement.executeQuery(q);
-
-            connection.close();
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return result;
-    }
-
 
     public void setNotificationToSeen(String issueID) {
         try {
@@ -107,9 +87,26 @@ public class Database {
             prepStatement.executeUpdate();
             connection.close();
         } catch (Exception e) {
-            System.out.println("notification seen: "+e.getMessage());
+            System.out.println("notification to seen: "+e.getMessage());
         }
 
+    }
+
+    public void addNotification(String issueID){
+        try {
+            String query = "UPDATE Issue SET notification = TRUE WHERE issueID = ?";
+
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setString(1, issueID);
+            prepStatement.executeUpdate();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println("add notification: "+e.getMessage());
+        }
     }
 
     //sets the number of notifications for the uesr in the session
@@ -123,7 +120,6 @@ public class Database {
                 i++;
             }
         }
-
         //add list to session object
         session.setAttribute("notificationCount", i);
     }
@@ -183,6 +179,8 @@ public class Database {
             System.out.println("updating resolved time: "+e.getMessage());
         }
     }
+
+
 
 
 }

@@ -79,8 +79,9 @@ public class AddComment extends HttpServlet{
             connection.close();
             result.close();
 
-            if(user.isStaff() && (request.getParameter("commentType").equals("Comment") || request.getParameter("commentType").equals("Proposed"))){ //notification needs to be set
-                database.setNotificationToSeen(issueID);
+            if(user.isStaff()){ //notification needs to be set
+                database.addNotification(issueID);
+                //TODO set issue status to Waiting on Reporter
             }
 
 
