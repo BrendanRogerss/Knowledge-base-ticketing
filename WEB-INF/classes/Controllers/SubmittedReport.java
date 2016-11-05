@@ -1,9 +1,6 @@
 package Controllers;
 
 import Models.User;
-import com.sun.deploy.net.HttpResponse;
-
-import javax.activation.DataSource;
 import javax.naming.NamingException;
 import javax.servlet.*;
 import javax.servlet.annotation.WebServlet;
