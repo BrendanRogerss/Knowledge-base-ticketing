@@ -3,7 +3,6 @@ package Controllers;
 import Models.Issue;
 import Models.Notification;
 import Models.User;
-import com.sun.tools.corba.se.idl.constExpr.Not;
 
 import javax.naming.InitialContext;
 import javax.servlet.http.HttpSession;
@@ -114,7 +113,7 @@ public class Database {
             prepStatement.setString(4, notification.getContent());
             prepStatement.setBoolean(5, false);
             prepStatement.executeQuery();
-
+            //comment
 
             connection.close();
             rs.close();
