@@ -32,9 +32,9 @@ public class ReportedIssues extends HttpServlet{
 
         String query;
         if(user.isStaff()){
-            query = "SELECT * FROM Issue";
+            query = "SELECT * FROM Issue WHERE state != 'KnowledgeBase' OR state != 'Completed'";
         }else{
-            query = "SELECT * FROM Issue WHERE username='"+user.getUsername()+"'";
+            query = "SELECT * FROM Issue WHERE username='"+user.getUsername()+"' AND (state != 'KnowledgeBase' OR state != 'Completed')";
         }
         Database database = new Database();
         issues = database.getIssues(query);

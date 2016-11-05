@@ -121,7 +121,7 @@
         <!--TODO set this so it goes to the right place-->
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
-            <input type="hidden" name="state" value="Complete"/>
+            <input type="hidden" name="state" value="Completed"/>
             <div class="row">
                 <div class="form-group">
                     <label for="solution" class="col-sm-2 control-label">Propose Solution</label>
