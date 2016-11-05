@@ -21,7 +21,7 @@
                     <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                     <form action="KnowledgeBase" method="POST">
                         </c:when>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                         <form action="CompletedIssues" method="POST">
                             </c:when>
                             </c:choose>
@@ -38,7 +38,7 @@
                             <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                             <form action="KnowledgeBase" method="POST">
                                 </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
@@ -55,7 +55,7 @@
                             <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                             <form action="KnowledgeBase" method="POST">
                                 </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
@@ -72,7 +72,7 @@
                             <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                             <form action="KnowledgeBase" method="POST">
                                 </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
@@ -89,7 +89,7 @@
                             <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                             <form action="KnowledgeBase" method="POST">
                                 </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
@@ -106,7 +106,7 @@
                             <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                             <form action="KnowledgeBase" method="POST">
                                 </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssue\")==0}">
+                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
