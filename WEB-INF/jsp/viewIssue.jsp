@@ -101,7 +101,7 @@
     <!--Start work on issue-->
 </c:if>
 
-<c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\"))}">
     <!--Propose solution-->
     <div class="container">
         <form action="AddComment" method="POST">
@@ -130,7 +130,7 @@
     <!--Propose solution-->
 </c:if>
 
-<c:if test="${user.isStaff() && ((current.getState().compareTo(\"Completed\") == 0) || (current.getState().compareTo(\"Resolved\") == 0))}">
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"Resolved\") == 0)}">
     <!--Knowledge base-->
     <div class="container">
         <!--TODO set this so it goes to the right place-->
