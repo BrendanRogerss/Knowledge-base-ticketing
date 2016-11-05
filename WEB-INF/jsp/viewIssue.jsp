@@ -114,7 +114,7 @@
 <c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
     <!--Propose solution-->
     <div class="container">
-        <form action="ChangeIssueState" method="POST">
+        <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Completed"/>
             <input type="hidden" name="commentType" value="Proposed"/>
