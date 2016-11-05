@@ -15,9 +15,10 @@ import java.util.ArrayList;
  * Created by Brendan on 19/10/2016.
  */
 @WebServlet(urlPatterns = {"/ReportedIssues"})
-public class ReportedIssues extends HttpServlet{
+public class ReportedIssues extends HttpServlet {
 
     ArrayList<Issue> issues;
+
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
@@ -27,7 +28,7 @@ public class ReportedIssues extends HttpServlet{
 
 
         User user = (User) request.getSession().getAttribute("user");
-        if(user == null || !user.isLoggedIn()){
+        if (user == null || !user.isLoggedIn()) {
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
@@ -36,10 +37,14 @@ public class ReportedIssues extends HttpServlet{
         //String userID = user.getUsername();
 
         String query;
-        if(user.isStaff()){
-            query = "SELECT * FROM Issue WHERE state != 'KnowledgeBase' OR state != 'Completed'";
-        }else{
-            query = "SELECT * FROM Issue WHERE username='"+user.getUsername()+"' AND (state != 'KnowledgeBase' OR state != 'Completed')";
+        String sortString = request.getParameter("sortString");
+        if (sortString == null) sortString = "state";
+        if (user.isStaff()) {
+            query = "SELECT * FROM Issue WHERE state != 'KnowledgeBase' OR state != 'Completed' " +
+                    "ORDER BY" + sortString;
+        } else {
+            query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "' AND (state != 'KnowledgeBase' OR state != 'Completed') " +
+                    "ORDER BY " + sortString;
         }
         Database database = new Database();
         issues = database.getIssues(query);
