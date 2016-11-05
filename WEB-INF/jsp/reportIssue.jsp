@@ -26,7 +26,7 @@
                 <label for="category" class="col-sm-2 col-sm-offset-3 control-label">Category*</label>
                     <div class="col-sm-3">
                     <select name="category" class="form-control" id="category">
-                        <option value="">Select a category...</option>
+                        <option value="SelectACategory">Select a category...</option>
                         <option class="main-category" value="network" disabled>Network</option>
                         <option value="cant-connect">&nbsp;&nbsp;Can't connect</option>
                         <option value="speed">&nbsp;&nbsp;Speed</option>

@@ -112,7 +112,7 @@ public class SubmittedReport extends HttpServlet {
     }
 
     private String validate(HttpServletRequest request){
-        if(request.getParameter("category").equals("Select A Category")){
+        if(request.getParameter("category").equals("SelectACategory")){
             return "Category wasn't selected";
         }else if(request.getParameter("location")==null){
             return "location is empty";
