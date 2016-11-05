@@ -66,7 +66,7 @@
                     <div class="panel-heading">
                         <div>
                             User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
-                            <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0 && current.getState().compareTo('In-Progress') == 0}">
+                            <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0 && current.getState().compareTo('Completed') == 0}">
                                 <span style="margin-left: 2em; font-weight: bold"><a href="ChangeCommentType?commentID=<c:out value="${currentComment.getCommentID()}"/>&issueID=<c:out value="${current.getIssueID()}"/>&commentType=Accepted">Accept</a></span>
                                 <span style="margin-left: 1em; font-weight: bold"><a href="ChangeCommentType?commentID=<c:out value="${currentComment.getCommentID()}"/>&issueID=<c:out value="${current.getIssueID()}"/>&commentType=Rejected">Reject</a></span>
                             </c:if>
