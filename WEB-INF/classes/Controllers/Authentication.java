@@ -1,5 +1,6 @@
 package Controllers;
 
+import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -15,6 +16,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * Created by Brendan on 19/10/2016.
@@ -88,6 +90,9 @@ public class Authentication extends HttpServlet {
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
         }
+
+        Database database = new Database();
+        database.checkNotifications(request.getSession()); //get all the notifications for the user and set it to the session
 
         response.sendRedirect(redirectLocation);
         return;
