@@ -30,6 +30,8 @@ public class CompletedIssues extends HttpServlet{
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
+        }else if(!user.isStaff()){ //stop a user from sneaking into completed issues
+            response.sendRedirect(getServletContext().getContextPath()+ "/HomePage");
         }
 
         issues = new ArrayList<>();
