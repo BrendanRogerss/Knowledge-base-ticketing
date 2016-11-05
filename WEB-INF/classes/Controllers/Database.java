@@ -94,14 +94,13 @@ public class Database {
 
     public void addNotification(String issueID){
         try {
-            String query = "UPDATE Issue SET notification = TRUE WHERE issueID = ?";
+            String query = "UPDATE Issue SET notification = TRUE WHERE issueID ='"+issueID+"'";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
             PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setString(1, issueID);
             prepStatement.executeUpdate();
             connection.close();
             System.out.println(issueID);
