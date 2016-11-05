@@ -59,7 +59,7 @@ public class Database {
                 issue.setUsername(result.getString(16));
                 issue.setNotification(result.getBoolean(17));
                 //dont really need this here anymore since its now stored in the sql
-                issue.setNotification(checkIssueNotifications(result.getInt(1)));
+                //issue.setNotification(checkIssueNotifications(result.getInt(1)));
 
                 issues.add(issue);
                 // System.out.println("end of loop");
