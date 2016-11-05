@@ -119,6 +119,7 @@ public class Database {
         for(Issue issue: issues){
             if(issue.hasNotification()){
                 i++;
+                System.out.println("counted notification");
             }
         }
         //add list to session object
