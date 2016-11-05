@@ -104,7 +104,7 @@ public class GetIssue extends HttpServlet{
 
             //set the notification to seen
             database.setNotificationToSeen(issueID);
-
+            database.checkNotifications(request.getSession());
 
         }catch (Exception e) {
             String error = "Something went wrong in Get Issue:"; //set an error
