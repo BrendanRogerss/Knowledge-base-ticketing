@@ -5,9 +5,20 @@ package Models;
  */
 public class Notification {
 
+    private int notificationID;
     private String username;
     private int issueID;
     private String content;
+    private boolean seen;
+
+
+    public int getNotificationID() {
+        return notificationID;
+    }
+
+    public void setNotificationID(int notificationID) {
+        this.notificationID = notificationID;
+    }
 
     public String getUsername() {
         return username;
@@ -31,5 +42,13 @@ public class Notification {
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public boolean isSeen() {
+        return seen;
+    }
+
+    public void setSeen(boolean seen) {
+        this.seen = seen;
     }
 }

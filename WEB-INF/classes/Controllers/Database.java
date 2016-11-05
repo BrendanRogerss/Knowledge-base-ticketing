@@ -2,12 +2,12 @@ package Controllers;
 
 import Models.Issue;
 import Models.Notification;
-import com.sun.tools.corba.se.idl.constExpr.Not;
+import Models.User;
 
 import javax.naming.InitialContext;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import javax.naming.spi.DirStateFactory;
+import javax.servlet.http.HttpSession;
+import java.sql.*;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ import java.util.Date;
  */
 public class Database {
 
-    public Database(){
+    public Database() {
 
     }
 
@@ -29,14 +29,13 @@ public class Database {
             //System.out.println("database start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
-           // System.out.println("after datasource");
+            // System.out.println("after datasource");
             Connection connection = datasource.getConnection();
-           // System.out.println("after connection");
+            // System.out.println("after connection");
             Statement statement = connection.createStatement();
-           // System.out.println("after statement");
+            // System.out.println("after statement");
             ResultSet result = statement.executeQuery(query); //connect to the database
-           // System.out.println("after result");
-
+            // System.out.println("after result");
 
 
             while (result.next()) {
@@ -61,7 +60,7 @@ public class Database {
                 issue.setUsername(result.getString(16));
 
                 issues.add(issue);
-               // System.out.println("end of loop");
+                // System.out.println("end of loop");
             }
 
             connection.close();
@@ -72,11 +71,10 @@ public class Database {
         //System.out.println("databse end");
 
 
-
         return issues;
     }
 
-    public ResultSet query(String q){
+    public ResultSet query(String q) {
         ResultSet result = null;
         try {
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
@@ -86,13 +84,71 @@ public class Database {
             Statement statement = connection.createStatement();
             result = statement.executeQuery(q);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             //TODO: add something in here
         }
         return result;
     }
 
-    public void addNotification(Notification notification){
+    public void addNotification(Notification notification) {
 
+        int noteCount = 0;
+        String queryString = "SELECT COUNT(*) FROM Notification";
+        try {
+            ResultSet rs = query(queryString);
+            if (rs.next())
+                noteCount = rs.getInt(1);
+        } catch (SQLException e) {
+            //TODO: handle sql exception. need to be put in session or ignore here?
+        }
+
+        queryString = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
+        try {
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            PreparedStatement prepStatement = connection.prepareStatement(queryString);
+            prepStatement.setInt(1, noteCount);
+            prepStatement.setString(2, notification.getUsername());
+            prepStatement.setInt(3, notification.getIssueID());
+            prepStatement.setString(4, notification.getContent());
+            prepStatement.setBoolean(5, false);
+            prepStatement.executeQuery();
+
+        } catch (Exception e) {
+            //TODO: Do we have to handle errors in the database class?
+        }
     }
+
+    public void checkNotifications(HttpSession session) {
+
+        ArrayList<Notification> list = new ArrayList<Notification>();
+        Notification note;
+        //get user object
+        User user = (User) session.getAttribute("user");
+        //setup query
+        String queryString = "SELECT * from Notification WHERE seen = false AND username = " + user.getUsername();
+
+        //read all from result set. set notification object and add to list
+        try {
+            ResultSet rs = query(queryString);
+            while (rs.next()) {
+                note = new Notification();
+                note.setNotificationID(rs.getInt(1));
+                note.setUsername(user.getUsername());
+                note.setIssueID(rs.getInt(3));
+                note.setContent(rs.getString(4));
+                note.setSeen(false);
+                list.add(note);
+            }
+        } catch (SQLException e) {
+            //TODO:  Do we have to handle errors in the database class?
+        }
+
+        //add list to session object
+        session.setAttribute("notifications", list);
+    }
+
+
 }
