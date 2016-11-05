@@ -101,7 +101,7 @@
     <!--Start work on issue-->
 </c:if>
 
-<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\"))}">
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0)}">
     <!--Propose solution-->
     <div class="container">
         <form action="AddComment" method="POST">
