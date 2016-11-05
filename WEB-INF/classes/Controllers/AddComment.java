@@ -37,6 +37,11 @@ public class AddComment extends HttpServlet{
             return;
         }
 
+        String forwardURL = "";
+        if(validateForm(request))
+            forwardURL = "/HomePage";
+        else forwardURL = "/Issue";
+
         String issueID = request.getParameter("issueID");
         int numOfComments = 0;
 
@@ -78,13 +83,31 @@ public class AddComment extends HttpServlet{
             request.setAttribute("error", error+e.getMessage());
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID")); //redirect back to homepage
+        //TODO: need to change this to be able to handle errors
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(forwardURL + "?issueID="+request.getParameter("issueID")); //redirect back to homepage
         dispatcher.forward(request, response); //might be better off redirecting back to issue list
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doPost(request, response);
+    }
+
+    private boolean validateForm(HttpServletRequest request){
+
+        String error = null;
+        if(request.getParameter("commentContent") == null)
+            error = "No comment entered.";
+        else if(request.getParameter("commentContent").length() > 1000)
+            error = "Comment exceeds maximum length.";
+
+        if(error != null){
+            request.getSession().setAttribute("error", error);
+            return false;
+        }
+        return true;
+
+
     }
 
 }
