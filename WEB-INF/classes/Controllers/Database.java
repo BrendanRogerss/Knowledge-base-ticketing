@@ -85,6 +85,8 @@ public class Database {
             Statement statement = connection.createStatement();
             result = statement.executeQuery(q);
 
+            connection.close();
+
         }catch (Exception e){
             //TODO: add something in here
         }
@@ -100,13 +102,13 @@ public class Database {
                 noteCount = rs.getInt(1);
 
 
-        queryString = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
+        String queryS = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
-            PreparedStatement prepStatement = connection.prepareStatement(queryString);
+            PreparedStatement prepStatement = connection.prepareStatement(queryS);
             prepStatement.setInt(1, noteCount);
             prepStatement.setString(2, notification.getUsername());
             prepStatement.setInt(3, notification.getIssueID());
@@ -123,14 +125,20 @@ public class Database {
     }
 
     public void setNotificationToSeen(Notification notification){
-        String query = "UPDATE notification SET seen = ? WHERE notification = ?";
+        try {
+            String query = "UPDATE notification SET seen = ? WHERE notification = ?";
 
-        /*
-        prepStatement.setString(1, request.getParameter("commentType"));
-        prepStatement.setString(2, notification.get);
-        prepStatement.executeUpdate();
-        connection.close();
-        */
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setBoolean(1, true);
+            prepStatement.setInt(2, notification.getNotificationID());
+            prepStatement.executeUpdate();
+            connection.close();
+        }catch (Exception e){}
+
     }
 
     public void checkNotifications(HttpSession session) {

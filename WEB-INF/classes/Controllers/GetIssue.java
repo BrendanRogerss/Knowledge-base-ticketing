@@ -88,6 +88,7 @@ public class GetIssue extends HttpServlet{
                 ArrayList<Notification> notifications = (ArrayList<Notification>) request.getSession().getAttribute("notifications");
                 for(Notification notification: notifications){
                     if(notification.getIssueID() == issue.getIssueID()){
+                        notification.setSeen(true);
                         database.setNotificationToSeen(notification);
                         break;
                     }
