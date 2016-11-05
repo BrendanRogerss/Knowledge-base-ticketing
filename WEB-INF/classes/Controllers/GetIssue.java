@@ -102,8 +102,13 @@ public class GetIssue extends HttpServlet{
 
             request.setAttribute("issue", issue); //pass the issue into the database
 
+
+
             //set the notification to seen
-            database.setNotificationToSeen(issueID);
+            if (user.getUsername().equals(issue.getUsername())) {
+                database.setNotificationToSeen(issueID);
+            }
+
             database.checkNotifications(request.getSession());
 
         }catch (Exception e) {
