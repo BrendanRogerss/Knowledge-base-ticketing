@@ -38,11 +38,10 @@ public class AddComment extends HttpServlet{
             return;
         }
 
-        /*
         if(!validateForm(request)) {
             response.sendRedirect("HomePage");
             return;
-        }*/
+        }
 
         String issueID = request.getParameter("issueID");
         int numOfComments = 0;
@@ -111,7 +110,7 @@ public class AddComment extends HttpServlet{
 
     private boolean validateForm(HttpServletRequest request){
 
-        String error = "";
+        String error = null;
         if(request.getParameter("commentContent") == null)
             error = "No comment entered.";
         else if(request.getParameter("commentContent").length() > 1000)

@@ -88,7 +88,7 @@ public class Database {
             connection.close();
 
         }catch (Exception e){
-            //TODO: add something in here
+            System.out.println(e.getMessage());
         }
         return result;
     }
@@ -162,8 +162,9 @@ public class Database {
                 note.setSeen(false);
                 list.add(note);
             }
+            rs.close();
         } catch (SQLException e) {
-            //TODO:  Do we have to handle errors in the database class?
+            System.out.println(e.getMessage());
         }
 
         //add list to session object

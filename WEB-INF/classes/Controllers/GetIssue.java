@@ -42,7 +42,7 @@ public class GetIssue extends HttpServlet{
         String issueID = request.getParameter("issueID");
         ArrayList<Comment> comments = new ArrayList<>();
         //System.out.println("before getIssueQuery");
-        String query = "SELECT * FROM Issue WHERE issueID = "+issueID; //query for the issue with matching id
+        String query = "SELECT * FROM Issue WHERE issueID = '" + issueID + "'"; //query for the issue with matching id
 
         Database database = new Database();
         ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
