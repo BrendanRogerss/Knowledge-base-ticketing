@@ -108,6 +108,7 @@ public class SubmittedReport extends HttpServlet {
         }
 
 
+        request.getSession().setAttribute("success", "Reported added to the database");
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect to jsp
         dispatcher.forward(request, response);
         return;
