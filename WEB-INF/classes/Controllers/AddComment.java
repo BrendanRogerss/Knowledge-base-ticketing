@@ -37,10 +37,10 @@ public class AddComment extends HttpServlet{
             return;
         }
 
-        String forwardURL = "";
-        if(validateForm(request))
-            forwardURL = "/HomePage";
-        else forwardURL = "/Issue";
+        if(validateForm(request)) {
+            response.sendRedirect("HomePage");
+            return;
+        }
 
         String issueID = request.getParameter("issueID");
         int numOfComments = 0;
@@ -55,10 +55,11 @@ public class AddComment extends HttpServlet{
             Statement statement = connection.createStatement();
             String query = "SELECT COUNT(*) FROM UserComment"; //query for all the comments for that issue
             ResultSet result = statement.executeQuery(query);
-
             if(result.next()){
                 numOfComments = result.getInt(1);
             }
+
+
 
             query = "INSERT INTO UserComment VALUES (?, ?, ?, ?, ?, ?)";
             PreparedStatement prepStatement = connection.prepareStatement(query);
@@ -83,9 +84,8 @@ public class AddComment extends HttpServlet{
             request.setAttribute("error", error+e.getMessage());
         }
 
-        //TODO: need to change this to be able to handle errors
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher(forwardURL + "?issueID="+request.getParameter("issueID")); //redirect back to homepage
-        dispatcher.forward(request, response); //might be better off redirecting back to issue list
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
+        dispatcher.forward(request, response);
     }
 
     @Override
