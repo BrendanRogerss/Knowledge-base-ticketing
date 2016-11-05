@@ -2,7 +2,6 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
-import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -83,17 +82,7 @@ public class AddComment extends HttpServlet{
             result.close();
 
             if(user.isStaff() && (request.getParameter("commentType").equals("Comment") || request.getParameter("commentType").equals("Proposed"))){ //notification needs to be set
-                String content = "Waiting on Reporter";
-                query = "SELECT * FROM Issue WHERE issueID = '" + issueID + "'";
-                Issue issue = database.getIssues(query).get(0);
-                Notification notification = new Notification();
-                notification.setContent(content);
-                notification.setIssueID(Integer.parseInt(issueID));
-                notification.setUsername(issue.getUsername());
-
-
-                database.addNotification(notification);
-                database.checkNotifications(request.getSession());
+                database.setNotificationToSeen(issueID);
             }
 
 

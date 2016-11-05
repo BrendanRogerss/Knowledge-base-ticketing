@@ -1,7 +1,6 @@
 package Controllers;
 
 import Models.Issue;
-import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
@@ -94,43 +93,6 @@ public class Database {
         return result;
     }
 
-    public void addNotification(Notification notification) {
-        int noteCount = 0;
-        String queryString = "SELECT COUNT(*) FROM Notification";
-        try {
-
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
-
-            Connection connection = datasource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet result = statement.executeQuery(queryString);
-
-
-            if (result.next())
-                noteCount = result.getInt(1);
-
-
-            String queryS = "INSERT INTO Notification VALUE (?, ?, ?, ?, ?)";
-
-
-            PreparedStatement prepStatement = connection.prepareStatement(queryS);
-            prepStatement.setInt(1, noteCount);
-            prepStatement.setString(2, notification.getUsername());
-            prepStatement.setInt(3, notification.getIssueID());
-            prepStatement.setString(4, notification.getContent());
-            prepStatement.setBoolean(5, false);
-            prepStatement.executeUpdate();
-
-            System.out.println(notification.getContent());
-
-            connection.close();
-            result.close();
-        } catch (Exception e) {
-            //TODO: Do we have to handle errors in the database class?
-            System.out.println(e.getMessage());
-        }
-    }
 
     public void setNotificationToSeen(String issueID) {
         try {
@@ -220,30 +182,6 @@ public class Database {
         } catch (Exception e) {
             System.out.println("updating resolved time: "+e.getMessage());
         }
-    }
-
-    public boolean checkIssueNotifications(int issueID){
-        String queryString = "SELECT COUNT(*) FROM Notification WHERE issueID = '" + issueID + "' " +
-                "AND seen = false";
-        boolean check = false;
-        //read all from result set. set notification object and add to list
-        try {
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
-
-            Connection connection = datasource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(queryString);
-
-            if(rs.next() && rs.getInt(1) > 0)
-                check = true;
-            else check = false;
-            rs.close();
-            connection.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-        return check;
     }
 
 
