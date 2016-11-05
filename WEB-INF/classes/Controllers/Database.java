@@ -116,6 +116,7 @@ public class Database {
         String query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "'";;
         int i = 0;
         ArrayList<Issue> issues = getIssues(query);
+        System.out.println("size of the issue list: "+issues.size());
         for(Issue issue: issues){
             if(issue.hasNotification()){
                 i++;
