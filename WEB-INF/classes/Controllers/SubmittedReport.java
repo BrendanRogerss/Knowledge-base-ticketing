@@ -38,8 +38,8 @@ public class SubmittedReport extends HttpServlet {
 
         try {
             //do the server side validation of the form submitted
-            if(validate(request)!=null){
-                response.sendRedirect("HomePage");
+            if(validate(request) != null){
+                response.sendRedirect("ReportIssue");
                 return;
             }
 

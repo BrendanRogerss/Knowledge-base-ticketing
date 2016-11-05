@@ -73,7 +73,7 @@
                                     <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
                                     <div class="row">
                                         <div class="form-group">
-                                            <div class="col-sm-offset-2 col-sm-10">
+                                            <div class="col-sm-offset-2 col-sm-2">
                                                 <button type="submit" name="commentType" value="Accepted" class="btn btn-default">Accept</button>
                                                 <button type="submit" name="commentType" value="Rejected" class="btn btn-default">Reject</button>
 
