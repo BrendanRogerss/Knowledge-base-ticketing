@@ -110,7 +110,7 @@
                                 <form action="CompletedIssues" method="POST">
                                     </c:when>
                                     </c:choose>
-                                    <input type="hidden" name="sortString" value="user"/>
+                                    <input type="hidden" name="sortString" value="username"/>
                                                 <button type="submit" class="btn btn-default">Sort User</button>
                                 </form>
                 </td>
