@@ -48,7 +48,6 @@ public class AddComment extends HttpServlet{
 
         try{ //get all the comments
 
-            System.out.println("add comment start");
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
@@ -76,7 +75,6 @@ public class AddComment extends HttpServlet{
             prepStatement.setString(6, request.getParameter("issueID"));
 
             prepStatement.executeUpdate();
-            System.out.println("add comment end");
 
             connection.close();
             result.close();
@@ -95,7 +93,6 @@ public class AddComment extends HttpServlet{
         if(request.getParameter("commentType").equals("Proposed"))
             database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
 
-        System.out.println("comment type is: " + request.getParameter("commentType"));
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
         dispatcher.forward(request, response);
 
@@ -109,7 +106,7 @@ public class AddComment extends HttpServlet{
     private boolean validateForm(HttpServletRequest request){
 
         String error = null;
-        if(request.getParameter("commentContent") == null)
+        if(request.getParameter("commentContent") == null || request.getParameter("commentContent").length() == 0)
             error = "No comment entered.";
         else if(request.getParameter("commentContent").length() > 1000)
             error = "Comment exceeds maximum length.";
