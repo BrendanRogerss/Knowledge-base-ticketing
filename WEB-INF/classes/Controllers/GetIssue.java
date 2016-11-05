@@ -96,7 +96,7 @@ public class GetIssue extends HttpServlet{
             issue.setComments(comments);
 
             //check if the person requesting the issue has permission
-            if(!user.getUsername().equals(issue.getUsername()) && !user.isStaff() && !issue.getState().equals("knowledgeBase")){
+            if(!user.getUsername().equals(issue.getUsername()) && !user.isStaff() && !issue.getState().equals("knowledgeBase") && !issue.getState().equals("KnowledgeBase")){
                 request.getSession().setAttribute("error", "Permission not valid for the issue");
                 response.sendRedirect("HomePage");
                 return;
