@@ -18,6 +18,7 @@ public class Contact extends HttpServlet {
 
         request.getSession().setAttribute("currentPage", "contact");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/contact.jsp"); //redirect to jsp
         dispatcher.forward(request, response);

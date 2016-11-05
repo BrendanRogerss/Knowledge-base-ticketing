@@ -23,6 +23,8 @@ public class ReportedIssues extends HttpServlet{
 
         request.getSession().setAttribute("currentPage", "reportedIssues");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
+
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

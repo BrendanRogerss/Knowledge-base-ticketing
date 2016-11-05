@@ -29,6 +29,7 @@ public class Authentication extends HttpServlet {
         //get details
         request.getSession().setAttribute("currentPage", "authentication");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         User user = (User) request.getSession().getAttribute("user");
 

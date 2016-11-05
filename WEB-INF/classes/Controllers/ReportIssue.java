@@ -18,6 +18,7 @@ public class ReportIssue extends HttpServlet {
 
         request.getSession().setAttribute("currentPage", "reportIssue");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

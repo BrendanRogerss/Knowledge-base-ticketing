@@ -29,6 +29,7 @@ public class Logout extends HttpServlet {
         //get details
         request.getSession().setAttribute("currentPage", "logout");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         User user = (User) request.getSession().getAttribute("user");
         HttpSession session = request.getSession();

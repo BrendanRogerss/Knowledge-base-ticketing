@@ -24,6 +24,7 @@ public class CompletedIssues extends HttpServlet{
 
         request.getSession().setAttribute("currentPage", "completedIssue");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

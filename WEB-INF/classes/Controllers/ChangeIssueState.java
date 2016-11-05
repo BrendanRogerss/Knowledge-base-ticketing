@@ -29,6 +29,7 @@ public class ChangeIssueState extends HttpServlet {
 
         request.getSession().setAttribute("currentPage", "changeIssueState");
         request.getSession().setAttribute("error", null);
+        request.getSession().setAttribute("success", null);
 
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.isLoggedIn()) {
