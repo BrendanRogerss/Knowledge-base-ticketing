@@ -61,7 +61,7 @@ public class SubmittedReport extends HttpServlet {
 
             //preparing new issue insert statement with all request data from form
             statement = "INSERT INTO Issue" +
-                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+                    " VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,?)";
 
             prepStatement = connection.prepareStatement(statement);
             prepStatement.setInt(1, numOfIssues + 1);
@@ -85,6 +85,7 @@ public class SubmittedReport extends HttpServlet {
             prepStatement.setString(14, stringDate);
             prepStatement.setString(15, "nil"); //TODO: set the submission date to something!!!!!!!!!!!!!!
             prepStatement.setString(16, user.getUsername());
+            prepStatement.setBoolean(17, false);
             //execution.
             prepStatement.executeUpdate();
 

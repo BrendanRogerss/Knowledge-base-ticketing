@@ -57,7 +57,8 @@ public class Database {
                 issue.setReportedDateTime(result.getString(14));
                 issue.setResolvedDateTime(result.getString(15));
                 issue.setUsername(result.getString(16));
-
+                issue.setNotification(result.getBoolean(17));
+                //dont really need this here anymore since its now stored in the sql
                 issue.setNotification(checkIssueNotifications(result.getInt(1)));
 
                 issues.add(issue);
@@ -149,42 +150,20 @@ public class Database {
 
     }
 
+    //sets the number of notifications for the uesr in the session
     public void checkNotifications(HttpSession session) {
-
-        ArrayList<Notification> list = new ArrayList<Notification>();
-        Notification note;
-        //get user object
         User user = (User) session.getAttribute("user");
-        //setup query
-        String queryString = "SELECT * from Notification WHERE seen = false AND username = '" + user.getUsername() + "'";
-
-        //read all from result set. set notification object and add to list
-        try {
-            javax.sql.DataSource datasource = (javax.sql.DataSource) new
-                    InitialContext().lookup("java:/comp/env/SENG2050");
-
-            Connection connection = datasource.getConnection();
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery(queryString);
-
-
-            while (rs != null && rs.next()) {
-                note = new Notification();
-                note.setNotificationID(rs.getInt(1));
-                note.setUsername(user.getUsername());
-                note.setIssueID(rs.getInt(3));
-                note.setContent(rs.getString(4));
-                note.setSeen(false);
-                list.add(note);
+        String query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "'";;
+        int i = 0;
+        ArrayList<Issue> issues = getIssues(query);
+        for(Issue issue: issues){
+            if(issue.hasNotification()){
+                i++;
             }
-            rs.close();
-            connection.close();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
         }
 
         //add list to session object
-        session.setAttribute("notifications", list);
+        session.setAttribute("notificationCount", i);
     }
 
     public void changeIssueState(String issueID, String state) {
