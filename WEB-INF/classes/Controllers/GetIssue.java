@@ -30,14 +30,16 @@ public class GetIssue extends HttpServlet{
         request.getSession().setAttribute("currentPage", "getIssue");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
-        Database database = new Database();
-        database.checkNotifications(request.getSession());
+
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
+
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         //get issue id from request
         String issueID = request.getParameter("issueID");

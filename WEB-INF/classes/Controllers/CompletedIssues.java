@@ -25,8 +25,7 @@ public class CompletedIssues extends HttpServlet{
         request.getSession().setAttribute("currentPage", "completedIssues");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
-        Database database = new Database();
-        database.checkNotifications(request.getSession());
+
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
@@ -35,6 +34,9 @@ public class CompletedIssues extends HttpServlet{
         }else if(!user.isStaff()){ //stop a user from sneaking into completed issues
             response.sendRedirect(getServletContext().getContextPath()+ "/HomePage");
         }
+
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         issues = new ArrayList<>();
 

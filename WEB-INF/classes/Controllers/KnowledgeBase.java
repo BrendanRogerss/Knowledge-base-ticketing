@@ -26,14 +26,16 @@ public class KnowledgeBase extends HttpServlet{
         request.getSession().setAttribute("currentPage", "knowledgeBase");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
-        Database database = new Database();
-        database.checkNotifications(request.getSession());
+
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
+
         //build list
         issues = new ArrayList<>();
 
