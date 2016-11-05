@@ -104,7 +104,6 @@ public class Database {
             prepStatement.setString(1, issueID);
             prepStatement.executeUpdate();
             connection.close();
-            System.out.println(issueID);
         } catch (Exception e) {
             System.out.println("notification to seen: "+e.getMessage());
         }
@@ -116,7 +115,6 @@ public class Database {
         String query = "SELECT * FROM Issue WHERE username='" + user.getUsername() + "'";
         int i = 0;
         ArrayList<Issue> issues = getIssues(query);
-        System.out.println("size of the issue list: "+issues.size());
         for(Issue issue: issues){
             if(issue.hasNotification()){
                 i++;
