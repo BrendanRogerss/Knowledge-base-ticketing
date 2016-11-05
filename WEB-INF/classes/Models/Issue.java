@@ -24,6 +24,7 @@ public class Issue {
     private String reportedDateTime;
     private String resolvedDateTime;
     private String username;
+    private boolean hasNotification;
     ArrayList<Comment> comments = new ArrayList<>();
 
     public void addComment(User user, Date dateTime, String content) {
@@ -168,5 +169,13 @@ public class Issue {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public boolean hasNotification() {
+        return hasNotification;
+    }
+
+    public void setNotification(boolean hasNotification) {
+        this.hasNotification = hasNotification;
     }
 }

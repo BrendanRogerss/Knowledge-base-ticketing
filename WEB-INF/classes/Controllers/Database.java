@@ -58,6 +58,9 @@ public class Database {
                 issue.setResolvedDateTime(result.getString(15));
                 issue.setUsername(result.getString(16));
 
+
+                issue.setNotification(false);
+
                 issues.add(issue);
                 // System.out.println("end of loop");
             }
@@ -240,4 +243,6 @@ public class Database {
             System.out.println("updating resolved time: "+e.getMessage());
         }
     }
+
+
 }
