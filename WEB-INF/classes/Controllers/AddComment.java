@@ -38,7 +38,7 @@ public class AddComment extends HttpServlet{
             return;
         }
 
-        if(validateForm(request)) {
+        if(!validateForm(request)) {
             response.sendRedirect("HomePage");
             return;
         }
