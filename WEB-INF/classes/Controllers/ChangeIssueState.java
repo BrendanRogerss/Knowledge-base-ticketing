@@ -40,12 +40,9 @@ public class ChangeIssueState extends HttpServlet {
         Database database = new Database();
         database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
 
-        if(request.getParameter("state").equals("Resolved")){ //set the resolved date for an issue
-            DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-            Date date = new Date();
-            String stringDate = dateFormat.format(date);
-            database.setIssueResolvedDate(stringDate, request.getParameter("issueID"));
-        }
+        /*if(request.getParameter("state").equals("Resolved")){ //set the resolved date for an issue
+            database.setIssueResolvedDate(request.getParameter("issueID"));
+        }*/
 
         if (request.getParameter("path") != null) {
             if (request.getParameter("path").equals("knowledgeBase")) {

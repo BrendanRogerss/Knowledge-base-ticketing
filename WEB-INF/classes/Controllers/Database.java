@@ -164,7 +164,11 @@ public class Database {
         }
     }
 
-    public void setIssueResolvedDate(String date, String issueID){
+    public void setIssueResolvedDate(String issueID){
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        String stringDate = dateFormat.format(date);
         try {
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
@@ -173,7 +177,7 @@ public class Database {
             Connection connection = datasource.getConnection();
             String query = "UPDATE Issue SET resolvedDateTime = ? WHERE issueID = ?";
             PreparedStatement prepStatement = connection.prepareStatement(query);
-            prepStatement.setString(1, date);
+            prepStatement.setString(1, stringDate);
             prepStatement.setString(2, issueID);
             prepStatement.executeUpdate();
             connection.close();

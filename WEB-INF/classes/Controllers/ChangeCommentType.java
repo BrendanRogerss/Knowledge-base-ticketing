@@ -48,9 +48,10 @@ public class ChangeCommentType extends HttpServlet {
             database.changeIssueState(request.getParameter("issueID"), stateSet);
         }
 
-        else if(request.getParameter("commentType").equals("Accepted"))
+        else if(request.getParameter("commentType").equals("Accepted")) {
             database.changeIssueState(request.getParameter("issueID"), "Resolved");
-
+            database.setIssueResolvedDate(request.getParameter("issueID"));
+        }
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
         dispatcher.forward(request, response);
 

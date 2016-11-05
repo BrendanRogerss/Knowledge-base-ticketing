@@ -81,7 +81,6 @@ public class AddComment extends HttpServlet{
 
             if(user.isStaff()){ //notification needs to be set
                 database.addNotification(issueID);
-                //TODO set issue status to Waiting on Reporter
             }
 
 
@@ -93,6 +92,7 @@ public class AddComment extends HttpServlet{
 
         if(request.getParameter("commentType").equals("Proposed"))
             database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
+        else database.changeIssueState(request.getParameter("issueID"), "Waiting on Reporter");
 
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
         dispatcher.forward(request, response);
