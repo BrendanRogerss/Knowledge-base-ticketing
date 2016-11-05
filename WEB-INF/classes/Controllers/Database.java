@@ -221,4 +221,23 @@ public class Database {
         } catch (Exception e) {
         }
     }
+
+    public void setIssueResolvedDate(String date, String issueID){
+        try {
+
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            String query = "UPDATE Issue SET resolvedDateTime = ? WHERE issueID = ?";
+            PreparedStatement prepStatement = connection.prepareStatement(query);
+            prepStatement.setString(1, date);
+            prepStatement.setString(2, issueID);
+            prepStatement.executeUpdate();
+            connection.close();
+
+        } catch (Exception e) {
+            System.out.println("updating resolved time: "+e.getMessage());
+        }
+    }
 }
