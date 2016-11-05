@@ -70,6 +70,15 @@ public class GetIssue extends HttpServlet{
                 result.close();
 
                 issue.setComments(comments);
+
+                //check if the person requesting the issue has permission
+                if(user.getUsername() != issue.getUsername() && !user.isStaff() && !issue.getState().equals("knowledgeBase")){
+                    request.getSession().setAttribute("error", "Permission not valid for the issue");
+                    response.sendRedirect("HomePage");
+                    return;
+                }
+
+
                 request.setAttribute("issue", issue); //pass the issue into the database
 
             }catch (Exception e) {
