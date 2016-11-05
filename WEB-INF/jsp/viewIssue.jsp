@@ -39,7 +39,11 @@
             <td><c:out value="${current.getUsername()}"/></td>
         </tr>
         <tr>
-            <td>Content</td>
+            <td>Error message</td>
+            <td><c:out value="${current.getErrorMessage()}"/></td>
+        </tr>
+        <tr>
+            <td>Problem description</td>
             <td><c:out value="${current.getDescription()}"/></td>
         </tr>
         <!--Display comments-->
