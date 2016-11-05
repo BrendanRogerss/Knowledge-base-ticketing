@@ -13,113 +13,70 @@
             <thead>
             <tr>
                 <td>
-                Issue ID
-                <c:choose>
-                <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                <form action="ReportedIssues" method="POST">
-                    </c:when>
-                    <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                    <form action="KnowledgeBase" method="POST">
-                        </c:when>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                        <form action="CompletedIssues" method="POST">
-                            </c:when>
-                            </c:choose>
-                            <input type="hidden" name="sortString" value="issueID"/>
-                            <button type="submit" class="btn btn-default">Sort IssueID</button>
-                        </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="issueID"/>
+                    <button type="submit" class="btn btn-default">IssueID</button>
+                    </form>
                 </td>
                 <td>
-                    Title
-                        <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                        <form action="ReportedIssues" method="POST">
-                            </c:when>
-                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                            <form action="KnowledgeBase" method="POST">
-                                </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                                <form action="CompletedIssues" method="POST">
-                                    </c:when>
-                                    </c:choose>
-                                    <input type="hidden" name="sortString" value="title"/>
-                                    <button type="submit" class="btn btn-default">Sort Title</button>
-                                </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="title"/>
+                    <button type="submit" class="btn btn-default">Title</button>
+                    </form>
                 </td>
                 <td>
-                    Status
-                        <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                        <form action="ReportedIssues" method="POST">
-                            </c:when>
-                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                            <form action="KnowledgeBase" method="POST">
-                                </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                                <form action="CompletedIssues" method="POST">
-                                    </c:when>
-                                    </c:choose>
-                                    <input type="hidden" name="sortString" value="state"/>
-                                                <button type="submit" class="btn btn-default">Sort Status</button>
-                                </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="state"/>
+                    <button type="submit" class="btn btn-default">Status</button>
+                    </form>
                 </td>
                 <td>
-                    Category
-                        <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                        <form action="ReportedIssues" method="POST">
-                            </c:when>
-                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                            <form action="KnowledgeBase" method="POST">
-                                </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                                <form action="CompletedIssues" method="POST">
-                                    </c:when>
-                                    </c:choose>
-                                    <input type="hidden" name="sortString" value="category"/>
-                                                <button type="submit" class="btn btn-default">Sort Category</button>
-                                </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="category"/>
+                    <button type="submit" class="btn btn-default">Category</button>
+                    </form>
                 </td>
                 <td>
-                    Reported date
-                        <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                        <form action="ReportedIssues" method="POST">
-                            </c:when>
-                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                            <form action="KnowledgeBase" method="POST">
-                                </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                                <form action="CompletedIssues" method="POST">
-                                    </c:when>
-                                    </c:choose>
-                                    <input type="hidden" name="sortString" value="reportDateTime"/>
-                                                <button type="submit" class="btn btn-default">Sort Reported date</button>
-                                </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="reportDateTime"/>
+                    <button type="submit" class="btn btn-default">Reported date</button>
+                    </form>
                 </td>
                 <td>
-                    User
-                        <c:choose>
-                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}">
-                        <form action="ReportedIssues" method="POST">
-                            </c:when>
-                            <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
-                            <form action="KnowledgeBase" method="POST">
-                                </c:when>
-                                <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}">
-                                <form action="CompletedIssues" method="POST">
-                                    </c:when>
-                                    </c:choose>
-                                    <input type="hidden" name="sortString" value="username"/>
-                                                <button type="submit" class="btn btn-default">Sort User</button>
-                                </form>
+                    <c:choose>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"reportedIssues\")==0}"><form action="ReportedIssues" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}"><form action="KnowledgeBase" method="POST"></c:when>
+                        <c:when test="${sessionScope.currentPage.compareTo(\"completedIssues\")==0}"><form action="CompletedIssues" method="POST"> </c:when>
+                    </c:choose>
+                    <input type="hidden" name="sortString" value="username"/>
+                    <button type="submit" class="btn btn-default">User</button>
+                    </form>
                 </td>
                 <c:if test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                     <td>
-                        Resolution Date
                         <form action="KnowledgeBase" method="POST">
                             <input type="hidden" name="sortString" value="resolvedDateTime"/>
-                            <button type="submit" class="btn btn-default">Sort resolved date</button>
+                            <button type="submit" class="btn btn-default">Resolution date</button>
                         </form>
                     </td>
                 </c:if>
