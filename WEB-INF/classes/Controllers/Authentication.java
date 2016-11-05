@@ -91,7 +91,7 @@ public class Authentication extends HttpServlet {
             session.setAttribute("user", user);
         }
 
-        Database database = new Database();
+        Database database = new Database(); //make a new object
         database.checkNotifications(request.getSession()); //get all the notifications for the user and set it to the session
 
         response.sendRedirect(redirectLocation);
