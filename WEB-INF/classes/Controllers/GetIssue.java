@@ -30,6 +30,8 @@ public class GetIssue extends HttpServlet{
         request.getSession().setAttribute("currentPage", "getIssue");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
@@ -43,7 +45,6 @@ public class GetIssue extends HttpServlet{
         //System.out.println("before getIssueQuery");
         String query = "SELECT * FROM Issue WHERE issueID = '" + issueID + "'"; //query for the issue with matching id
 
-        Database database = new Database();
         ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
         Issue issue = issues.get(0);
 

@@ -27,6 +27,8 @@ public class SubmittedReport extends HttpServlet {
         request.getSession().setAttribute("currentPage", "submittedReport");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){

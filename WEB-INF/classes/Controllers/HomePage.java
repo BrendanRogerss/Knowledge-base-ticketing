@@ -21,6 +21,8 @@ public class HomePage extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         request.getSession().setAttribute("currentPage", "homepage");
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
         //request.getSession().setAttribute("error", null);
 
 

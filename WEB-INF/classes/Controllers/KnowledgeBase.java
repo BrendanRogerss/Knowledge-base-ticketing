@@ -26,6 +26,8 @@ public class KnowledgeBase extends HttpServlet{
         request.getSession().setAttribute("currentPage", "knowledgeBase");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
@@ -39,7 +41,6 @@ public class KnowledgeBase extends HttpServlet{
         if (sortString == null) sortString = "state";
         String query = "SELECT * FROM Issue WHERE state='KnowledgeBase' " +
                 "ORDER BY " + sortString;
-        Database database = new Database();
         issues = database.getIssues(query);
 
         request.setAttribute("list", issues); //add the list to the session
