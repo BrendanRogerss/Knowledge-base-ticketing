@@ -25,8 +25,7 @@ public class ReportedIssues extends HttpServlet {
         request.getSession().setAttribute("currentPage", "reportedIssues");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
-        Database database = new Database();
-        database.checkNotifications(request.getSession());
+
 
 
         User user = (User) request.getSession().getAttribute("user");
@@ -34,6 +33,9 @@ public class ReportedIssues extends HttpServlet {
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
+
+        Database database = new Database();
+        database.checkNotifications(request.getSession());
 
         issues = new ArrayList<>();
         //String userID = user.getUsername();
