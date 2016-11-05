@@ -52,25 +52,23 @@
                 <c:choose>
                     <c:when test="${currentComment.getCommentType().compareTo(\"Accepted\") == 0}">
                 <div class="panel panel-success">
-
                     </c:when>
                         <c:when test="${currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
                 <div class="panel panel-info">
-
                     </c:when>
                         <c:when test="${currentComment.getCommentType().compareTo(\"Rejected\") == 0}">
                 <div class="panel panel-danger">
-
                     </c:when>
                     <c:otherwise>
                         <div class="panel panel-default">
                     </c:otherwise>
                 </c:choose>
                     <div class="panel-heading">
-                        User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
+                        <div>
+                            User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
+                        </div>
                         <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0}">
-                            <div class="container">
-                                <form action="ChangeCommentType" method="POST">
+                                <form class ="form-horizontal" action="ChangeCommentType" method="POST">
                                     <input type="hidden" name="commentID" value="<c:out value="${currentComment.getCommentID()}"/>"/>
                                     <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
                                     <div class="row">
@@ -82,7 +80,6 @@
                                         </div>
                                     </div>
                                 </form>
-                            </div>
                         </c:if>
                     </div>
                     <div class="panel-body"><c:out value="${currentComment.getContent()}"/> </div>

@@ -26,26 +26,31 @@
                 <label for="category" class="col-sm-2 col-sm-offset-3 control-label">Category*</label>
                     <div class="col-sm-3">
                     <select name="category" class="form-control" id="category">
-                        <option>Select a category...</option>
+                        <option value="">Select a category...</option>
                         <option class="main-category" value="network" disabled>Network</option>
                         <option value="cant-connect">&nbsp;&nbsp;Can't connect</option>
                         <option value="speed">&nbsp;&nbsp;Speed</option>
                         <option value="constant-dropouts">&nbsp;&nbsp;Constant dropouts</option>
+                        <option value="network-other">&nbsp;&nbsp;Other...</option>
                         <option class="main-category" value="software" disabled>Software</option>
                         <option value="slow-to-load">&nbsp;&nbsp;Slow to load</option>
                         <option value="wont-load">&nbsp;&nbsp;Won't load at all</option>
+                        <option value="software-other">&nbsp;&nbsp;Other...</option>
                         <option class="main-category" value="hardware" disabled>Hardware</option>
                         <option value="wont-turn-on">&nbsp;&nbsp;Computer won't turn on</option>
                         <option value="blue-screens">&nbsp;&nbsp;Computer "blue screens"</option>
                         <option value="disk-drive">&nbsp;&nbsp;Disk drive</option>
                         <option value="peripherals">&nbsp;&nbsp;Peripherals</option>
+                        <option value="hardware-other">&nbsp;&nbsp;Other...</option>
                         <option class="main-category" value="email" disabled>Email</option>
                         <option value="cant-send">&nbsp;&nbsp;Can't send</option>
                         <option value="cant-receive">&nbsp;&nbsp;Can't receive</option>
                         <option value="spam-phishing">&nbsp;&nbsp;SPAM/Phishing</option>
+                        <option value="email-other">&nbsp;&nbsp;Other...</option>
                         <option class="main-category" value="account" disabled>Account</option>
                         <option value="password-reset">&nbsp;&nbsp;Password reset</option>
                         <option value="wrong-details">&nbsp;&nbsp;Wrong details</option>
+                        <option value="account-other">&nbsp;&nbsp;Other...</option>
                     </select>
                 </div>
             </div>

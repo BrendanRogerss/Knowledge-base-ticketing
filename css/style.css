@@ -11,6 +11,10 @@ body {
     width: 100%;
 }
 
+#formInline{
+    display: inline-block;
+}
+
 #issueDiv {
     margin: auto;
     width: 75%;
