@@ -2,7 +2,6 @@ package Controllers;
 
 import Models.Comment;
 import Models.Issue;
-import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;

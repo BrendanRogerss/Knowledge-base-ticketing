@@ -1,6 +1,5 @@
 package Controllers;
 
-import Models.Notification;
 import Models.User;
 
 import javax.naming.InitialContext;
