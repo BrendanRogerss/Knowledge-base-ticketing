@@ -149,7 +149,7 @@
         <div class="row">
             <div class="form-group">
                 <div class="col-sm-2 col-sm-offset-5">
-                    <button type="submit" class="btn btn-default">Submit Report</button>
+                    <button type="submit" class="btn btn-default" onclick="return validateReportIssue()">Submit Report</button>
                 </div>
             </div>
         </div>
@@ -158,6 +158,7 @@
 
 
 <jsp:include page="includes/bootStrapCoreJS.jsp" />
+<script src="js/validate.js"></script>
 
 </body>
 
