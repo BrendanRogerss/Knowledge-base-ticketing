@@ -93,7 +93,6 @@ public class SubmittedReport extends HttpServlet {
             e.printStackTrace();
         }
 
-        //TODO: Work out where to redirect
         RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect to jsp
         dispatcher.forward(request, response);
         return;

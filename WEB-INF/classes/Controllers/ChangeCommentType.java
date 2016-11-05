@@ -53,7 +53,6 @@ public class ChangeCommentType extends HttpServlet {
             request.setAttribute("error", error + e.getMessage());
         }
 
-        //TODO:
         response.sendRedirect(getServletContext().getContextPath() + "/Issue?issueID="+request.getParameter("issueID"));
     }
 

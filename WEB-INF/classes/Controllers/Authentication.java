@@ -82,7 +82,6 @@ public class Authentication extends HttpServlet {
             session.setAttribute("user", user);
         }
 
-        //TODO: change this to redirect instead of forward
         response.sendRedirect(redirectLocation);
 
         return;
