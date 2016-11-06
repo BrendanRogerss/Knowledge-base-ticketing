@@ -1,5 +1,8 @@
 body {
-    padding: 50px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    padding-left: 25px;
+    padding-right: 25px;
 }
 
 .starter-template {
@@ -77,4 +80,8 @@ tr, td {
     margin: auto;
     width: 62%;
     margin-top: 1em;
+}
+
+.bold-td {
+    font-weight: bold;
 }
