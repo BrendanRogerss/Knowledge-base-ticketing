@@ -11,6 +11,7 @@
 
 <body>
 
+    <!--index.jsp navigation header-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -31,6 +32,8 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+    <!-- index.jsp navigation header end -->
+
 
     <div class="container">
         <div class="starter-template">

@@ -24,8 +24,6 @@
                             <p class="lead">View all issues reported by you in the system.</p>
                         </c:otherwise>
                     </c:choose>
-
-
                 </c:when>
                 <c:when test="${sessionScope.currentPage.compareTo(\"knowledgeBase\")==0}">
                     <h1>View Knowledge Base</h1>
