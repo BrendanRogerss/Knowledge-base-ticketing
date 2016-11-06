@@ -16,7 +16,7 @@ Database Setup:
 
 		username: c3234953
 		password: 150896
-		databse name: c3234953_db
+		database name: c3234953_db
 
 	SQL file is located in FinalProject folder as "SENG2050_A3_SQLScript.sql"
 
