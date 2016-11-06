@@ -1,4 +1,3 @@
-<%@ taglib prefix="utils" uri="/WEB-INF/jsp/utils.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE HTML>
