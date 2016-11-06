@@ -15,7 +15,7 @@
         <c:set var="current" value="${requestScope.issue}"/>
         <tbody>
         <tr>
-            <td>Issue #</td>
+            <td class="col-md-2">Issue #</td>
             <td><c:out value="${current.getIssueID()}"/></td>
         </tr>
         <tr>
@@ -89,7 +89,7 @@
 
 <c:if test="${user.isStaff() && current.getState().compareTo(\"New\") == 0}">
     <!--Start work on issue-->
-    <div class="container">
+    <div class="container table-width">
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="In-Progress"/>
@@ -106,7 +106,7 @@
 </c:if>
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Waiting on Reporter\") == 0)}">
     <!--Waiting on third party-->
-    <div class="container">
+    <div class="container table-width">
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Waiting on Third Party"/>
@@ -125,7 +125,7 @@
 
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"Resolved\") == 0)}">
     <!--Knowledge base-->
-    <div class="container">
+    <div class="container table-width">
         <!--TODO set this so it goes to the right place-->
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
@@ -144,7 +144,7 @@
 
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0|| current.getState().compareTo(\"Waiting on Third Party\") == 0 || current.getState().compareTo(\"Waiting on Reporter\") == 0)}">
     <!--Propose solution-->
-    <div class="container">
+    <div class="container table-width">
         <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Completed"/>
@@ -173,7 +173,7 @@
 
 <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0 && current.getState().compareTo(\"Resolved\") != 0}">
     <!-- adding comments-->
-    <div class="container">
+    <div class="container table-width">
         <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="Waiting on Reporter"/>
