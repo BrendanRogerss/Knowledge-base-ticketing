@@ -1,3 +1,7 @@
+Setup Instructions:
+1. Compile all .java files in classes/~ directory.
+2.
+
 Assumptions:
 
 1. All users already have accounts in the system
@@ -6,3 +10,25 @@ Assumptions:
 4. When a staff comments or proposes a solution on an issue, the associated user receives a notification.
 5. Staff can propose a solution whilst status is marked as 'Waiting on reporter'.
 6. No one can add comments to a Knowledge Base article.
+7. All users can view all Knowledge Base articles.
+8. Only staff can propose solutions on issues.
+
+Additional Requirements:
+9. “For a Knowledge-Base to work we need to be able to capture the data relating to an incident in a more
+    meaningful manner. Currently we capture this data in a free-form textbox (Appendix 6.1). The suggested
+    text is related to the category of incident but can be cleared or ignored by users” – IT staff.
+    (weight 20)
+10. “The categories are very broad and could congest the Knowledge-Base. Can we have some sub-categories
+    as well (Appendix 6.2)” – IT staff.
+    (weight 20)
+14. “We should be able to view Knowledge-Base articles sorted by their categories” – User.
+    (weight 5)
+15. “We should be able to sort the issues by the date that they were reported” – IT staff.
+    (weight 5)
+17. “Not all incidents will make it to the Knowledge-Base right away. We need a useful way to search over
+    the old incidents that aren’t in the Knowledge-Base” – IT staff.
+    (weight 20)
+22. “It would be nice if I could view the entire system on my mobile device as well” – User
+    (total weight * 2 + 5)
+
+    TOTAL POTENTIAL ADDITIONAL MARKS: 145
