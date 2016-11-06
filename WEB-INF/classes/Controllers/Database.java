@@ -126,18 +126,23 @@ public class Database {
         session.setAttribute("notificationCount", i);
     }
 
+
+    //used to change the state of an issue
+    //Pre: issueID String and new state String
     public void changeIssueState(String issueID, String state) {
         try {
-
+            //setup connection
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
+            //setup query and execute
             String query = "UPDATE Issue SET state = ? WHERE issueID = ?";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setString(1, state);
             prepStatement.setString(2, issueID);
             prepStatement.executeUpdate();
+            //close resources
             connection.close();
 
         } catch (Exception e) {
@@ -145,40 +150,49 @@ public class Database {
         }
     }
 
+    //used to change the type of comment
+    //Pre: commentID String, commentType String to set to
     public void changeCommentType(String commentID, String commentType) {
         try {
-
+            //setup connection
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
+            //setup query and execute
             String query = "UPDATE UserComment SET commentType = ? WHERE commentID = ?";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setString(1, commentType);
             prepStatement.setString(2, commentID);
             prepStatement.executeUpdate();
+            //close resources
             connection.close();
 
         } catch (Exception e) {
         }
     }
 
+    //used to set the reslvedDate on an issue to current system date and time
+    //Pre: isueID String to set to
     public void setIssueResolvedDate(String issueID){
 
+        //get and format current system date and time
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
         Date date = new Date();
         String stringDate = dateFormat.format(date);
         try {
-
+            //setup connection
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
 
             Connection connection = datasource.getConnection();
+            //setup query and exectue update
             String query = "UPDATE Issue SET resolvedDateTime = ? WHERE issueID = ?";
             PreparedStatement prepStatement = connection.prepareStatement(query);
             prepStatement.setString(1, stringDate);
             prepStatement.setString(2, issueID);
             prepStatement.executeUpdate();
+            //close resources
             connection.close();
 
         } catch (Exception e) {
