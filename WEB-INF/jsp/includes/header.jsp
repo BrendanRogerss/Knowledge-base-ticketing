@@ -51,10 +51,8 @@
 
                 <!--If active tab is reportedIssues or completedIssues-->
                 <c:choose>
-                    <!--If user is staff-->
                     <c:when test="${user.isStaff()}">
                         <c:choose>
-                            <!--If active tab is reportedIssues-->
                             <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
                                 <li class="active"><a href="ReportedIssues">View Reported Issues</a></li>
                             </c:when>
@@ -63,7 +61,6 @@
                             </c:otherwise>
                         </c:choose>
                         <c:choose>
-                            <!--If active tab is completedIssues-->
                             <c:when test="${sessionScope.currentPage.equals('completedIssues')}">
                                 <li class="active"><a href="CompletedIssues">View Completed Issues</a></li>
                             </c:when>
@@ -72,10 +69,8 @@
                             </c:otherwise>
                         </c:choose>
                     </c:when>
-                    <!--If user is not staff-->
                     <c:otherwise>
                         <c:choose>
-                            <!--If active tab is currentIssues-->
                             <c:when test="${sessionScope.currentPage.equals('reportedIssues')}">
                                 <li class="active"><a href="ReportedIssues">View Current Issues</a></li>
                             </c:when>
