@@ -96,8 +96,7 @@ public class AddComment extends HttpServlet{
             database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));
         }
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/Issue?issueID="+request.getParameter("issueID"));
-        dispatcher.forward(request, response);
+        response.sendRedirect("Issue?issueID="+request.getParameter("issueID"));
 
     }
 
