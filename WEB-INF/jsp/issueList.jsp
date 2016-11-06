@@ -128,7 +128,6 @@
                         <td><a style="font-weight: bold" href="Issue?issueID=<c:out value="${current.getIssueID()}"/>"><c:out value="${current.getIssueID()}"/></a></td>
                     </c:otherwise>
                 </c:choose>
-
                 <td><c:out value="${current.getTitle()}"/></td>
                 <c:if test="${!sessionScope.currentPage.equals('knowledgeBase')}">
                     <td><c:out value="${current.getState()}"/></td>

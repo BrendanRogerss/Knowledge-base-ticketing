@@ -104,7 +104,7 @@
     </div>
     <!--Start work on issue-->
 </c:if>
-<c:if test="${user.isStaff() && current.getState().compareTo(\"In-Progress\") == 0}">
+<c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Waiting on Reporter\") == 0)}">
     <!--Waiting on third party-->
     <div class="container">
         <form action="ChangeIssueState" method="POST">
