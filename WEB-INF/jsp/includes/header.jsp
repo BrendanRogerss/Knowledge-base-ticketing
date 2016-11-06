@@ -77,7 +77,7 @@
                         </c:choose>
                     </c:otherwise>
                 </c:choose>
-                <li><a href="ReportedIssues"><img alt="<c:out value="${sessionScope.notificationCount}"/>" src="resources/bell.png" width="20" height="20"/> <span class="badge"><c:out value="${sessionScope.notificationCount}"/></span></a></li>
+                <li><a href="ReportedIssues"><img alt="notification" src="resources/bell.png" width="20" height="20"/> <span class="badge"><c:out value="${sessionScope.notificationCount}"/></span></a></li>
                 <li><a href="Logout">Logout</a></li>
             </ul>
         </div><!--/.nav-collapse -->
