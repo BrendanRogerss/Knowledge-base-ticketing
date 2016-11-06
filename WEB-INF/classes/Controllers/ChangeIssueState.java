@@ -32,6 +32,12 @@ public class ChangeIssueState extends HttpServlet {
             return;
         }
 
+        if(request.getParameter("issueID") == null || request.getParameter("issueID").equals("")){
+            request.getSession().setAttribute("error", "Issue not found");
+            response.sendRedirect("HomePage");
+            return;
+        }
+
         //change issue state to whatever is passed into the form
         Database database = new Database();
         database.changeIssueState(request.getParameter("issueID"), request.getParameter("state"));

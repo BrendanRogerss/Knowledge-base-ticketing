@@ -40,6 +40,12 @@ public class ChangeCommentType extends HttpServlet {
             return;
         }
 
+        if(request.getParameter("commentType") == null || request.getParameter("commentType").equals("")){
+            request.getSession().setAttribute("error", "CommentNotFound");
+            response.sendRedirect("HomePage");
+            return;
+        }
+
         //change the comment type
         Database database = new Database();
         database.changeCommentType(request.getParameter("commentID"), request.getParameter("commentType"));
