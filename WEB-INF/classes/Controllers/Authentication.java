@@ -18,7 +18,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * Created by Brendan on 19/10/2016.
+ * Authentication servlet used to check login credentials
+ * forwards to homepage if successful else returns to index login page
  */
 
 @WebServlet(urlPatterns = {"/Authentication"})
@@ -27,32 +28,36 @@ public class Authentication extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //get details
+        //reset success and error messages in session
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
-        User user = (User) request.getSession().getAttribute("user");
-
+        //setup various objects and variables to be used
         HttpSession session = request.getSession();
         String statement, redirectLocation = "index.jsp";
         User dbUser = new User();
         PreparedStatement prepStatement;
 
-        user = new User();
-        user.setUsername(request.getParameter("username"));
-        user.setPassword(request.getParameter("password"));
+        //check if user already exists  else
+        //create new and get data from form
+        User user = (User) request.getSession().getAttribute("user");
+        if(user == null) {
+            user = new User();
+            user.setUsername(request.getParameter("username"));
+            user.setPassword(request.getParameter("password"));
+        }
 
         try{
-            //get connection details, from context.xml I take it
+            //setup connection
             javax.sql.DataSource dataSource = (javax.sql.DataSource)new InitialContext().lookup("java:/comp/env/SENG2050");
-            //establish connection
             Connection connection = dataSource.getConnection();
 
-            //get current amount of issues in database for new issue number
+            //get user data with passed in username
             statement = "SELECT * FROM Users WHERE username = '" + request.getParameter("username") + "'";
             prepStatement = connection.prepareStatement(statement);
             ResultSet rs = prepStatement.executeQuery();
 
+            //create user object from query
             if(rs.next()){
                 dbUser.setUsername(rs.getString(1));
                 dbUser.setPassword(rs.getString(2));
@@ -63,6 +68,7 @@ public class Authentication extends HttpServlet {
                 dbUser.setContactNumber(rs.getString(7));
             }
 
+            //close resources
             connection.close();
             rs.close();
 
@@ -81,24 +87,26 @@ public class Authentication extends HttpServlet {
         }
 
         //test user credentials
+        //if login failed redirect back to index login page
         if((dbUser.getUsername() == null || dbUser.getPassword() == null) || !user.getPassword().equals(dbUser.getPassword()))
         {
             user.setLoggedIn(false);
             redirectLocation = "index.jsp";
             session.setAttribute("error", "Incorrect credentials"); //Doesnt work with redirects
         }
+        // else if login credentials correct set user to logged in and add object to session
         else if(user.getPassword().equals(dbUser.getPassword())){
             user = dbUser;
             user.setLoggedIn(true);
             redirectLocation = "HomePage";
             session.setAttribute("user", user);
 
+            //check if any notifications exist for users issues
             Database database = new Database(); //make a new object
             database.checkNotifications(request.getSession()); //get all the notifications for the user and set it to the session
         }
 
-
-
+        //redirect to designated page
         response.sendRedirect(redirectLocation);
         return;
     }
