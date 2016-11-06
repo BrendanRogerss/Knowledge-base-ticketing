@@ -47,7 +47,15 @@ public class GetIssue extends HttpServlet{
         //System.out.println("before getIssueQuery");
         String query = "SELECT * FROM Issue WHERE issueID = '" + issueID + "'"; //query for the issue with matching id
 
-        ArrayList<Issue> issues = database.getIssues(query); //return a list containing one issue
+        ArrayList<Issue> issues = database.getIssues(query);//return a list containing one issue
+        //check if the query returned any results
+        if(issues.size()==0){
+            request.getSession().setAttribute("error", "Issue not found");
+            //redirect to the home page
+            RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect back to homepage
+            dispatcher.forward(request, response);
+            return;
+        }
         Issue issue = issues.get(0);
 
 
