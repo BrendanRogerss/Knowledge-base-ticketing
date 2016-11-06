@@ -66,9 +66,14 @@
                 <td><c:out value="${current.getDescription()}"/></td>
             </tr>
             <!--Display comments-->
-            <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
+            <c:if test="${current.getComments().size() > 0}">
             <tr>
-                <td class="col-md-2 bold-td">Comments</td>
+                <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
+                    <td class="col-md-2 bold-td">Comments</td>
+                </c:if>
+                <c:if test="${current.getState().compareTo(\"KnowledgeBase\") == 0}">
+                    <td class="col-md-2 bold-td">Accepted Solution</td>
+                </c:if>
                 <td>
                 <c:forEach var="currentComment" items="${current.getComments()}">
                     <!-- Choose panel type (colouring) for different types of comments-->
