@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
+//This servlet redirects the user to the reportIssue.jsp
 @WebServlet(urlPatterns = {"/ReportIssue"})
 public class ReportIssue extends HttpServlet {
 
@@ -16,32 +17,29 @@ public class ReportIssue extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //set all the information in the session
         request.getSession().setAttribute("currentPage", "reportIssue");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
-
+        //check if the user has logged in
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
 
+        //check if the user has gotten any notifications
         Database database = new Database();
         database.checkNotifications(request.getSession());
 
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/reportIssue.jsp"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/WEB-INF/jsp/reportIssue.jsp"); //redirect to report issue
         dispatcher.forward(request, response);
         return;
     }
 
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        //copied this shit from uonSales
-
-        // The user has come here by mistake.
-        // It is possible that they have tried logging in after trying to buy an item and being shown the error message
-        // Is this a valid assumption? if not you might need to do something else here
         doPost(request, response);
     }
 }

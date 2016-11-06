@@ -14,6 +14,10 @@ import java.util.ArrayList;
 /**
  * Created by Brendan on 19/10/2016.
  */
+
+//Use this servlet to show all the reported issues for a user
+//shows all non-completed issues if the user is staff
+//shows only issues user has reported if student
 @WebServlet(urlPatterns = {"/ReportedIssues"})
 public class ReportedIssues extends HttpServlet {
 
@@ -21,28 +25,28 @@ public class ReportedIssues extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //set all the necessary information in the session
         request.getSession().setAttribute("currentPage", "reportedIssues");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
-
-
+        //check if the user has logged in
         User user = (User) request.getSession().getAttribute("user");
         if (user == null || !user.isLoggedIn()) {
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
 
+        //check if the user has any new notifications
         Database database = new Database();
         database.checkNotifications(request.getSession());
 
         issues = new ArrayList<>();
-        //String userID = user.getUsername();
 
         String query;
-        String sortString = request.getParameter("sortString");
+        String sortString = request.getParameter("sortString"); //get the category to sort by
         if (sortString == null) sortString = "state";
+        //change query if the user is staff or student
         if (user.isStaff()) {
             query = "SELECT * FROM Issue WHERE state <> 'KnowledgeBase' AND state <> 'Completed' " +
                     "ORDER BY " + sortString;

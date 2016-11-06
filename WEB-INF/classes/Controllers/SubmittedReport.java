@@ -18,25 +18,26 @@ import javax.naming.InitialContext;
 /**
  * Created by Brendan on 19/10/2016.
  */
+
+//This servlet takes the information from the reportIssue.jsp and stores it in the sql database
 @WebServlet(urlPatterns = {"/SubmittedReport"})
 public class SubmittedReport extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+        //set all the needed information in the session
         request.getSession().setAttribute("currentPage", "submittedReport");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
-
+        //check if the user has logged in,
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
 
-        Database database = new Database();
-        database.checkNotifications(request.getSession());
 
         String statement;
         PreparedStatement prepStatement;
@@ -88,7 +89,7 @@ public class SubmittedReport extends HttpServlet {
             String stringDate = dateFormat.format(date);
 
             prepStatement.setString(14, stringDate);
-            prepStatement.setString(15, "nil"); //TODO: set the submission date to something!!!!!!!!!!!!!!
+            prepStatement.setString(15, "nil");
             prepStatement.setString(16, user.getUsername());
             prepStatement.setBoolean(17, false);
             //execution.
@@ -97,19 +98,15 @@ public class SubmittedReport extends HttpServlet {
             connection.close();
             rs.close();
 
-            request.setAttribute("success", "Successfully submitted report number "+(numOfIssues+1));
+            //set the success in the request
+            request.getSession().setAttribute("success", "Successfully submitted report number "+(numOfIssues+1));
 
-        } catch (SQLException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
-        } catch (NamingException e) {
-            System.err.println(e.getMessage());
-            e.printStackTrace();
+        } catch (Exception e) {
+            request.getSession().setAttribute("error", "Something went wrong submitting the report");
         }
 
 
-        request.getSession().setAttribute("success", "Reported added to the database");
-        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect to jsp
+        RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/HomePage"); //redirect back to the home page
         dispatcher.forward(request, response);
         return;
     }
@@ -122,6 +119,8 @@ public class SubmittedReport extends HttpServlet {
 
     private String validate(HttpServletRequest request){
         String error = "";
+
+        //validate the form submitted
         if(request.getParameter("category").equals("SelectACategory")) {
             return "Category wasn't selected";
         }else if(request.getParameter("title").equals(""))
