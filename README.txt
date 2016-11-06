@@ -1,6 +1,41 @@
 Setup Instructions:
 1. Compile all .java files in classes/~ directory.
-2.
+2. Setup database using "Database Setup" instructions
+3. Run Tomcat server
+
+------------------------------------------------------------------------------------------------------------------------
+
+Database Setup:
+
+	Database uses university provided MySQL database
+	Putty:
+		hostname: jumpgate.newcastle.edu.au with port 22
+		source port: 30001
+		destination: teachdb:3306
+		session: SENG2050
+
+		username: c3234953
+		password: 150896
+		databse name: c3234953_db
+
+	SQL file is located in FinalProject folder as "SENG2050_A3_SQLScript.sql"
+
+------------------------------------------------------------------------------------------------------------------------
+
+User Login Data:
+
+	All passwords: pass
+
+	username: staff1		username: student1
+	type: staff				type: student
+
+	username: staff2		username: student2
+	type: staff				type: student
+
+	username: staff3		username: student3
+	type: staff				type: student
+
+------------------------------------------------------------------------------------------------------------------------
 
 Assumptions:
 
@@ -12,6 +47,8 @@ Assumptions:
 6. No one can add comments to a Knowledge Base article.
 7. All users can view all Knowledge Base articles.
 8. Only staff can propose solutions on issues.
+
+------------------------------------------------------------------------------------------------------------------------
 
 Additional Requirements:
 9. “For a Knowledge-Base to work we need to be able to capture the data relating to an incident in a more
@@ -32,3 +69,5 @@ Additional Requirements:
     (total weight * 2 + 5)
 
     TOTAL POTENTIAL ADDITIONAL MARKS: 145
+
+------------------------------------------------------------------------------------------------------------------------
