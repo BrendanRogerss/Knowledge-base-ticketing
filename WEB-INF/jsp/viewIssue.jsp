@@ -42,6 +42,12 @@
             <td>Error message</td>
             <td><c:out value="${current.getErrorMessage()}"/></td>
         </tr>
+        <c:if test="${current.getState().compareTo(\"KnowledgeBase\") == 0}">
+            <tr>
+                <td>Resolved Date</td>
+                <td><c:out value="${current.getResolvedDateTime()}"/></td>
+            </tr>
+        </c:if>
         <tr>
             <td>Problem description</td>
             <td><c:out value="${current.getDescription()}"/></td>
