@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="">
+    <list default="true" id="b0b02c86-7abc-42f7-b6df-10d0d5d3330d" name="Default" comment="Changed so can wait on 3rd party when waiting on reporter">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/css/style.css" afterPath="$PROJECT_DIR$/css/style.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" afterPath="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
     </list>
     <ignored path="Assignment.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -67,7 +65,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewIssue.jsp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="viewIssue.jsp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
@@ -77,11 +75,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="false">
+      <file leaf-file-name="header.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="106" />
+            <state relative-caret-position="360">
+              <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
               <folding />
             </state>
           </provider>
@@ -111,10 +109,10 @@
         <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="324">
-              <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+              <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
               <folding>
-                <marker date="1478359698596" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
-                <marker date="1478359698596" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
+                <marker date="1478401313982" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
+                <marker date="1478401313982" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
               </folding>
             </state>
           </provider>
@@ -186,10 +184,10 @@
         <option value="$PROJECT_DIR$/js/validate.js" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java" />
         <option value="$PROJECT_DIR$/WEB-INF/classes/Controllers/Database.java" />
-        <option value="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
         <option value="$PROJECT_DIR$/css/style.css" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/issueList.jsp" />
         <option value="$PROJECT_DIR$/WEB-INF/jsp/viewIssue.jsp" />
+        <option value="$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp" />
       </list>
     </option>
   </component>
@@ -436,8 +434,7 @@
           <option name="mySupportsDeletion" value="false" />
           <option name="myCanBeAbsent" value="false" />
           <option name="myId" value="UPDATED" />
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/GetIssue.java</PATH>
-          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/jsp/homepage.jsp</PATH>
+          <PATH vcs="Git" revision="">$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java</PATH>
         </FILE-GROUP>
         <FILE-GROUP>
           <option name="myUpdateName" value="Created" />
@@ -975,7 +972,7 @@
       <updated>1476875898008</updated>
       <workItem from="1476923194082" duration="6293000" />
       <workItem from="1478054534212" duration="76037000" />
-      <workItem from="1478338126473" duration="25932000" />
+      <workItem from="1478338126473" duration="26156000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1476927390649</created>
@@ -1250,11 +1247,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478397611181</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Changed so can wait on 3rd party when waiting on reporter">
+      <created>1478401173170</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1478401173170</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="108262000" />
+    <option name="totallyTimeSpent" value="108486000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1339,7 +1343,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Students can only see their issues in View current issues" />
     <MESSAGE value="View completed issues should work for staff" />
     <MESSAGE value="Can set to inprogress, can propose a solution" />
     <MESSAGE value="Changed query for CompletedIsues to Complete" />
@@ -1364,7 +1367,8 @@
     <MESSAGE value="Makes good on my rejects accepts finally u can always do it if not resolved or something like that rght" />
     <MESSAGE value="Added error message to view issue" />
     <MESSAGE value="Validated Header HTML" />
-    <option name="LAST_COMMIT_MESSAGE" value="Validated Header HTML" />
+    <MESSAGE value="Changed so can wait on 3rd party when waiting on reporter" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changed so can wait on 3rd party when waiting on reporter" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1399,8 +1403,8 @@
         <state relative-caret-position="1105">
           <caret line="82" column="23" selection-start-line="82" selection-start-column="23" selection-end-line="82" selection-end-column="23" />
           <folding>
-            <marker date="1478359698596" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
-            <marker date="1478359698596" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
+            <marker date="1478401313982" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
+            <marker date="1478401313982" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
           </folding>
         </state>
       </provider>
@@ -1682,14 +1686,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Models/Issue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="24" column="35" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="35" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/ReportIssue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
@@ -1701,19 +1697,11 @@
     <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Controllers/AddComment.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
-          <caret line="84" column="0" selection-start-line="84" selection-start-column="0" selection-end-line="84" selection-end-column="0" />
+          <caret line="83" column="0" selection-start-line="83" selection-start-column="0" selection-end-line="83" selection-end-column="0" />
           <folding>
-            <marker date="1478359698596" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
-            <marker date="1478359698596" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
+            <marker date="1478401313982" expanded="true" signature="1811:1843" ph="SELECT COUNT... UserComment" />
+            <marker date="1478401313982" expanded="true" signature="2165:2214" ph="INSERT INTO UserComment... " />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="79" column="50" selection-start-line="79" selection-start-column="50" selection-end-line="79" selection-end-column="106" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1737,6 +1725,22 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="106" column="137" selection-start-line="106" selection-start-column="118" selection-end-line="106" selection-end-column="137" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/classes/Models/Issue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="24" column="35" selection-start-line="24" selection-start-column="19" selection-end-line="24" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WEB-INF/jsp/includes/header.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="82" column="36" selection-start-line="82" selection-start-column="36" selection-end-line="82" selection-end-column="36" />
           <folding />
         </state>
       </provider>
