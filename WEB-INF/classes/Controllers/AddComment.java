@@ -50,6 +50,12 @@ public class AddComment extends HttpServlet{
         int numOfComments = 0;
         Database database = new Database();
 
+        if(checkIfIssueResolved(issueID)){
+            request.getSession().setAttribute("error", "Issue already resolved");
+            response.sendRedirect("HomePage");
+            return;
+        }
+
         //count all existing comments for new comment ID
         try{
 
@@ -129,6 +135,36 @@ public class AddComment extends HttpServlet{
         return true;
 
 
+    }
+
+    private boolean checkIfIssueResolved(String issueID){
+
+        //query
+        String queryString = "SELECT COUNT(*) FROM Issue WHERE issueID = '" + issueID + "' " +
+                "AND state = 'Resolved'";
+
+        boolean check = false;
+        try {
+            //setup connection
+            javax.sql.DataSource datasource = (javax.sql.DataSource) new
+                    InitialContext().lookup("java:/comp/env/SENG2050");
+
+            Connection connection = datasource.getConnection();
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery(queryString);
+
+            //if any comments exist return true
+            if(rs.next() && rs.getInt(1) > 0)
+                check = true;
+            else check = false;
+
+            //close resources
+            rs.close();
+            connection.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return check;
     }
 
 }

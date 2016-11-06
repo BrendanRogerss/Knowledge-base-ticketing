@@ -59,7 +59,7 @@ public class ChangeCommentType extends HttpServlet {
         }
 
         //redirect back to issue
-        response.sendRedirect("/Issue?issueID="+request.getParameter("issueID"));
+        response.sendRedirect("Issue?issueID="+request.getParameter("issueID"));
 
     }
 
