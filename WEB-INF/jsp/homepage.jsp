@@ -20,6 +20,7 @@
         </div>
     </div><!-- /.container -->
 
+    <!--Dash board images-->
     <div class="col-sm-9 col-sm-offset-3 col-md-8 col-md-offset-4 main">
         <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
@@ -33,6 +34,7 @@
         </div>
         <div class="row placeholders">
             <div class="col-xs-6 col-sm-3 placeholder">
+                <!--When staff, view reported issues, when user, view current issues-->
                 <c:choose>
                     <c:when test="${user.isStaff()}">
                         <a href="ReportedIssues"><img src="resources/view-issues.jpeg" width="200" height="200" alt="View Reported Issues"></a>
@@ -51,6 +53,7 @@
         </div>
     </div>
 
+    <!--Display user Details-->
     <div class="container">
         <div class="starter-template">
             <h1>User Details</h1>

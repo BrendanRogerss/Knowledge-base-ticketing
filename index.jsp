@@ -11,7 +11,7 @@
 
 <body>
 
-    <!--START OF HEADER-->
+    <!--index.jsp navigation header-->
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
@@ -32,13 +32,14 @@
             </div><!--/.nav-collapse -->
         </div>
     </nav>
+    <!-- Display any errors with logging in-->
     <c:if test="${sessionScope.error != null}">
         <div class="alert alert-danger">
             <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
             <strong>Error!</strong> <c:out value="${sessionScope.error}"/>
         </div>
     </c:if>
-    <!-- END OF HEADER -->
+    <!-- index.jsp navigation header end -->
 
     <div class="container">
         <div class="starter-template">
@@ -47,6 +48,7 @@
         </div>
     </div><!-- /.container -->
 
+    <!--Logon form-->
     <div class="container">
         <form name="loginForm" action="Authentication" method="POST">
             <div class="row">

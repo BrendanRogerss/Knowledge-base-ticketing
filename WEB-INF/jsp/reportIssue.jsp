@@ -19,8 +19,10 @@
     </div>
 </div><!-- /.container -->
 
+<!-- Big form for lots of inputs-->
 <div class="container">
     <form class="form-horizontal" action="SubmittedReport" method="POST">
+        <!-- Dropdown menu for category-->
         <div class="row">
             <div class="form-group">
                 <label for="category" class="col-sm-2 col-sm-offset-3 control-label">Category*</label>
@@ -158,6 +160,7 @@
 
 
 <jsp:include page="includes/bootStrapCoreJS.jsp" />
+<!-- For client side validation-->
 <script src="js/validate.js"></script>
 
 </body>
