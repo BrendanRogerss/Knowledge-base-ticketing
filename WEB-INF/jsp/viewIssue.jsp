@@ -11,6 +11,13 @@
 <jsp:include page="includes/header.jsp" />
 <c:set var="user" value="${sessionScope.user}"/>
 
+    <div class="container">
+        <div class="starter-template">
+            <h1>Issue Details</h1>
+            <p class="lead">"<c:out value="${requestScope.issue.getTitle()}"/>"</p>
+        </div>
+    </div><!-- /.container -->
+
     <table id="issueDiv" class="table table-bordered table-striped">
         <c:set var="current" value="${requestScope.issue}"/>
         <tbody>
