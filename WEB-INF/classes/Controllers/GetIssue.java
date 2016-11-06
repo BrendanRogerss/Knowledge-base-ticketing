@@ -94,7 +94,7 @@ public class GetIssue extends HttpServlet{
             result.close();
             connection.close();
 
-            //add the final solution to the issue if its knowledgeabse
+            //add the final solution to the issue if its knowledgebase
             if(issue.getState().equals("KnowledgeBase")) {
                 for(Comment comment : comments){
                     if(comment.getCommentType().equals("Accepted")){

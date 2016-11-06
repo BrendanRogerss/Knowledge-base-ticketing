@@ -42,7 +42,7 @@ public class KnowledgeBase extends HttpServlet{
         //build list
         issues = new ArrayList<>();
 
-        //query for the knowledge base aarticles
+        //query for the knowledge base articles
         String sortString = request.getParameter("sortString");
         if (sortString == null) sortString = "state";
         String query = "SELECT * FROM Issue WHERE state='KnowledgeBase' " +
