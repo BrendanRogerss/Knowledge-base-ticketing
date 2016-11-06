@@ -26,14 +26,7 @@ public class Issue {
     private String username;
     private boolean hasNotification;
     ArrayList<Comment> comments = new ArrayList<>();
-
-    public void addComment(User user, Date dateTime, String content) {
-
-    }
-
-    public void removeStaffComments() {
-
-    }
+    
 
     public ArrayList<Comment> getComments() {
         return comments;

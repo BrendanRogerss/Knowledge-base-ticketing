@@ -21,23 +21,25 @@ import java.util.Date;
  * Created by Brendan on 19/10/2016.
  *
  */
+//gets all the information for an issue and associated comments and redirects to the view issue jsp
 @WebServlet(urlPatterns = {"/Issue"})
 public class GetIssue extends HttpServlet{
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
+        //set information for hte page in the session
         request.getSession().setAttribute("currentPage", "getIssue");
         request.getSession().setAttribute("error", null);
         request.getSession().setAttribute("success", null);
 
-
+        //check if the user is logged in
         User user = (User) request.getSession().getAttribute("user");
         if(user == null || !user.isLoggedIn()){
             response.sendRedirect(getServletContext().getContextPath() + "/index.jsp");
             return;
         }
 
+        //check if the user has any notifications
         Database database = new Database();
         database.checkNotifications(request.getSession());
 
@@ -63,12 +65,12 @@ public class GetIssue extends HttpServlet{
         try{
 
             ResultSet result = null;
-            if(issue.getState().equals("KnowledgeBase")){
+            if(issue.getState().equals("KnowledgeBase")){ //if the issue is for knowledge base, dont get all the comments
                 query = "SELECT * FROM UserComment WHERE issueID = '" + issueID +
                         "' AND commentType = 'Accepted' OR commentType = 'Proposed'";
             }
             else
-                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'";
+                query = "SELECT * FROM UserComment WHERE issueID = '" + issueID + "'"; //otherwise get them all
 
             javax.sql.DataSource datasource = (javax.sql.DataSource) new
                     InitialContext().lookup("java:/comp/env/SENG2050");
@@ -77,6 +79,7 @@ public class GetIssue extends HttpServlet{
             Statement statement = connection.createStatement();
             result = statement.executeQuery(query);
 
+            //add the comments to the list
             while(result.next()) {
                 Comment comment = new Comment();
                 comment.setCommentID(result.getInt(1));
@@ -91,6 +94,7 @@ public class GetIssue extends HttpServlet{
             result.close();
             connection.close();
 
+            //add the final solution to the issue if its knowledgeabse
             if(issue.getState().equals("KnowledgeBase")) {
                 for(Comment comment : comments){
                     if(comment.getCommentType().equals("Accepted")){
@@ -114,9 +118,9 @@ public class GetIssue extends HttpServlet{
 
 
 
-            //set the notification to seen
+            //if the user has a notification tied with the current issue
             if (user.getUsername().equals(issue.getUsername())) {
-                database.setNotificationToSeen(issueID);
+                database.setNotificationToSeen(issueID);//set it to seen
             }
 
             database.checkNotifications(request.getSession());
@@ -135,6 +139,7 @@ public class GetIssue extends HttpServlet{
         doPost(request, response);
     }
 
+    //returns a formatted string of the date
     private Date formatDate(String str) throws java.text.ParseException
     {
         DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
