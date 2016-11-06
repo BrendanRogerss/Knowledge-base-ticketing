@@ -74,6 +74,7 @@ public class Database {
     }
 
 
+    //sets notification to false in whichever issueID is passed in
     public void setNotificationToSeen(String issueID) {
         try {
             String query = "UPDATE Issue SET notification = FALSE WHERE issueID = ?";
@@ -92,6 +93,7 @@ public class Database {
 
     }
 
+    //sets the notification boolean to true in whichever issueID is passed in
     public void addNotification(String issueID){
         try {
             System.out.println("IssueID: " + issueID);
