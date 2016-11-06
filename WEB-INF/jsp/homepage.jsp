@@ -2,6 +2,7 @@
 
 <!DOCTYPE HTML>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<jsp:useBean id="user" class="Models.User" scope="session"/>
 <html>
 <head>
     <jsp:include page="includes/defaultHead.jsp" />
@@ -49,6 +50,15 @@
             </div>
         </div>
     </div>
+
+    <div class="container">
+        <div class="starter-template">
+            <h1>User Details</h1>
+            <p class="lead" style="margin-top: 2em"><c:out value="${user.getFirstName()}"/> <c:out value="${user.getLastName()}"/></p>
+            <p class="lead" style="margin-top: 1em">Email: <c:out value="${user.getEmail()}"/></p>
+            <p class="lead" style="margin-top: 1em">Contact Number: <c:out value="${user.getContactNumber()}"/></p>
+        </div>
+    </div><!-- /.container -->
 
     <jsp:include page="includes/bootStrapCoreJS.jsp" />
 </body>
