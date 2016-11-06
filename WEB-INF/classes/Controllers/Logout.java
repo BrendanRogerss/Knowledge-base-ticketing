@@ -20,23 +20,19 @@ import java.sql.SQLException;
  * Created by Brendan on 19/10/2016.
  */
 
+//logs the user out of the system, ending the session
 @WebServlet(urlPatterns = {"/Logout"})
 public class Logout extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //get details
-        request.getSession().setAttribute("currentPage", "logout");
-        request.getSession().setAttribute("error", null);
-        request.getSession().setAttribute("success", null);
-
-        User user = (User) request.getSession().getAttribute("user");
+        //get the session
         HttpSession session = request.getSession();
-        session.removeAttribute("user");
-        session.invalidate();
+        session.removeAttribute("user"); //remove the user
+        session.invalidate(); //end the session
 
-        response.sendRedirect("index.jsp");
+        response.sendRedirect("index.jsp");//go back to log in page
 
         return;
     }
