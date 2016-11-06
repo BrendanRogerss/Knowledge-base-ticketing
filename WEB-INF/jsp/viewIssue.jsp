@@ -5,12 +5,17 @@
 <jsp:useBean id="user" class="Models.User" scope="session"/>
 <html>
 <head>
+    <!--Includes default head information-->
     <jsp:include page="includes/defaultHead.jsp" />
 </head>
 <body>
+<!--Includes navigation header-->
 <jsp:include page="includes/header.jsp" />
+
+<!--sets user to session user-->
 <c:set var="user" value="${sessionScope.user}"/>
 
+<!--display title of page and of issue-->
     <div class="container">
         <div class="starter-template">
             <h1>Issue Details</h1>
@@ -18,6 +23,7 @@
         </div>
     </div><!-- /.container -->
 
+    <!--table for displaying issue details-->
     <table id="issueDiv" class="table table-bordered table-striped">
         <c:set var="current" value="${requestScope.issue}"/>
         <tbody>
@@ -60,12 +66,12 @@
                 <td><c:out value="${current.getDescription()}"/></td>
             </tr>
             <!--Display comments-->
-            <!--TODO maybe when the issue is requested, if its knowledge base dont add comments in servlet-->
             <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0}">
             <tr>
                 <td class="col-md-2 bold-td">Comments</td>
                 <td>
                 <c:forEach var="currentComment" items="${current.getComments()}">
+                    <!-- Choose panel type (colouring) for different types of comments-->
                     <c:choose>
                         <c:when test="${currentComment.getCommentType().compareTo(\"Accepted\") == 0}">
                     <div class="panel panel-success">
@@ -83,6 +89,7 @@
                         <div class="panel-heading">
                             <div>
                                 User: <c:out value="${currentComment.getUsername()}"/> Date: <c:out value="${currentComment.getSubmissionDateTime()}"/>
+                                <!-- if the session user owns this issue, and the comment can be accepted/rejected show the buttons to do so-->
                                 <c:if test="${user.getUsername().compareTo(current.getUsername()) == 0 && currentComment.getCommentType().compareTo(\"Proposed\") == 0 && current.getState().compareTo('Resolved') != 0}">
                                     <span style="margin-left: 2em; font-weight: bold"><a href="ChangeCommentType?commentID=<c:out value="${currentComment.getCommentID()}"/>&issueID=<c:out value="${current.getIssueID()}"/>&commentType=Accepted">Accept</a></span>
                                     <span style="margin-left: 1em; font-weight: bold"><a href="ChangeCommentType?commentID=<c:out value="${currentComment.getCommentID()}"/>&issueID=<c:out value="${current.getIssueID()}"/>&commentType=Rejected">Reject</a></span>
@@ -118,7 +125,7 @@
     <!--Start work on issue-->
 </c:if>
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Waiting on Reporter\") == 0)}">
-    <!--Waiting on third party-->
+    <!--Waiting on third party button-->
     <div class="container table-width">
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
@@ -137,9 +144,8 @@
 
 
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"Resolved\") == 0)}">
-    <!--Knowledge base-->
+    <!--Move to knowledge base button-->
     <div class="container table-width">
-        <!--TODO set this so it goes to the right place-->
         <form action="ChangeIssueState" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
             <input type="hidden" name="state" value="KnowledgeBase"/>
@@ -156,7 +162,7 @@
 </c:if>
 
 <c:if test="${user.isStaff() && (current.getState().compareTo(\"In-Progress\") == 0 || current.getState().compareTo(\"Completed\") == 0|| current.getState().compareTo(\"Waiting on Third Party\") == 0 || current.getState().compareTo(\"Waiting on Reporter\") == 0)}">
-    <!--Propose solution-->
+    <!--Propose solution text field and button-->
     <div class="container table-width">
         <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
@@ -185,7 +191,7 @@
 </c:if>
 
 <c:if test="${current.getState().compareTo(\"KnowledgeBase\") != 0 && current.getState().compareTo(\"Resolved\") != 0}">
-    <!-- adding comments-->
+    <!--Add comment text field and button-->
     <div class="container table-width">
         <form action="AddComment" method="POST">
             <input type="hidden" name="issueID" value="<c:out value="${current.getIssueID()}"/>"/>
@@ -213,6 +219,7 @@
     <!-- adding comments-->
 </c:if>
 
+<!-- needed for bootstrap-->
 <jsp:include page="includes/bootStrapCoreJS.jsp" />
 <script src="js/validate.js"></script>
 
